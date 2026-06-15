@@ -1,0 +1,7 @@
+private/
+dist/
+packages/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

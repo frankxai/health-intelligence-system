@@ -1,0 +1,9 @@
+{
+  "name": "health-intelligence-system",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "package:release": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1"
+  }
+}
