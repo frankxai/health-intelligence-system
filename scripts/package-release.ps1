@@ -79,7 +79,6 @@ $packageManifest = [ordered]@{
   evidence_checked = "2026-06-15"
   built_on = "SIP v1.1.1"
   clinical_legal_gate = "pending"
-  generated_at = (Get-Date).ToUniversalTime().ToString("o")
   files = $files
 }
 
