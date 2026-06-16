@@ -35,6 +35,8 @@ Run this before publishing, packaging, or sharing an artifact.
 - [ ] `npm run package:release` completes.
 - [ ] ZIP exists in `dist/`.
 - [ ] GitHub Release includes `release-manifest.json` with checksums.
+- [ ] `npm run verify:release` passes for the local ZIP and manifest.
+- [ ] Downloaded GitHub Release assets pass `scripts/verify-release.ps1 -Version <version> -Download`.
 - [ ] GitHub Release is marked prerelease until clinical/legal review is logged.
 
 **Built on SIP** - Health Intelligence System validation checklist v0.1

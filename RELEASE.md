@@ -12,9 +12,24 @@ This generates:
 - `dist/health-intelligence-system-v0.1.0.zip`
 - `release-manifest.json`
 
+Replace `0.1.0` with the current `package.json` version.
+
+## Local Verification
+
+```powershell
+npm run verify:release
+```
+
+The verifier checks:
+
+- ZIP file name, size, and SHA-256 digest against `release-manifest.json`.
+- Every manifest-listed file exists after extraction.
+- Every manifest-listed file byte count and SHA-256 digest matches.
+- Safety-critical documents exist in the package.
+
 ## GitHub Release
 
-Use tag `v0.1.0` and mark it as a prerelease until [REVIEW-GATE.md](REVIEW-GATE.md) is closed.
+Use tag `v0.1.1` and mark it as a prerelease until [REVIEW-GATE.md](REVIEW-GATE.md) is closed.
 
 Suggested release title:
 

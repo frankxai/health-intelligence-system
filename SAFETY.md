@@ -30,6 +30,6 @@ Every public health artifact must include:
 
 ## Clinical/Legal Gate
 
-`v0.1.0` may be published as a prerelease for transparency and testing. It must not be promoted as production-ready until a qualified clinical/legal review is recorded in [REVIEW-GATE.md](REVIEW-GATE.md).
+`v0.1.1` may be published as a prerelease for transparency and testing. It must not be promoted as production-ready until a qualified clinical/legal review is recorded in [REVIEW-GATE.md](REVIEW-GATE.md).
 
 **Built on SIP** - Health Intelligence System safety gate v0.1

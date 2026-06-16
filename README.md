@@ -3,7 +3,7 @@
 > SIP-aligned health intelligence layer for prevention, detection readiness, diagnosis navigation, treatment decision prep, and survivorship recordkeeping.
 
 **Tier:** sovereign domain sub-stack under SIS  
-**Status:** `v0.1.0 preclinical-prerelease`  
+**Status:** `v0.1.1 preclinical-prerelease`<br>
 **First module:** Cancer Intelligence  
 **Evidence check:** 2026-06-15  
 **Release gate:** preclinical public prerelease until clinical/legal review is logged  
@@ -85,9 +85,11 @@ Start with [docs/cancer-detection-prep-treatment.md](docs/cancer-detection-prep-
 
 - Start with [QUICK-START.md](QUICK-START.md).
 - Validate the package with [VALIDATION.md](VALIDATION.md).
+- Verify the release ZIP with [VERIFY.md](VERIFY.md).
 - Read safety boundaries in [SAFETY.md](SAFETY.md).
 - Read privacy rules in [PRIVACY.md](PRIVACY.md).
 - Build the release ZIP locally with `npm run package:release`.
+- Check a local package with `npm run verify:release`.
 
 The GitHub release ZIP is the canonical public download. Website download pages should link to GitHub Releases rather than storing duplicate archives.
 

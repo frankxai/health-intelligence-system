@@ -22,10 +22,15 @@ jobs:
           node-version: 22
       - name: Package release
         run: npm run package:release
+      - name: Verify release package
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-release.ps1 -Version $version -ZipPath "dist/health-intelligence-system-v$version.zip" -ManifestPath "release-manifest.json"
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
           prerelease: true
           files: |
-            dist/health-intelligence-system-v0.1.0.zip
+            dist/*.zip
             release-manifest.json

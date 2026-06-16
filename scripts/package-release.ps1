@@ -1,5 +1,5 @@
 param(
-  [string]$Version = "0.1.0"
+  [string]$Version = $(if ($env:npm_package_version) { $env:npm_package_version } else { "0.1.1" })
 )
 
 $ErrorActionPreference = "Stop"
@@ -15,12 +15,14 @@ $packageManifestPath = Join-Path $packageDir "release-manifest.json"
 $allowList = @(
   "README.md",
   "QUICK-START.md",
+  "VERIFY.md",
   "SAFETY.md",
   "PRIVACY.md",
   "VALIDATION.md",
   "REVIEW-GATE.md",
   "RELEASE.md",
   "RELEASE_NOTES_v0.1.0.md",
+  "RELEASE_NOTES_v0.1.1.md",
   "CHANGELOG.md",
   "CONTRIBUTING.md",
   "SKILL.md",
@@ -30,7 +32,9 @@ $allowList = @(
   "CANON.md",
   "MEMORY.md",
   "SUB-SYSTEMS.md",
+  "package.json",
   "LICENSE",
+  "scripts",
   "docs",
   "templates",
   "commands"
