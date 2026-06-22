@@ -5,9 +5,9 @@
 - **Name:** Health Intelligence System
 - **Slug:** `health-intelligence-system`
 - **Date spawned:** 2026-06-15
-- **Status:** v0.1 scaffold
+- **Status:** v0.2 personal health ops draft layered on v0.1 cancer module
 - **First module:** Cancer Intelligence
-- **Evidence check:** 2026-06-15
+- **Evidence check:** 2026-06-22
 
 ## Commitments
 
@@ -16,13 +16,18 @@
 - Use source links for screening and treatment-education claims.
 - Never recommend cancer treatment.
 - Treat the cancer module as the first proof-of-pattern for HIS.
+- Keep personal health operations separate from life-science research intelligence.
+- Make privacy modes explicit: public/sanitized, consumer AI, health AI, regulated workspace, local-first, and private infrastructure.
+- Keep `health-intelligence-system` as public core and use packs only when creation gates are met.
+- Reference existing AI health systems honestly and classify them as reference, integrate later, watchlist, or do not emulate.
+- Prefer clinician handoff, source ledgers, and private vaults over symptom-checking or treatment recommendations.
 
 ## Roadmap
 
 1. v0.1 - cancer detection prep and treatment decision documentation.
-2. v0.2 - templates for screening, diagnostic briefs, treatment board prep, second opinions, and follow-up.
-3. v0.3 - private-instance export pattern.
-4. v0.4 - source freshness checker.
+2. v0.2 - private personal-health operations for nutrition, fitness, doctor-visit prep, record indexing, and LLM-assisted summaries.
+3. v0.3 - private-instance export pattern and clinician handoff spec.
+4. v0.4 - source freshness checker and external-system audit refresh loop.
 5. v1.0 - repeatable HIS module pattern for other health domains.
 
 ## Open Questions
@@ -30,5 +35,7 @@
 - Should this repo remain standalone or be mirrored under SIS `verticals/health-intelligence/`?
 - Should cancer-type-specific packs live as private modules or public education-only stubs?
 - Which jurisdiction should be primary beyond the current US guideline baseline?
+- After repo-disposition review, should `life-science-research-intelligence-system` be a new public repo or bridged through `life-sciences` and `research-intelligence-os`?
+- After workflow dry runs, should the private vault template become a GitHub template repo, downloadable ZIP, or Codex-guided local scaffold?
 
 **Built on SIP** - Health Intelligence System MEMORY.md v0.1

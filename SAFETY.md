@@ -1,6 +1,6 @@
 # Safety
 
-**Evidence checked:** 2026-06-15  
+**Evidence checked:** 2026-06-22<br>
 **Release status:** preclinical public prerelease.
 
 ## Hard Boundary
@@ -12,6 +12,13 @@ This system does not provide medical advice. It may organize questions, records,
 - recommend a cancer treatment, regimen, medication, supplement, dose, or delay;
 - advise stopping, changing, or refusing clinician-directed care;
 - promise prevention, cure, survival, or recurrence outcomes.
+
+For personal health operations, it must also not:
+
+- interpret labs, imaging, pathology, genetic results, wearable signals, or clinician notes;
+- prescribe diet therapy, training, rehabilitation, fasting, supplements, or medication changes;
+- decide whether symptoms are urgent;
+- turn biomedical research into personal care instructions.
 
 ## Urgent Care Routing
 
@@ -31,5 +38,19 @@ Every public health artifact must include:
 ## Clinical/Legal Gate
 
 `v0.1.1` may be published as a prerelease for transparency and testing. It must not be promoted as production-ready until a qualified clinical/legal review is recorded in [REVIEW-GATE.md](REVIEW-GATE.md).
+
+## v0.2 Safety Gates
+
+Before publishing any personal health operations artifact, run:
+
+- clinical boundary gate;
+- source gate;
+- privacy gate;
+- model-mode gate;
+- research bridge gate;
+- jurisdiction gate;
+- release gate.
+
+See [docs/safety-and-privacy-model.md](docs/safety-and-privacy-model.md).
 
 **Built on SIP** - Health Intelligence System safety gate v0.1

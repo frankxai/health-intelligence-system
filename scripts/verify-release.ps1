@@ -1,5 +1,5 @@
 param(
-  [string]$Version = $(if ($env:npm_package_version) { $env:npm_package_version } else { "0.1.1" }),
+  [string]$Version = $(if ($env:npm_package_version) { $env:npm_package_version } else { "0.2.0" }),
   [string]$ZipPath,
   [string]$ManifestPath,
   [switch]$Download
@@ -82,7 +82,13 @@ try {
     "VALIDATION.md",
     "REVIEW-GATE.md",
     "docs/cancer-detection-prep-treatment.md",
-    "docs/evidence-sources.md"
+    "docs/evidence-sources.md",
+    "docs/safety-and-privacy-model.md",
+    "docs/external-systems-comparison.md",
+    "docs/repo-consolidation-map.md",
+    "docs/product-boundary.md",
+    "docs/agentic-life-os-integration.md",
+    "docs/what-this-is-not.md"
   )
 
   foreach ($required in $requiredSafetyFiles) {
@@ -107,7 +113,7 @@ try {
 
   $readme = Get-Content -LiteralPath (Join-Path $extractDir "README.md") -Raw
   $safety = Get-Content -LiteralPath (Join-Path $extractDir "SAFETY.md") -Raw
-  if ($readme -notmatch "Not medical advice" -or $safety -notmatch "does not provide medical advice" -or $safety -notmatch "diagnose cancer") {
+  if ($readme -notmatch "Not medical advice" -or $safety -notmatch "does not provide medical advice" -or $safety -notmatch "diagnose cancer" -or $safety -notmatch "interpret labs") {
     throw "Safety boundary language is missing from README.md or SAFETY.md."
   }
 

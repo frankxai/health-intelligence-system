@@ -1,0 +1,39 @@
+{
+  "name": "health-intelligence-system",
+  "version": "0.2.0",
+  "description": "Sovereign Health Intelligence plugin for private health vault setup, wearable-data ingestion, wellness optimization loops, clinician-safe possibility mapping, and doctor-visit preparation.",
+  "author": {
+    "name": "FrankX AI",
+    "url": "https://github.com/frankxai"
+  },
+  "homepage": "https://github.com/frankxai/health-intelligence-system",
+  "repository": "https://github.com/frankxai/health-intelligence-system",
+  "license": "MIT",
+  "keywords": [
+    "health",
+    "wellness",
+    "wearables",
+    "personal-health",
+    "privacy",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Health Intelligence System",
+    "shortDescription": "Build a private health operating system.",
+    "longDescription": "Health Intelligence System helps coding agents set up local-first private health vaults, wearable-data ingestion workflows, wellness optimization loops, clinician-safe possibility maps, and doctor-visit handoff packets without diagnosing or prescribing.",
+    "developerName": "FrankX AI",
+    "category": "Specialist",
+    "capabilities": [
+      "Read",
+      "Plan",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Set up my private health vault.",
+      "Build a weekly health operator loop.",
+      "Prepare a clinician-safe possibility map."
+    ],
+    "brandColor": "#059669"
+  }
+}

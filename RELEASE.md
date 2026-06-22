@@ -8,11 +8,11 @@ npm run package:release
 
 This generates:
 
-- `packages/health-intelligence-system-v0.1.0/`
-- `dist/health-intelligence-system-v0.1.0.zip`
+- `packages/health-intelligence-system-v0.2.0/`
+- `dist/health-intelligence-system-v0.2.0.zip`
 - `release-manifest.json`
 
-Replace `0.1.0` with the current `package.json` version.
+Replace `0.2.0` with the current `package.json` version.
 
 ## Local Verification
 
@@ -29,17 +29,17 @@ The verifier checks:
 
 ## GitHub Release
 
-Use tag `v0.1.1` and mark it as a prerelease until [REVIEW-GATE.md](REVIEW-GATE.md) is closed.
+Use tag `v0.2.0` and mark it as a prerelease until [REVIEW-GATE.md](REVIEW-GATE.md) is closed.
 
 Suggested release title:
 
 ```text
-Health Intelligence System v0.1.0 - preclinical excellence pack
+Health Intelligence System v0.2.0 - personal health operations prerelease
 ```
 
 Suggested assets:
 
-- `dist/health-intelligence-system-v0.1.0.zip`
+- `dist/health-intelligence-system-v0.2.0.zip`
 - `release-manifest.json`
 
 ## Website Distribution

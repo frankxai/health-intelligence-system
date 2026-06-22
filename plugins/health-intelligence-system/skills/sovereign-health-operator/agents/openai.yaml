@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sovereign Health Operator"
+  short_description: "Run private health ops safely"
+  default_prompt: "Use $sovereign-health-operator to set up a private health vault and clinician-safe operating loop."
+  brand_color: "#059669"

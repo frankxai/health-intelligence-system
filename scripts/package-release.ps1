@@ -1,5 +1,5 @@
 param(
-  [string]$Version = $(if ($env:npm_package_version) { $env:npm_package_version } else { "0.1.1" })
+  [string]$Version = $(if ($env:npm_package_version) { $env:npm_package_version } else { "0.2.0" })
 )
 
 $ErrorActionPreference = "Stop"
@@ -23,6 +23,7 @@ $allowList = @(
   "RELEASE.md",
   "RELEASE_NOTES_v0.1.0.md",
   "RELEASE_NOTES_v0.1.1.md",
+  "RELEASE_NOTES_v0.2.0.md",
   "CHANGELOG.md",
   "CONTRIBUTING.md",
   "SKILL.md",
@@ -37,7 +38,10 @@ $allowList = @(
   "scripts",
   "docs",
   "templates",
-  "commands"
+  "commands",
+  "prompts",
+  "plugins",
+  ".agent-harness.json"
 )
 
 if (Test-Path $packageDir) {
@@ -80,7 +84,7 @@ $packageManifest = [ordered]@{
   name = "health-intelligence-system"
   version = $Version
   status = "preclinical-prerelease"
-  evidence_checked = "2026-06-15"
+  evidence_checked = "2026-06-22"
   built_on = "SIP v1.1.1"
   clinical_legal_gate = "pending"
   files = $files
@@ -96,7 +100,7 @@ $releaseManifest = [ordered]@{
   version = $Version
   release = "v$Version"
   status = "preclinical-prerelease"
-  evidence_checked = "2026-06-15"
+  evidence_checked = "2026-06-22"
   built_on = "SIP v1.1.1"
   clinical_legal_gate = "pending"
   canonical_repo = "https://github.com/frankxai/health-intelligence-system"

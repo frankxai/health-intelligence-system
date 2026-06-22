@@ -3,9 +3,9 @@
 > SIP-aligned health intelligence layer for prevention, detection readiness, diagnosis navigation, treatment decision prep, and survivorship recordkeeping.
 
 **Tier:** sovereign domain sub-stack under SIS  
-**Status:** `v0.1.1 preclinical-prerelease`<br>
-**First module:** Cancer Intelligence  
-**Evidence check:** 2026-06-15  
+**Status:** `v0.2.0 preclinical-prerelease`<br>
+**First module:** Personal Health Operations, with Cancer Intelligence as the first clinical-prep module<br>
+**Evidence check:** 2026-06-22<br>
 **Release gate:** preclinical public prerelease until clinical/legal review is logged  
 **License:** MIT for repo scaffold and protocols; private health records never belong in this public repo.
 
@@ -13,12 +13,19 @@
 
 Health Intelligence System is the organizational layer for health decisions. It helps a person keep evidence, questions, appointments, test results, family history, screening history, treatment options, side effects, and follow-up plans in one coherent system.
 
-It is designed to compose with SIS without pretending to be a doctor:
+It is designed to compose with SIS and the private Agentic Life OS product line without pretending to be a doctor:
 
 - It prepares appointments, questions, and decision briefs.
 - It tracks source provenance and date of guideline checks.
 - It separates average-risk screening guidance from personal risk.
 - It keeps diagnosis, treatment selection, medication dosing, and emergency decisions with licensed clinicians.
+
+Product boundary:
+
+- `health-intelligence-system` is the public protocol, templates, release package, plugin, and safety contract.
+- `agentic-life-os` is the private product monorepo where the usable Agentic Health OS runtime should live.
+- Agentic Health OS handles personal health organization, nutrition/training/wellness loops, clinician-prep workflows, and private vault orchestration.
+- Life Sciences Researcher IS is research-only. It may produce evidence briefs and clinician questions, but it does not interpret personal records or choose care.
 
 ## What This Is Not
 
@@ -51,6 +58,52 @@ These are the five practical surfaces for v0.1:
 3. `/cancer-treatment-board-prep` - prepare a structured treatment discussion packet.
 4. `/cancer-second-opinion-packet` - gather pathology, imaging, staging, and treatment proposal records.
 5. `/cancer-follow-up-plan` - track post-treatment surveillance questions and long-term effects.
+
+## Personal Health Operations v0.2 Draft
+
+The next layer extends the same safety model into a private personal-health command center for nutrition, fitness, doctor-visit prep, health-record indexing, and LLM-assisted summaries.
+
+Start with:
+
+- [docs/research-audit-ai-health-agents-2026.md](docs/research-audit-ai-health-agents-2026.md) - source-backed audit of AI health-agent, health-data, local-LLM, and research-intelligence references.
+- [docs/external-systems-comparison.md](docs/external-systems-comparison.md) - evidence-grade comparison matrix for systems to reference, integrate later, watch, or avoid emulating.
+- [docs/built-on-inspired-by.md](docs/built-on-inspired-by.md) - public positioning and attribution posture.
+- [docs/architecture.md](docs/architecture.md) - public repo, private vault, AI layer, clinician handoff, and research companion architecture.
+- [docs/safety-and-privacy-model.md](docs/safety-and-privacy-model.md) - safety, privacy, source, model-mode, research, jurisdiction, and release gates.
+- [docs/what-this-is-not.md](docs/what-this-is-not.md) - plain-language boundary page.
+- [docs/sovereign-health-ecosystem-blueprint.md](docs/sovereign-health-ecosystem-blueprint.md) - open ecosystem blueprint for local folders, Obsidian, Notion, ChatGPT, Custom GPTs, local LLMs, and coding agents.
+- [docs/private-instance-setup-guide.md](docs/private-instance-setup-guide.md) - setup path for a private personal health vault.
+- [docs/jurisdiction-and-record-access-model.md](docs/jurisdiction-and-record-access-model.md) - adapter model for the Netherlands, Germany, Spain, Croatia, the US, China, and other jurisdictions.
+- [docs/companion-research-systems.md](docs/companion-research-systems.md) - proposed separation between personal health operations and life-science research intelligence.
+- [docs/repo-consolidation-map.md](docs/repo-consolidation-map.md) - decision map for HIS core, future packs, research companions, and adjacent FrankX/Starlight repos.
+- [docs/product-boundary.md](docs/product-boundary.md) - exact split between public HIS, private Agentic Life OS, Agentic Health OS, and Life Sciences Researcher.
+- [docs/agentic-life-os-integration.md](docs/agentic-life-os-integration.md) - how the private product runtime should consume this public release.
+- [docs/personal-health-ops-v0.2.md](docs/personal-health-ops-v0.2.md) - private-instance architecture draft.
+
+Then copy the relevant templates into a private workspace:
+
+- `private-vault-manifest.md`
+- `general-health-command-center.md`
+- `health-record-index.md`
+- `medication-supplement-inventory.md`
+- `doctor-visit-prep.md`
+- `nutrition-fitness-weekly-loop.md`
+- `disease-navigation-brief.md`
+- `jurisdiction-adapter.md`
+- `insurance-and-care-access-index.md`
+- `clinician-handoff-export.md`
+
+The v0.2 command surfaces are:
+
+1. `/private-health-instance-setup` - choose privacy mode and create the first private vault.
+2. `/doctor-visit-prep` - prepare a 72-hour appointment brief.
+3. `/disease-navigation-brief` - create source-backed education and clinician questions for a clinician-stated condition.
+4. `/jurisdiction-adapter` - localize record access, portals, insurance, and cross-border notes.
+5. `/clinician-handoff-export` - produce a reviewed clinician-facing export.
+6. `/external-system-audit` - classify external systems as reference, integrate later, watchlist, or do not emulate.
+7. `/repo-consolidation-map` - decide whether an artifact belongs in core, a pack, or a research companion.
+
+This v0.2 layer is for personal organization and clinician-facing preparation. It does not diagnose, interpret results, prescribe diets, prescribe training, recommend supplements, or replace clinicians.
 
 ## Repo Layout
 
