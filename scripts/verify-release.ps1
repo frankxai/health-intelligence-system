@@ -88,7 +88,18 @@ try {
     "docs/repo-consolidation-map.md",
     "docs/product-boundary.md",
     "docs/agentic-life-os-integration.md",
-    "docs/what-this-is-not.md"
+    "docs/what-this-is-not.md",
+    "docs/coding-agent-installation-guide.md",
+    "docs/multi-agent-health-operator-system.md",
+    "docs/wearable-data-ingestion-and-privacy.md",
+    "docs/prompt-pack-chatgpt-claude.md",
+    "docs/health-optimization-knowledge-shelf.md",
+    "prompts/chatgpt-project-system-prompt.md",
+    "prompts/custom-gpt-instructions.md",
+    "prompts/claude-project-prompt.md",
+    "prompts/local-llm-redaction-prompt.md",
+    "plugins/health-intelligence-system/.codex-plugin/plugin.json",
+    "plugins/health-intelligence-system/skills/sovereign-health-operator/SKILL.md"
   )
 
   foreach ($required in $requiredSafetyFiles) {

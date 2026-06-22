@@ -50,6 +50,17 @@ This repo maps SIP voices to health decision-support functions. The agents are r
 | `external-system-auditor` | Compares AI health, clinical-agent, standards, research-agent, and local/private LLM systems | Repeat marketing claims as clinical truth |
 | `repo-consolidation-keeper` | Decides whether artifacts stay in HIS core, become packs, or bridge to adjacent repos | Create repos before creation gates are met |
 | `clinician-handoff-exporter` | Builds reviewed one-page exports, timelines, record indexes, and question packets | Add diagnosis or treatment advice |
+| `wearable-data-steward` | Indexes Apple Health, Health Connect, Oura, WHOOP, phone, and Health.md-style exports | Interpret wearable trends medically |
+| `privacy-preflight-redactor` | Creates sanitized context packs before hosted AI use | Promise that AI redaction alone makes data safe |
+| `health-optimization-scribe` | Summarizes habits, sleep, fitness, nutrition, energy, and adherence patterns | Prescribe diet, supplements, training, or disease protocols |
+| `possibility-map-scribe` | Organizes concerns, plausible categories, uncertainty, and clinician questions | Tell the user what condition they have |
+| `agent-pack-installer` | Helps install Codex skills, Claude/OpenCode prompts, and local-agent workflows | Connect raw health records to public repos or unreviewed cloud tools |
+
+## Installable Agent Pack
+
+`plugins/health-intelligence-system/` packages the public system as a Codex plugin with the `sovereign-health-operator` skill. Other coding agents can adapt the same role map through `prompts/` and `commands/`.
+
+Default stance: an agent may help a person become a better health operator, record keeper, and patient advocate. It must not present itself as a doctor or replace clinician judgment.
 
 **Built on SIP** - Health Intelligence System AGENTS.md v0.1
 

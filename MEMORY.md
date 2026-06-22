@@ -21,14 +21,19 @@
 - Keep `health-intelligence-system` as public core and use packs only when creation gates are met.
 - Reference existing AI health systems honestly and classify them as reference, integrate later, watchlist, or do not emulate.
 - Prefer clinician handoff, source ledgers, and private vaults over symptom-checking or treatment recommendations.
+- Position the system as a way to become a better health operator and patient advocate, never as a way to become one's own doctor.
+- Package the workflows as reusable agent surfaces: Codex plugin, Codex skill, prompt pack, command pack, and local vault templates.
+- Treat wearable and phone data as private context and routine telemetry unless interpreted by a clinician.
+- Use local small models only for optional redaction/classification review, not medical reasoning.
 
 ## Roadmap
 
 1. v0.1 - cancer detection prep and treatment decision documentation.
 2. v0.2 - private personal-health operations for nutrition, fitness, doctor-visit prep, record indexing, and LLM-assisted summaries.
-3. v0.3 - private-instance export pattern and clinician handoff spec.
-4. v0.4 - source freshness checker and external-system audit refresh loop.
-5. v1.0 - repeatable HIS module pattern for other health domains.
+3. v0.3 - private-instance export pattern, wearable manifest dry runs, and clinician handoff spec.
+4. v0.4 - source freshness checker, prompt-pack evaluator, and external-system audit refresh loop.
+5. v0.5 - disease-specific education packs with clinician-stated diagnosis gates.
+6. v1.0 - repeatable HIS module pattern for other health domains.
 
 ## Open Questions
 
@@ -37,5 +42,7 @@
 - Which jurisdiction should be primary beyond the current US guideline baseline?
 - After repo-disposition review, should `life-science-research-intelligence-system` be a new public repo or bridged through `life-sciences` and `research-intelligence-os`?
 - After workflow dry runs, should the private vault template become a GitHub template repo, downloadable ZIP, or Codex-guided local scaffold?
+- Should disease-specific packs live as education-only public modules, private-instance modules, or both with a strict bridge boundary?
+- Which agent-runtime adapters should be first-class beyond the Codex plugin: Claude Code, OpenCode, Open WebUI, or ChatGPT Projects?
 
 **Built on SIP** - Health Intelligence System MEMORY.md v0.1

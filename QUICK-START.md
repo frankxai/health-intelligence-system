@@ -35,6 +35,11 @@ For nutrition, fitness, routine health organization, and doctor-visit preparatio
 - `docs/companion-research-systems.md`
 - `docs/repo-consolidation-map.md`
 - `docs/personal-health-ops-v0.2.md`
+- `docs/coding-agent-installation-guide.md`
+- `docs/multi-agent-health-operator-system.md`
+- `docs/wearable-data-ingestion-and-privacy.md`
+- `docs/prompt-pack-chatgpt-claude.md`
+- `docs/health-optimization-knowledge-shelf.md`
 - `templates/private-vault-manifest.md`
 - `templates/general-health-command-center.md`
 - `templates/health-record-index.md`
@@ -45,6 +50,10 @@ For nutrition, fitness, routine health organization, and doctor-visit preparatio
 - `templates/jurisdiction-adapter.md`
 - `templates/insurance-and-care-access-index.md`
 - `templates/clinician-handoff-export.md`
+- `templates/wearable-data-ingestion-manifest.md`
+- `templates/health-operator-weekly-review.md`
+- `templates/health-possibility-map.md`
+- `templates/ai-sanitized-context-export.md`
 
 Keep these in a private workspace. Use them to track facts, routines, records, questions, and visit prep, not to diagnose or choose treatment.
 
@@ -57,6 +66,18 @@ Useful v0.2 commands:
 - `commands/clinician-handoff-export.md`
 - `commands/external-system-audit.md`
 - `commands/repo-consolidation-map.md`
+- `commands/wearable-data-ingestion.md`
+- `commands/health-optimization-weekly-review.md`
+- `commands/health-possibility-map.md`
+- `commands/privacy-preflight-redaction.md`
+
+Optional agent/prompt installs:
+
+- `plugins/health-intelligence-system/` for a Codex-compatible plugin and the `sovereign-health-operator` skill.
+- `prompts/chatgpt-project-system-prompt.md` for a ChatGPT Project.
+- `prompts/custom-gpt-instructions.md` for a Custom GPT.
+- `prompts/claude-project-prompt.md` for a Claude Project.
+- `prompts/local-llm-redaction-prompt.md` for local-only redaction review.
 
 ## 3. Use Templates
 
@@ -79,6 +100,10 @@ Copy the relevant file from `templates/` into your private workspace, not this p
 - `disease-navigation-brief.md`
 - `jurisdiction-adapter.md`
 - `insurance-and-care-access-index.md`
+- `wearable-data-ingestion-manifest.md`
+- `health-operator-weekly-review.md`
+- `health-possibility-map.md`
+- `ai-sanitized-context-export.md`
 
 ## 4. Keep Private Data Private
 

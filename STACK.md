@@ -37,6 +37,18 @@ HealthVault/
 | Local-first | Obsidian, Codex/OpenCode/Hermes, Ollama, LM Studio, Open WebUI | Raw records stay local |
 | Private infrastructure | Private APIs, model gateways, encrypted storage | Requires security and compliance review |
 
+## Installable Agent Stack
+
+| Surface | Path | Use |
+| --- | --- | --- |
+| Codex plugin | `plugins/health-intelligence-system/` | Install the repo-local health operator skill and references. |
+| Codex skill | `plugins/health-intelligence-system/skills/sovereign-health-operator/` | Run private setup, wearable ingestion, clinician handoff, and safety checks. |
+| Prompt pack | `prompts/` | Configure ChatGPT Projects, Custom GPTs, Claude Projects, and local redaction assistants. |
+| Command pack | `commands/` | Import slash-command style workflows into coding agents or local automation. |
+| Private vault templates | `templates/` | Copy into Obsidian, local folders, or an encrypted workspace. |
+
+Tiny local models are optional privacy reviewers, not medical reasoning engines. Use deterministic/manual redaction first; small local models may help flag names, IDs, dates, and obvious private fragments before any hosted AI call.
+
 ## Source Priority
 
 1. Current clinician guidance from the treating team.
@@ -52,5 +64,7 @@ HealthVault/
 - Treatment content: never present regimen-level guidance as current unless tied to a clinician-verified plan.
 - Clinical trial content: always verify against the live trial record and care team.
 - Personal health ops content: recheck AI product, privacy, local-LLM, and jurisdiction sources before publishing public instructions.
+- Wearable and API docs: recheck Apple, Android Health Connect, Oura, WHOOP, and Health.md references before publishing connector guidance.
+- Agent installation docs: recheck Codex, Claude, OpenCode, ChatGPT, Ollama, LM Studio, and Open WebUI instructions before publishing operational setup guidance.
 
 **Built on SIP** - Health Intelligence System STACK.md v0.1
