@@ -2,6 +2,7 @@ private/
 dist/
 packages/
 release-manifest.json
+agent-pack-manifest.json
 .DS_Store
 Thumbs.db
 *.tmp

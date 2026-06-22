@@ -20,13 +20,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Package release
-        run: npm run package:release
+      - name: Package release artifacts
+        run: npm run package:all
       - name: Verify release package
         shell: pwsh
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
           pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-release.ps1 -Version $version -ZipPath "dist/health-intelligence-system-v$version.zip" -ManifestPath "release-manifest.json"
+      - name: Verify agent pack
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-agent-pack.ps1 -Version $version -ZipPath "dist/health-intelligence-agent-pack-v$version.zip" -ManifestPath "agent-pack-manifest.json"
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
@@ -34,3 +39,4 @@ jobs:
           files: |
             dist/*.zip
             release-manifest.json
+            agent-pack-manifest.json

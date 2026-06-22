@@ -8,9 +8,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$releaseName = "health-intelligence-system-v$Version"
+$packName = "health-intelligence-agent-pack-v$Version"
 $tag = "v$Version"
-$tempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("his-verify-" + [System.Guid]::NewGuid().ToString("N"))
+$tempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("his-agent-pack-verify-" + [System.Guid]::NewGuid().ToString("N"))
 $extractDir = Join-Path $tempRoot "extract"
 $downloadDir = Join-Path $tempRoot "download"
 
@@ -36,18 +36,18 @@ try {
 
   if ($Download) {
     New-Item -ItemType Directory -Path $downloadDir -Force | Out-Null
-    $ZipPath = Join-Path $downloadDir "$releaseName.zip"
-    $ManifestPath = Join-Path $downloadDir "release-manifest.json"
+    $ZipPath = Join-Path $downloadDir "$packName.zip"
+    $ManifestPath = Join-Path $downloadDir "agent-pack-manifest.json"
     $baseUrl = "https://github.com/frankxai/health-intelligence-system/releases/download/$tag"
 
-    Invoke-WebRequest -Uri "$baseUrl/$releaseName.zip" -OutFile $ZipPath
-    Invoke-WebRequest -Uri "$baseUrl/release-manifest.json" -OutFile $ManifestPath
+    Invoke-WebRequest -Uri "$baseUrl/$packName.zip" -OutFile $ZipPath
+    Invoke-WebRequest -Uri "$baseUrl/agent-pack-manifest.json" -OutFile $ManifestPath
   } else {
     if (-not $ZipPath) {
-      $ZipPath = Join-Path $repoRoot "dist\$releaseName.zip"
+      $ZipPath = Join-Path $repoRoot "dist\$packName.zip"
     }
     if (-not $ManifestPath) {
-      $ManifestPath = Join-Path $repoRoot "release-manifest.json"
+      $ManifestPath = Join-Path $repoRoot "agent-pack-manifest.json"
     }
     if (-not [System.IO.Path]::IsPathRooted($ZipPath)) {
       $ZipPath = Join-Path $repoRoot $ZipPath
@@ -68,47 +68,35 @@ try {
   $zip = Get-Item -LiteralPath $ZipPath
 
   Assert-Equal "release" $tag $manifest.release
-  Assert-Equal "zip name" "$releaseName.zip" $manifest.zip_asset.name
+  Assert-Equal "zip name" "$packName.zip" $manifest.zip_asset.name
   Assert-Equal "zip bytes" ([int64]$manifest.zip_asset.bytes) ([int64]$zip.Length)
   Assert-Equal "zip sha256" $manifest.zip_asset.sha256 (Get-Sha256 -Path $zip.FullName)
 
   New-Item -ItemType Directory -Path $extractDir -Force | Out-Null
   Expand-Archive -LiteralPath $zip.FullName -DestinationPath $extractDir -Force
 
-  $requiredSafetyFiles = @(
-    "README.md",
-    "SAFETY.md",
-    "PRIVACY.md",
+  $requiredFiles = @(
     "AGENT_PACK.md",
     "MARKETPLACE.md",
-    "assets/health-intelligence-system-banner.png",
-    "VALIDATION.md",
-    "REVIEW-GATE.md",
-    "docs/cancer-detection-prep-treatment.md",
-    "docs/evidence-sources.md",
-    "docs/safety-and-privacy-model.md",
-    "docs/external-systems-comparison.md",
-    "docs/repo-consolidation-map.md",
-    "docs/product-boundary.md",
-    "docs/agentic-life-os-integration.md",
-    "docs/what-this-is-not.md",
-    "docs/coding-agent-installation-guide.md",
-    "docs/multi-agent-health-operator-system.md",
-    "docs/wearable-data-ingestion-and-privacy.md",
-    "docs/prompt-pack-chatgpt-claude.md",
-    "docs/health-optimization-knowledge-shelf.md",
-    "prompts/chatgpt-project-system-prompt.md",
-    "prompts/custom-gpt-instructions.md",
-    "prompts/claude-project-prompt.md",
-    "prompts/local-llm-redaction-prompt.md",
+    "SAFETY.md",
+    "PRIVACY.md",
     "plugins/health-intelligence-system/.codex-plugin/plugin.json",
-    "plugins/health-intelligence-system/skills/sovereign-health-operator/SKILL.md"
+    "plugins/health-intelligence-system/skills/sovereign-health-operator/SKILL.md",
+    "prompts/chatgpt-project-system-prompt.md",
+    "prompts/claude-project-prompt.md",
+    "prompts/custom-gpt-instructions.md",
+    "prompts/local-llm-redaction-prompt.md",
+    "commands/private-health-instance-setup.md",
+    "commands/doctor-visit-prep.md",
+    "commands/clinician-handoff-export.md",
+    "templates/private-vault-manifest.md",
+    "templates/clinician-handoff-export.md"
   )
 
-  foreach ($required in $requiredSafetyFiles) {
+  foreach ($required in $requiredFiles) {
     $requiredPath = Join-Path $extractDir ($required.Replace("/", [System.IO.Path]::DirectorySeparatorChar))
     if (-not (Test-Path -LiteralPath $requiredPath)) {
-      throw "Missing required safety file in ZIP: $required"
+      throw "Missing required agent-pack file in ZIP: $required"
     }
   }
 
@@ -125,13 +113,12 @@ try {
     Assert-Equal "sha256 for $($file.path)" $file.sha256 (Get-Sha256 -Path $expanded.FullName)
   }
 
-  $readme = Get-Content -LiteralPath (Join-Path $extractDir "README.md") -Raw
-  $safety = Get-Content -LiteralPath (Join-Path $extractDir "SAFETY.md") -Raw
-  if ($readme -notmatch "Not medical advice" -or $safety -notmatch "does not provide medical advice" -or $safety -notmatch "diagnose cancer" -or $safety -notmatch "interpret labs") {
-    throw "Safety boundary language is missing from README.md or SAFETY.md."
+  $skill = Get-Content -LiteralPath (Join-Path $extractDir "plugins/health-intelligence-system/skills/sovereign-health-operator/SKILL.md") -Raw
+  if ($skill -notmatch "Never diagnose" -or $skill -notmatch "Raw health records stay local") {
+    throw "Agent-pack safety boundary language is missing from the Sovereign Health Operator skill."
   }
 
-  Write-Host "Verified $releaseName"
+  Write-Host "Verified $packName"
   Write-Host "ZIP SHA-256: $($manifest.zip_asset.sha256)"
   Write-Host "Files checked: $($manifest.files.Count)"
 } finally {

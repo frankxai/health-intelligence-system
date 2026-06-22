@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+- No changes yet.
+
+## v0.2.1 - 2026-06-22
+
+- Added generated repository banner and visual README treatment.
+- Rebuilt README around downloads, install surfaces, architecture, workflows, product boundary, and validation.
+- Added dedicated agent-pack distribution docs: `AGENT_PACK.md` and `MARKETPLACE.md`.
+- Added agent-pack packaging and verification scripts.
+- Sanitized public agent metadata to avoid machine-specific absolute paths.
+- Added release packaging coverage for visual assets and v0.2.1 notes.
+
 ## v0.2.0 - 2026-06-22
 
 - Added evidence-grade external systems comparison for AI health assistants, clinical agents, medical RAG, health-data standards, research agents, and local/private LLM tooling.
@@ -10,10 +23,6 @@
 - Added v0.2 commands for doctor visit prep, external system audit, repo consolidation, and clinician handoff export.
 - Added v0.2 templates for private vault manifest, medication/supplement inventory, jurisdiction adapter, external comparison, repo disposition, and clinician handoff export.
 - Expanded validation, safety, privacy, and review gates for personal health operations.
-
-## Unreleased
-
-- No changes yet.
 
 ## v0.1.1 - 2026-06-16
 

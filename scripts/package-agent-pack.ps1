@@ -5,65 +5,45 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$versionName = "health-intelligence-system-v$Version"
-$packageDir = Join-Path $repoRoot "packages\$versionName"
+$packName = "health-intelligence-agent-pack-v$Version"
+$packDir = Join-Path $repoRoot "packages\$packName"
 $distDir = Join-Path $repoRoot "dist"
-$zipPath = Join-Path $distDir "$versionName.zip"
-$manifestPath = Join-Path $repoRoot "release-manifest.json"
-$packageManifestPath = Join-Path $packageDir "release-manifest.json"
+$zipPath = Join-Path $distDir "$packName.zip"
+$manifestPath = Join-Path $repoRoot "agent-pack-manifest.json"
+$packManifestPath = Join-Path $packDir "agent-pack-manifest.json"
 
 $allowList = @(
+  "AGENT_PACK.md",
+  "MARKETPLACE.md",
   "README.md",
   "QUICK-START.md",
-  "VERIFY.md",
   "SAFETY.md",
   "PRIVACY.md",
   "VALIDATION.md",
-  "REVIEW-GATE.md",
-  "RELEASE.md",
-  "RELEASE_NOTES_v0.1.0.md",
-  "RELEASE_NOTES_v0.1.1.md",
-  "RELEASE_NOTES_v0.2.0.md",
-  "RELEASE_NOTES_v0.2.1.md",
-  "AGENT_PACK.md",
-  "MARKETPLACE.md",
-  "CHANGELOG.md",
-  "CONTRIBUTING.md",
-  "SKILL.md",
-  "SOUL.md",
-  "AGENTS.md",
-  "STACK.md",
-  "CANON.md",
-  "MEMORY.md",
-  "SUB-SYSTEMS.md",
-  "package.json",
   "LICENSE",
-  "assets",
-  "scripts",
-  "docs",
-  "templates",
-  "commands",
-  "prompts",
   "plugins",
-  ".agent-harness.json"
+  "prompts",
+  "commands",
+  "templates"
 )
 
-if (Test-Path $packageDir) {
-  Remove-Item -LiteralPath $packageDir -Recurse -Force
+if (Test-Path $packDir) {
+  Remove-Item -LiteralPath $packDir -Recurse -Force
 }
 if (Test-Path $zipPath) {
   Remove-Item -LiteralPath $zipPath -Force
 }
 
-New-Item -ItemType Directory -Path $packageDir -Force | Out-Null
+New-Item -ItemType Directory -Path $packDir -Force | Out-Null
 New-Item -ItemType Directory -Path $distDir -Force | Out-Null
 
 foreach ($item in $allowList) {
   $source = Join-Path $repoRoot $item
   if (-not (Test-Path $source)) {
-    throw "Missing release file: $item"
+    throw "Missing agent-pack file: $item"
   }
-  $destination = Join-Path $packageDir $item
+
+  $destination = Join-Path $packDir $item
   if ((Get-Item $source).PSIsContainer) {
     Copy-Item -LiteralPath $source -Destination $destination -Recurse
   } else {
@@ -73,10 +53,10 @@ foreach ($item in $allowList) {
   }
 }
 
-$files = Get-ChildItem -LiteralPath $packageDir -File -Recurse |
+$files = Get-ChildItem -LiteralPath $packDir -File -Recurse |
   Sort-Object FullName |
   ForEach-Object {
-    $relative = $_.FullName.Substring($packageDir.Length + 1).Replace("\", "/")
+    $relative = $_.FullName.Substring($packDir.Length + 1).Replace("\", "/")
     [ordered]@{
       path = $relative
       bytes = $_.Length
@@ -84,33 +64,41 @@ $files = Get-ChildItem -LiteralPath $packageDir -File -Recurse |
     }
   }
 
-$packageManifest = [ordered]@{
-  name = "health-intelligence-system"
-  version = $Version
-  status = "preclinical-prerelease"
-  evidence_checked = "2026-06-22"
-  built_on = "SIP v1.1.1"
-  clinical_legal_gate = "pending"
-  files = $files
-}
-
-$packageManifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $packageManifestPath -Encoding utf8
-
-Compress-Archive -Path (Join-Path $packageDir "*") -DestinationPath $zipPath -Force
-
-$zip = Get-Item -LiteralPath $zipPath
-$releaseManifest = [ordered]@{
-  name = "health-intelligence-system"
+$packManifest = [ordered]@{
+  name = "health-intelligence-agent-pack"
   version = $Version
   release = "v$Version"
   status = "preclinical-prerelease"
-  evidence_checked = "2026-06-22"
-  built_on = "SIP v1.1.1"
   clinical_legal_gate = "pending"
   canonical_repo = "https://github.com/frankxai/health-intelligence-system"
   canonical_release = "https://github.com/frankxai/health-intelligence-system/releases/tag/v$Version"
+  install_surfaces = @(
+    "Codex plugin",
+    "Codex skill",
+    "ChatGPT Project prompt",
+    "Custom GPT instructions",
+    "Claude Project prompt",
+    "local redaction prompt",
+    "slash-command workflows",
+    "private-vault templates"
+  )
+  files = $files
+}
+
+$packManifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $packManifestPath -Encoding utf8
+
+Compress-Archive -Path (Join-Path $packDir "*") -DestinationPath $zipPath -Force
+
+$zip = Get-Item -LiteralPath $zipPath
+$releaseManifest = [ordered]@{
+  name = "health-intelligence-agent-pack"
+  version = $Version
+  release = "v$Version"
+  status = "preclinical-prerelease"
+  canonical_repo = "https://github.com/frankxai/health-intelligence-system"
+  canonical_release = "https://github.com/frankxai/health-intelligence-system/releases/tag/v$Version"
   zip_asset = [ordered]@{
-    name = "$versionName.zip"
+    name = "$packName.zip"
     bytes = $zip.Length
     sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $zipPath).Hash.ToLowerInvariant()
   }

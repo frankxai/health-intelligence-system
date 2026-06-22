@@ -94,11 +94,11 @@ Do not create `life-sciences-researcher-is` immediately. First, keep the impleme
 
 | Source | URL or path | Date accessed | Used for |
 | --- | --- | --- | --- |
-| Local HIS worktree | `C:\Users\frank\starlight\repos\health-intelligence-system` | 2026-06-22 | Public core status and current docs/templates |
-| Local Second Brain OS worktree | `C:\Users\frank\starlight\repos\second-brain-os` | 2026-06-22 | Two-vault privacy pattern |
-| Local Agentic Life OS worktree | `C:\Users\frank\starlight\repos\agentic-life-os` | 2026-06-22 | Private product monorepo and first Health OS / Life Sciences Researcher split |
-| FrankX GitHub inventory | `C:\Users\frank\starlight\repos\github_repos_frankxai.json` | 2026-06-22 | Repo existence and metadata |
-| Starlight MCP registry | `C:\Users\frank\starlight\repos\Starlight-Intelligence-System\tools\mcp-registry.csv` | 2026-06-22 | DeepMind Science Skills registry entry |
+| Local HIS worktree | local clone, private path omitted | 2026-06-22 | Public core status and current docs/templates |
+| Local Second Brain OS worktree | local clone, private path omitted | 2026-06-22 | Two-vault privacy pattern |
+| Local Agentic Life OS worktree | local clone, private path omitted | 2026-06-22 | Private product monorepo and first Health OS / Life Sciences Researcher split |
+| FrankX GitHub inventory | local inventory export, private path omitted | 2026-06-22 | Repo existence and metadata |
+| Starlight MCP registry | local registry export, private path omitted | 2026-06-22 | DeepMind Science Skills registry entry |
 | frankxai/health-intelligence-system | https://github.com/frankxai/health-intelligence-system | 2026-06-22 | Public repo state |
 | frankxai/life-sciences | https://github.com/frankxai/life-sciences | 2026-06-22 | Life-sciences bridge candidate |
 | frankxai/research-intelligence-os | https://github.com/frankxai/research-intelligence-os | 2026-06-22 | Research OS candidate |
