@@ -22,10 +22,17 @@ It is designed to compose with SIS and the private Agentic Life OS product line 
 
 Product boundary:
 
-- `health-intelligence-system` is the public protocol, templates, release package, plugin, and safety contract.
+- `health-intelligence-system` is the public protocol, templates, release package, prompt pack, Codex plugin, and safety contract.
 - `agentic-life-os` is the private product monorepo where the usable Agentic Health OS runtime should live.
 - Agentic Health OS handles personal health organization, nutrition/training/wellness loops, clinician-prep workflows, and private vault orchestration.
 - Life Sciences Researcher IS is research-only. It may produce evidence briefs and clinician questions, but it does not interpret personal records or choose care.
+
+Core positioning:
+
+- Help people become better health operators and patient advocates, not their own doctors.
+- Aggregate records, wearable exports, routines, questions, and clinician instructions into a private working system.
+- Use AI for summarization, organization, redaction, checklist generation, and question preparation.
+- Keep diagnosis, lab interpretation, medication changes, supplement dosing, treatment selection, injury rehab, and emergency triage with licensed clinicians.
 
 ## What This Is Not
 
@@ -79,6 +86,11 @@ Start with:
 - [docs/product-boundary.md](docs/product-boundary.md) - exact split between public HIS, private Agentic Life OS, Agentic Health OS, and Life Sciences Researcher.
 - [docs/agentic-life-os-integration.md](docs/agentic-life-os-integration.md) - how the private product runtime should consume this public release.
 - [docs/personal-health-ops-v0.2.md](docs/personal-health-ops-v0.2.md) - private-instance architecture draft.
+- [docs/coding-agent-installation-guide.md](docs/coding-agent-installation-guide.md) - how to install the repo into Codex, Claude Code, OpenCode, and similar coding agents.
+- [docs/multi-agent-health-operator-system.md](docs/multi-agent-health-operator-system.md) - role map for vault, wearable, doctor-visit, optimization, disease-navigation, research, and safety agents.
+- [docs/wearable-data-ingestion-and-privacy.md](docs/wearable-data-ingestion-and-privacy.md) - Apple Health, Health Connect, Oura, WHOOP, and Health.md-style export model.
+- [docs/prompt-pack-chatgpt-claude.md](docs/prompt-pack-chatgpt-claude.md) - ChatGPT Project, Custom GPT, Claude Project, and local redaction prompts.
+- [docs/health-optimization-knowledge-shelf.md](docs/health-optimization-knowledge-shelf.md) - evidence-aware shelf for fitness, nutrition, sleep, mobility, and patient-advocacy references.
 
 Then copy the relevant templates into a private workspace:
 
@@ -92,6 +104,10 @@ Then copy the relevant templates into a private workspace:
 - `jurisdiction-adapter.md`
 - `insurance-and-care-access-index.md`
 - `clinician-handoff-export.md`
+- `wearable-data-ingestion-manifest.md`
+- `health-operator-weekly-review.md`
+- `health-possibility-map.md`
+- `ai-sanitized-context-export.md`
 
 The v0.2 command surfaces are:
 
@@ -102,8 +118,19 @@ The v0.2 command surfaces are:
 5. `/clinician-handoff-export` - produce a reviewed clinician-facing export.
 6. `/external-system-audit` - classify external systems as reference, integrate later, watchlist, or do not emulate.
 7. `/repo-consolidation-map` - decide whether an artifact belongs in core, a pack, or a research companion.
+8. `/wearable-data-ingestion` - turn wearable and phone exports into a private manifest and sanitized summaries.
+9. `/health-optimization-weekly-review` - summarize sleep, training, nutrition, energy, symptoms, and adherence patterns without medical claims.
+10. `/health-possibility-map` - organize possibilities, evidence, uncertainties, and clinician questions without diagnosis.
+11. `/privacy-preflight-redaction` - prepare sanitized context before using consumer or hosted AI.
 
 This v0.2 layer is for personal organization and clinician-facing preparation. It does not diagnose, interpret results, prescribe diets, prescribe training, recommend supplements, or replace clinicians.
+
+Installable agent surfaces:
+
+- `plugins/health-intelligence-system/` packages the repo as a Codex-compatible plugin with the `sovereign-health-operator` skill.
+- `prompts/` contains project prompts for ChatGPT, Custom GPTs, Claude, and local redaction assistants.
+- `commands/` contains slash-command style workflows that other coding agents can import or adapt.
+- Local-only users can run the same workflows inside Obsidian plus a local assistant stack such as Ollama, LM Studio, Open WebUI, OpenCode, or a private API gateway.
 
 ## Repo Layout
 
@@ -119,6 +146,8 @@ This v0.2 layer is for personal organization and clinician-facing preparation. I
 |-- SUB-SYSTEMS.md
 |-- commands/
 |-- docs/
+|-- plugins/
+|-- prompts/
 `-- templates/
 ```
 
