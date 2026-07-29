@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frankx.ai/schemas/gut/evidence-receipt.schema.json",
+  "title": "Gut Intelligence Evidence and Authority Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generated_at", "core_version", "inputs_used", "inputs_excluded", "gates", "authority", "claims_scope", "review"],
+  "properties": {
+    "generated_at": {"type": "string", "format": "date-time"},
+    "core_version": {"type": "string"},
+    "inputs_used": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "inputs_excluded": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "gates": {
+      "type": "object",
+      "additionalProperties": {"enum": ["pass", "block", "not_applicable"]}
+    },
+    "authority": {
+      "type": "object",
+      "required": ["parent", "qualified_professional", "science_adapter", "public_core"],
+      "properties": {
+        "parent": {"type": "array", "items": {"type": "string"}},
+        "qualified_professional": {"type": "array", "items": {"type": "string"}},
+        "science_adapter": {"type": "array", "items": {"type": "string"}},
+        "public_core": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "claims_scope": {"const": "ordinary_wellness_only"},
+    "review": {"enum": ["parent_review_required", "qualified_review_required", "blocked"]}
+  }
+}

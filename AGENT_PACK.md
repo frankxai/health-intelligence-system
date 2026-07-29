@@ -12,6 +12,8 @@ The agent pack is the smallest practical download for running the system. It doe
 | --- | --- | --- |
 | Codex plugin | `plugins/health-intelligence-system/` | Installable plugin shell with skill metadata |
 | Sovereign Health Operator skill | `plugins/health-intelligence-system/skills/sovereign-health-operator/` | Core agent behavior, privacy modes, wearable ingestion, possibility mapping, and operator workflows |
+| Gut Family Journey skill | `plugins/health-intelligence-system/skills/gut-family-journey/` | Guided intake, ordinary family meal planning, practical adaptations, weekly review, and qualified coach handoff |
+| Gut vertical contract | `verticals/gut-intelligence-system/`, `schemas/gut/`, `fixtures/gut/` | Open-core boundary, task envelope, machine-readable contracts, and fictional safety fixtures |
 | Prompt pack | `prompts/` | ChatGPT Project, Custom GPT, Claude Project, and local redaction prompts |
 | Command pack | `commands/` | Slash-command style workflows for setup, visit prep, handoff, wearable ingestion, redaction, and weekly review |
 | Private vault templates | `templates/` | Copy into Obsidian, local folders, encrypted storage, or a private product runtime |
@@ -33,7 +35,7 @@ npm run verify:agent-pack -- -Version 0.2.1 -Download
    - Custom GPT: use `prompts/custom-gpt-instructions.md`.
    - Claude Project: use `prompts/claude-project-prompt.md`.
    - Local assistant/redaction: use `prompts/local-llm-redaction-prompt.md`.
-5. Start with `/private-health-instance-setup`, then `/doctor-visit-prep` or `/health-optimization-weekly-review`.
+5. Start with `/private-health-instance-setup`, then `/doctor-visit-prep` or `/health-optimization-weekly-review`. For a family gut-health journey, start with `/gut-family-onboarding`.
 
 ## Boundary
 

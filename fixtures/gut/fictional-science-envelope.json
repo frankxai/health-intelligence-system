@@ -1,0 +1,10 @@
+{
+  "adapter_id": "fictional-qualified-partner-adapter",
+  "adapter_version": "0.1.0",
+  "reviewed_at": "2026-07-01",
+  "evidence_grade": "partner-reviewed",
+  "goals": ["increase_food_variety"],
+  "approved_food_categories": ["legumes", "whole_grains", "fruit", "fermented_foods"],
+  "excluded_claims": ["diagnoses_imbalance", "treats_condition", "prevents_disease", "guarantees_microbiome_change"],
+  "human_review_required": false
+}

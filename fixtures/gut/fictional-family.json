@@ -1,0 +1,26 @@
+{
+  "fictional": true,
+  "consent": {
+    "parent_confirmed": true,
+    "data_scope": ["preferences", "routines", "ordinary_meals", "parent_observations"]
+  },
+  "child": {
+    "alias": "Milo",
+    "age_band": "5-8"
+  },
+  "safety": {
+    "allergy_status": "confirmed_none",
+    "allergens": [],
+    "clinician_exclusions": [],
+    "medical_diet": false
+  },
+  "goals": ["increase_food_variety", "easier_family_meals"],
+  "constraints": {
+    "accepted_foods": ["plain yogurt", "oats", "pasta", "peas", "apples"],
+    "learning_foods": ["lentils", "whole-grain couscous", "berries"],
+    "avoid_foods": [],
+    "prep_minutes": 25,
+    "budget": "medium",
+    "school_days": ["mon", "tue", "wed", "thu", "fri"]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "gut-intelligence-system",
+  "version": "0.1.0",
+  "license": "MIT",
+  "status": "preclinical-technical-prerelease",
+  "built_on": "Health Intelligence System and SIP",
+  "entrypoints": {
+    "skill": "plugins/health-intelligence-system/skills/gut-family-journey/SKILL.md",
+    "onboarding": "commands/gut-family-onboarding.md",
+    "first_week": "commands/gut-first-week-plan.md",
+    "weekly_review": "commands/gut-weekly-review.md",
+    "coach_handoff": "commands/gut-coach-handoff.md"
+  },
+  "schemas": [
+    "schemas/gut/family-context.schema.json",
+    "schemas/gut/science-envelope.schema.json",
+    "schemas/gut/meal-plan.schema.json",
+    "schemas/gut/evidence-receipt.schema.json"
+  ],
+  "fixtures": [
+    "fixtures/gut/fictional-family.json",
+    "fixtures/gut/fictional-science-envelope.json"
+  ],
+  "evaluations": [
+    "verticals/gut-intelligence-system/evals/safety-cases.json"
+  ],
+  "required_gates": [
+    "consent",
+    "age_band",
+    "allergy_status",
+    "scope",
+    "science_adapter",
+    "claims",
+    "privacy",
+    "human_handoff"
+  ]
+}

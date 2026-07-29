@@ -1,7 +1,7 @@
 {
   "name": "health-intelligence-system",
-  "version": "0.2.0",
-  "description": "Sovereign Health Intelligence plugin for private health vault setup, wearable-data ingestion, wellness optimization loops, clinician-safe possibility mapping, and doctor-visit preparation.",
+  "version": "0.2.1",
+  "description": "Sovereign Health Intelligence plugin for private health operations, clinician-safe handoffs, and a governed family gut-health journey.",
   "author": {
     "name": "FrankX AI",
     "url": "https://github.com/frankxai"
@@ -14,14 +14,16 @@
     "wellness",
     "wearables",
     "personal-health",
+    "family-nutrition",
+    "gut-health",
     "privacy",
     "agents"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Health Intelligence System",
-    "shortDescription": "Build a private health operating system.",
-    "longDescription": "Health Intelligence System helps coding agents set up local-first private health vaults, wearable-data ingestion workflows, wellness optimization loops, clinician-safe possibility maps, and doctor-visit handoff packets without diagnosing or prescribing.",
+    "shortDescription": "Run governed personal and family health workflows.",
+    "longDescription": "Health Intelligence System helps coding agents set up local-first private health vaults, wearable-data ingestion workflows, ordinary-wellness family meal journeys, clinician-safe possibility maps, and professional handoff packets without diagnosing or prescribing.",
     "developerName": "FrankX AI",
     "category": "Specialist",
     "capabilities": [
@@ -32,7 +34,8 @@
     "defaultPrompt": [
       "Set up my private health vault.",
       "Build a weekly health operator loop.",
-      "Prepare a clinician-safe possibility map."
+      "Prepare a clinician-safe possibility map.",
+      "Build a safe first-week family meal journey."
     ],
     "brandColor": "#059669"
   }

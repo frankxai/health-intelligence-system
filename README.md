@@ -40,6 +40,14 @@ It is designed to be used in three ways:
 | Coding agent / assistant | Repeatable workflows for setup, redaction, visit prep, handoff, weekly review | Commands, prompts, plugin skill |
 | Product runtime | Public safety contract consumed by private Agentic Life OS / Agentic Health OS | Protocol, package, validation gates |
 
+## Vertical Packs
+
+| Vertical | Audience | Public core | Private / licensed layer |
+| --- | --- | --- | --- |
+| [Gut Intelligence System](verticals/gut-intelligence-system/) | Parents, qualified nutrition teams, family-health products | Family context, safety gates, ordinary meal journey, weekly review, coach handoff, evidence receipts | Microbiome interpretation, proprietary science mappings, identifiable family state, branded product and coaching operations |
+
+The gut vertical includes the installable [`gut-family-journey`](plugins/health-intelligence-system/skills/gut-family-journey/) skill, machine-readable schemas, fictional fixtures, and executable safety evaluations. It does not interpret raw microbiome data or provide medical nutrition therapy.
+
 It does not diagnose, interpret labs or imaging, prescribe, choose treatment, change medication, dose supplements, triage emergencies, or replace clinicians.
 
 ## Download
