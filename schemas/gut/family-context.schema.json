@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frankx.ai/schemas/gut/family-context.schema.json",
+  "title": "Gut Intelligence Family Context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fictional", "consent", "child", "safety", "goals", "constraints"],
+  "properties": {
+    "fictional": {"type": "boolean"},
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parent_confirmed", "data_scope"],
+      "properties": {
+        "parent_confirmed": {"const": true},
+        "data_scope": {
+          "type": "array",
+          "items": {"enum": ["preferences", "routines", "ordinary_meals", "parent_observations"]},
+          "uniqueItems": true
+        }
+      }
+    },
+    "child": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alias", "age_band"],
+      "properties": {
+        "alias": {"type": "string", "minLength": 1, "maxLength": 40},
+        "age_band": {"enum": ["2-4", "5-8", "9-12", "13-17"]}
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allergy_status", "allergens", "clinician_exclusions", "medical_diet"],
+      "properties": {
+        "allergy_status": {"enum": ["confirmed_none", "known"]},
+        "allergens": {"type": "array", "items": {"type": "string", "maxLength": 80}, "uniqueItems": true},
+        "clinician_exclusions": {"type": "array", "items": {"type": "string", "maxLength": 120}, "uniqueItems": true},
+        "medical_diet": {"type": "boolean"}
+      }
+    },
+    "goals": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {"enum": ["increase_food_variety", "easier_family_meals", "more_consistent_routine", "prepare_for_coach_review"]},
+      "uniqueItems": true
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accepted_foods", "learning_foods", "avoid_foods", "prep_minutes", "budget", "school_days"],
+      "properties": {
+        "accepted_foods": {"type": "array", "items": {"type": "string", "maxLength": 80}, "minItems": 1},
+        "learning_foods": {"type": "array", "items": {"type": "string", "maxLength": 80}},
+        "avoid_foods": {"type": "array", "items": {"type": "string", "maxLength": 80}},
+        "prep_minutes": {"type": "integer", "minimum": 5, "maximum": 180},
+        "budget": {"enum": ["low", "medium", "flexible"]},
+        "school_days": {"type": "array", "items": {"enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]}, "uniqueItems": true}
+      }
+    }
+  }
+}

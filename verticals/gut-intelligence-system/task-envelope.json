@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "gut-intelligence-system",
+  "version": "0.1.0",
+  "status": "preclinical-technical-prerelease",
+  "purpose": "Compile parent-owned context and an approved science interpretation envelope into an ordinary-wellness family meal journey, weekly review, and qualified-coach handoff.",
+  "inputs": [
+    "minimal family context",
+    "allergies and exclusions",
+    "parent goals and practical constraints",
+    "approved science interpretation envelope",
+    "parent-reviewed weekly observations"
+  ],
+  "outputs": [
+    "conservative seven-day family meal plan",
+    "shopping and preparation cues",
+    "adaptations for school, travel, budget, and food acceptance",
+    "weekly pattern summary without medical interpretation",
+    "evidence and authority receipt",
+    "questions for a qualified coach or clinician"
+  ],
+  "blocked_outputs": [
+    "diagnosis or reassurance",
+    "raw microbiome interpretation",
+    "medical nutrition therapy",
+    "supplement or medication advice",
+    "emergency or symptom triage",
+    "claims of prevention, treatment, cure, or guaranteed outcome"
+  ],
+  "authority": {
+    "parent": [
+      "consent",
+      "family goals",
+      "food preferences",
+      "whether a proposed plan is used"
+    ],
+    "qualified_clinician_or_dietitian": [
+      "medical nutrition therapy",
+      "clinical exclusions",
+      "symptom and condition assessment",
+      "care decisions"
+    ],
+    "licensed_science_adapter": [
+      "microbiome interpretation",
+      "approved science-to-action mappings",
+      "evidence grading",
+      "permitted claims"
+    ],
+    "public_core": [
+      "workflow orchestration",
+      "deterministic safety gates",
+      "ordinary meal-planning structure",
+      "evidence receipts",
+      "handoff formatting"
+    ]
+  },
+  "state": {
+    "public_repository": "Schemas, templates, fictional fixtures, and tests only.",
+    "private_runtime": "Identifiable family profiles, longitudinal journey data, raw reports, consent records, and coach communication.",
+    "model_context": "Minimum necessary, parent-reviewed, and sanitized. Raw reports are excluded."
+  },
+  "termination": [
+    "Stop plan generation when consent, child age band, allergy status, or required exclusions are unknown.",
+    "Stop and route to a qualified professional when the request involves symptoms, abnormal results, treatment, growth concerns, eating disorders, or a medically prescribed diet.",
+    "Reject any science input that lacks adapter identity, review date, evidence grade, and permitted-claim scope.",
+    "Do not generate a plan when exclusions leave no safe candidate set."
+  ]
+}

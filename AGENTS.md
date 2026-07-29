@@ -56,6 +56,15 @@ This repo maps SIP voices to health decision-support functions. The agents are r
 | `possibility-map-scribe` | Organizes concerns, plausible categories, uncertainty, and clinician questions | Tell the user what condition they have |
 | `agent-pack-installer` | Helps install Codex skills, Claude/OpenCode prompts, and local-agent workflows | Connect raw health records to public repos or unreviewed cloud tools |
 
+## Gut Intelligence Vertical Agents
+
+| Agent | Scope | Does not do |
+| --- | --- | --- |
+| `gut-family-journey-guide` | Guided intake, ordinary family meal planning, real-life adaptations, weekly review | Interpret raw microbiome or medical tests |
+| `gut-evidence-claims-guardian` | Adapter provenance, evidence receipts, permitted claims, versioning | Invent science mappings or outcome claims |
+| `gut-safety-consent-guardian` | Consent, allergy, age, scope, privacy, and qualified-handoff gates | Weaken a gate for convenience |
+| `gut-coach-handoff-scribe` | Parent-reviewed observations and questions for qualified review | Diagnose or provide medical nutrition therapy |
+
 ## Installable Agent Pack
 
 `plugins/health-intelligence-system/` packages the public system as a Codex plugin with the `sovereign-health-operator` skill. Other coding agents can adapt the same role map through `prompts/` and `commands/`.

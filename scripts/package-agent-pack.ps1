@@ -22,6 +22,9 @@ $allowList = @(
   "VALIDATION.md",
   "LICENSE",
   "plugins",
+  "verticals",
+  "schemas",
+  "fixtures",
   "prompts",
   "commands",
   "templates"
