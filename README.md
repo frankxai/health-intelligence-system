@@ -51,11 +51,17 @@ It is designed to be used in three ways:
 | [`bios/packs/`](bios/packs/) | Circadian · breath · nutrition · tea (claim-tiered ordinary wellness) |
 | [`bios/templates/t0-chatgpt-project-pack.md`](bios/templates/t0-chatgpt-project-pack.md) | Grandma / phone-first operator pack |
 | [`commands/bios-vault.md`](commands/bios-vault.md) | Agent command |
+| [`apps/bios-steward`](apps/bios-steward) | **Premium Steward UI** (Next.js) — circadian ring, capture dock, protocols, handoff |
 
 ```bash
 PYTHONPATH=bios/src python -m bios_substrate init --household "Family" --subject self --path ./_local/family
 PYTHONPATH=bios/src python -m bios_substrate protocol start --vault ./_local/family --pack breath --id box-breath-5m
 PYTHONPATH=bios/src python -m unittest discover -s bios/tests -v
+
+# Premium UI
+pnpm --dir apps/bios-steward install
+pnpm --dir apps/bios-steward dev
+# http://localhost:4310
 ```
 
 Mind / psychology / neuroscience repos are **future domain packs** over one ledger — not N interconnected systems. See consolidation map.
