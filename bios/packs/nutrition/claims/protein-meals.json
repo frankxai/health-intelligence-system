@@ -1,0 +1,25 @@
+{
+  "claim_id": "claim_nutrition_protein_meals_pattern",
+  "schema_version": "0.1.0",
+  "statement": "Including protein-containing foods across meals is a common public nutrition education pattern for satiety and muscle maintenance in generally healthy adults; needs differ by age, kidney disease, and clinical context.",
+  "evidence_tier": "expert_consensus",
+  "sources": [
+    {
+      "title": "USDA Dietary Guidelines for Americans (protein foods group education)",
+      "kind": "guideline",
+      "url": "https://www.dietaryguidelines.gov/",
+      "year": 2020,
+      "notes": "Population guidance, not personal medical diet therapy."
+    },
+    {
+      "title": "WHO healthy diet fact sheet",
+      "kind": "guideline",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+      "year": 2020
+    }
+  ],
+  "domain_pack": "nutrition",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "not_a_personal_prescription": true
+}

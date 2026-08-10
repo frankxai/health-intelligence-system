@@ -1,0 +1,65 @@
+{
+  "protocol_id": "proto_caffeine_cutoff_8h",
+  "schema_version": "0.1.0",
+  "title": "Caffeine cutoff — 8 hours before target sleep",
+  "version": "0.1.0",
+  "domain_pack": "circadian",
+  "class": "ordinary_wellness",
+  "hypothesis": "Stopping caffeine at least 8 hours before target bedtime will improve subjective sleep quality over 14 days for caffeine-sensitive adults.",
+  "intervention": {
+    "summary": "Choose a daily caffeine cutoff clock time ~8 hours before intended sleep; switch to non-caffeine drinks after.",
+    "steps": [
+      "Pick target bedtime.",
+      "Set cutoff = bedtime minus 8 hours.",
+      "Log all caffeine sources (coffee, tea, energy drinks, some sodas).",
+      "After cutoff, use water, herbal tea, or decaf if desired."
+    ],
+    "dose_descriptor": "timing rule, not a dose recommendation",
+    "materials": ["optional phone reminder"]
+  },
+  "timing": {
+    "anchor": "fixed_clock",
+    "frequency": "daily",
+    "phase_note": "Adjust cutoff if bedtime shifts; this is a personal experiment, not medical treatment of insomnia."
+  },
+  "duration": {
+    "days": 14,
+    "washout_days": 3,
+    "min_adherence": 0.8
+  },
+  "measurement_plan": [
+    {
+      "metric": "sleep_quality",
+      "method": "scale_1_10",
+      "cadence": "daily morning"
+    },
+    {
+      "metric": "caffeine_after_cutoff",
+      "method": "self_report",
+      "cadence": "daily"
+    }
+  ],
+  "expected_effect": {
+    "direction": "improve",
+    "subjective_window_days": 5,
+    "note": "Headache from reduced caffeine can occur; taper if needed and consult a clinician for dependence concerns."
+  },
+  "stop_conditions": [
+    "Severe withdrawal symptoms",
+    "Clinician or pregnancy care team advises different caffeine guidance",
+    "Sleep worsens markedly for >5 days"
+  ],
+  "contraindications": [
+    "Medical conditions where caffeine use is clinician-directed",
+    "Eating disorder treatment plans that restrict rigid food rules without therapist support"
+  ],
+  "claim_ids": ["claim_circadian_caffeine_timing"],
+  "evidence_floor": "cohort",
+  "jurisdiction_flags": ["none"],
+  "safety": {
+    "not_diagnosis": true,
+    "not_prescription": true,
+    "emergency_route": "For emergency symptoms call local emergency services."
+  },
+  "last_reviewed": "2026-08-10"
+}

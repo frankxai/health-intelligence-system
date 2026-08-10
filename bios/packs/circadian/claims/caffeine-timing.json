@@ -1,0 +1,19 @@
+{
+  "claim_id": "claim_circadian_caffeine_timing",
+  "schema_version": "0.1.0",
+  "statement": "Caffeine late in the day can reduce sleep quality for many people; sensitivity and half-life vary widely.",
+  "evidence_tier": "cohort",
+  "sources": [
+    {
+      "title": "Drake et al. — Caffeine effects on sleep taken 0, 3, or 6 hours before bed (J Clin Sleep Med)",
+      "kind": "observational",
+      "year": 2013,
+      "doi": "10.5664/jcsm.3170",
+      "notes": "Laboratory study; not universal dosing advice."
+    }
+  ],
+  "domain_pack": "circadian",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "not_a_personal_prescription": true
+}

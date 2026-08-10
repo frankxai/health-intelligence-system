@@ -1,0 +1,28 @@
+{
+  "claim_id": "claim_circadian_morning_light",
+  "schema_version": "0.1.0",
+  "statement": "Morning outdoor light exposure is commonly recommended in sleep-medicine education to help anchor circadian timing; individual response varies.",
+  "evidence_tier": "expert_consensus",
+  "sources": [
+    {
+      "title": "American Academy of Sleep Medicine — healthy sleep habits (public education)",
+      "kind": "guideline",
+      "url": "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/",
+      "year": 2023,
+      "notes": "Public education on consistent schedule and light/dark cues; not a personal prescription."
+    },
+    {
+      "title": "NIH / NHLBI — Your Guide to Healthy Sleep (light and routine themes)",
+      "kind": "guideline",
+      "url": "https://www.nhlbi.nih.gov/resources/your-guide-healthy-sleep",
+      "year": 2011,
+      "notes": "Foundational public guidance; verify local clinician advice for disorders."
+    }
+  ],
+  "domain_pack": "circadian",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "conflict_flag": false,
+  "applicability": "General wellness adults without clinician-diagnosed circadian or retinal disease constraints.",
+  "not_a_personal_prescription": true
+}

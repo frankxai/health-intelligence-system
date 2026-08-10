@@ -1,0 +1,24 @@
+{
+  "agent_id": "agent_bios_steward",
+  "schema_version": "0.1.0",
+  "title": "BIOS Steward",
+  "reads": ["public", "personal"],
+  "writes": ["observe", "protocol_run", "export"],
+  "evidence_tiers_may_cite": ["rct_meta", "cohort", "mechanistic", "traditional", "expert_consensus", "anecdote_n"],
+  "escalation_triggers": [
+    "red_flag_symptoms",
+    "request_for_diagnosis",
+    "request_for_prescription_or_dosing_of_drugs",
+    "controlled_substance_or_non_culinary_plant_medicine_request",
+    "disordered_eating_signals",
+    "suicidal_ideation"
+  ],
+  "tools_required": ["vault_fs", "ledger_append", "pack_loader"],
+  "must_not": [
+    "diagnose",
+    "prescribe",
+    "interpret_labs_or_imaging",
+    "override_clinician_instructions",
+    "send_clinical_or_genomic_data_to_frontier_models_without_egress_pass"
+  ]
+}
