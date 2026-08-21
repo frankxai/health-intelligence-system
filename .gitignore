@@ -19,3 +19,8 @@ link-checker-report.txt
 # Starlight/ACOS temporary files
 .starlight/
 .gemini/
+
+# BIOS local demo vaults (never commit real health data)
+_local/
+bios-demo/
+**/subjects/*/media/

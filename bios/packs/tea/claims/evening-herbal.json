@@ -1,0 +1,18 @@
+{
+  "claim_id": "claim_tea_evening_herbal_noncaffeine",
+  "schema_version": "0.1.0",
+  "statement": "Choosing non-caffeine evening beverages is a common sleep-hygiene education tip for people sensitive to caffeine.",
+  "evidence_tier": "expert_consensus",
+  "sources": [
+    {
+      "title": "Sleep education — caffeine and sleep hygiene (AASM public materials)",
+      "kind": "guideline",
+      "url": "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/",
+      "year": 2023
+    }
+  ],
+  "domain_pack": "tea",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "not_a_personal_prescription": true
+}

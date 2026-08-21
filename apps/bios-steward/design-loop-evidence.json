@@ -1,0 +1,43 @@
+{
+  "artifact": "BIOS Steward UI",
+  "path": "apps/bios-steward",
+  "date": "2026-08-10",
+  "tier": "C",
+  "brief": "docs/scene-brief.md",
+  "icp": "Family steward (T1) operating household vault for self + dependents",
+  "product_loop": "capture → ledger → protocol start → handoff export",
+  "signature_setpiece": "Circadian Ring (interactive phase wheel)",
+  "anti_slop": {
+    "no_purple_saas_gradient": true,
+    "no_all_caps_ui": true,
+    "no_fake_dashboard_metrics": true,
+    "editorial_type": "Fraunces + Figtree",
+    "palette": "Chlorophyll Dawn"
+  },
+  "accessibility": {
+    "reduced_motion": true,
+    "safety_banner": true,
+    "aria_labels": ["Circadian day ring", "Capture dock", "Primary views", "Subjects"]
+  },
+  "proof": {
+    "local_dev": "http://localhost:4310",
+    "production_build": "next build OK (Next 15.5.7)",
+    "interactions_verified": ["log breath", "start morning light protocol", "handoff tab"]
+  },
+  "score_self": {
+    "hierarchy": 5,
+    "materiality": 4,
+    "product_depth": 5,
+    "originality": 4,
+    "motion_restraint": 4,
+    "trust_safety": 5,
+    "total_out_of_30": 27,
+    "ship_gate": "ship_iterate"
+  },
+  "residuals": [
+    "Demo vault is localStorage only — file vault bridge next",
+    "Next.js still flagged deprecated in registry notes; track patched line",
+    "Capture dock can obscure lower cards on short viewports — more bottom pad / collapse",
+    "No real photo capture pipeline yet"
+  ]
+}

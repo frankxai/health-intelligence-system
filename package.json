@@ -9,6 +9,9 @@
     "package:agent-pack": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-agent-pack.ps1",
     "verify:agent-pack": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-agent-pack.ps1",
     "package:all": "npm run package:release && npm run package:agent-pack",
-    "validate:gut": "node scripts/validate-gut-vertical.mjs"
+    "validate:gut": "node scripts/validate-gut-vertical.mjs",
+    "test:bios": "python -m unittest discover -s bios/tests -v",
+    "dev:bios-steward": "pnpm --dir apps/bios-steward dev",
+    "build:bios-steward": "pnpm --dir apps/bios-steward build"
   }
 }

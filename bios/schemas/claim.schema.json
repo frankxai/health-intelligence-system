@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bios.health/schemas/claim.v0.1.json",
+  "title": "BIOS Claim",
+  "description": "Versioned assertion with evidence tier. No unsourced statement may reach a user-facing pack.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "schema_version",
+    "statement",
+    "evidence_tier",
+    "sources",
+    "domain_pack",
+    "last_reviewed",
+    "status"
+  ],
+  "properties": {
+    "claim_id": { "type": "string", "pattern": "^claim_[A-Za-z0-9_-]+$" },
+    "schema_version": { "const": "0.1.0" },
+    "statement": { "type": "string", "minLength": 10, "maxLength": 1000 },
+    "evidence_tier": {
+      "enum": ["rct_meta", "cohort", "mechanistic", "traditional", "expert_consensus", "anecdote_n"]
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "kind"],
+        "properties": {
+          "title": { "type": "string" },
+          "kind": {
+            "enum": ["guideline", "systematic_review", "rct", "observational", "review", "book", "traditional_source", "url"]
+          },
+          "url": { "type": "string" },
+          "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+          "doi": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "domain_pack": { "type": "string" },
+    "last_reviewed": { "type": "string", "format": "date" },
+    "status": { "enum": ["active", "disputed", "withdrawn", "superseded"] },
+    "conflict_flag": { "type": "boolean" },
+    "conflicts_with": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "applicability": {
+      "type": "string",
+      "description": "Population or context limits in plain language"
+    },
+    "not_a_personal_prescription": { "const": true }
+  }
+}

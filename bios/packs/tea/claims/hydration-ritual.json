@@ -1,0 +1,19 @@
+{
+  "claim_id": "claim_tea_hydration_ritual",
+  "schema_version": "0.1.0",
+  "statement": "Unsweetened tea and herbal infusions can contribute to daily fluid intake as part of ordinary dietary patterns for many adults.",
+  "evidence_tier": "expert_consensus",
+  "sources": [
+    {
+      "title": "EFSA scientific opinion on dietary reference values for water",
+      "kind": "review",
+      "year": 2010,
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459",
+      "notes": "Population water guidance; tea is a beverage pattern, not a cure."
+    }
+  ],
+  "domain_pack": "tea",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "not_a_personal_prescription": true
+}

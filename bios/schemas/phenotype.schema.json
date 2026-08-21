@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bios.health/schemas/phenotype.v0.1.json",
+  "title": "BIOS Phenotype Projection",
+  "description": "Derived, versioned state. Rebuild from ledger; never hand-edit as truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "phenotype_id",
+    "schema_version",
+    "household_id",
+    "subject_id",
+    "built_at",
+    "ledger_event_count",
+    "baselines",
+    "constraints",
+    "active_protocols",
+    "current_stack"
+  ],
+  "properties": {
+    "phenotype_id": { "type": "string" },
+    "schema_version": { "const": "0.1.0" },
+    "household_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "built_at": { "type": "string", "format": "date-time" },
+    "ledger_event_count": { "type": "integer", "minimum": 0 },
+    "chronotype_lite": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preference": { "enum": ["unknown", "early", "intermediate", "late"] },
+        "typical_wake_local": { "type": "string" },
+        "typical_sleep_local": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "baselines": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "number" },
+          { "type": "string" },
+          { "type": "object" }
+        ]
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "source"],
+        "properties": {
+          "label": { "type": "string" },
+          "source": { "enum": ["self_report", "clinician_stated", "inferred_soft"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "allergies_self_report": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "active_protocols": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["protocol_id", "run_id", "started_at"],
+        "properties": {
+          "protocol_id": { "type": "string" },
+          "run_id": { "type": "string" },
+          "started_at": { "type": "string", "format": "date-time" },
+          "pack": { "type": "string" }
+        }
+      }
+    },
+    "current_stack": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "kind"],
+        "properties": {
+          "name": { "type": "string" },
+          "kind": { "enum": ["food_pattern", "tea", "supplement", "medication", "practice"] },
+          "timing_note": { "type": "string" },
+          "source_event_id": { "type": "string" }
+        }
+      }
+    },
+    "recent_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rebuild_command": { "const": "bios_substrate phenotype rebuild" }
+  }
+}

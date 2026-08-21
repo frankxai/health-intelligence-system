@@ -90,6 +90,18 @@ Create a separate repo only when all are true:
 
 Do not create `life-sciences-researcher-is` immediately. First, keep the implemented research-only package inside private Agentic Life OS, publish the public boundary and protocol through HIS, and inspect whether `life-sciences` plus `research-intelligence-os` can carry a future public research workflow. This prevents repo sprawl while keeping the research separation explicit.
 
+## BIOS substrate (2026-08-10)
+
+| Artifact | Disposition | Rationale |
+| --- | --- | --- |
+| `bios/` (schemas, CLI, packs) | `core` inside HIS for v0.1 | Creation gates for five split repos not yet met; ship format + reference client together |
+| Future `bios-protocol` | `pack later` | Split when external implementers need schema-only Apache/CC-BY land grab |
+| Future `bios-commons` | `defer` | Needs real n-of-1 outcome mass + DP design |
+| mind / psych / neuroscience IS | `specialized packs later` | Collapse into domain packs over one Protocol/Ledger — do not interconnect as separate systems |
+| Household vault unit | **locked** | Steward model (subject ≠ operator) requires household ownership dimension |
+
+See [bios-decision-2026-08-10.md](bios-decision-2026-08-10.md).
+
 ## Source Ledger
 
 | Source | URL or path | Date accessed | Used for |

@@ -2,7 +2,11 @@
 
 ## Unreleased
 
-- No changes yet.
+- **BIOS v0.1 substrate** under `bios/`: household vault unit, append-only ledger, protocol/claim/consent/egress schemas, reference CLI, steward multi-subject path, clinician handoff generator.
+- Domain packs (ordinary wellness only): circadian, breath, nutrition, meal-photo log, culinary tea ritual — each claim-tiered.
+- T0 ChatGPT project pack + decision record `docs/bios-decision-2026-08-10.md`.
+- Command `commands/bios-vault.md` and unittest suite `bios/tests`.
+- **BIOS Steward UI** (`apps/bios-steward`): Chlorophyll Dawn product surface with circadian ring set-piece, household subject switcher, capture dock, claim-tiered protocol cards, clinician handoff export, T0 steward bridge.
 
 ## v0.2.1 - 2026-06-22
 

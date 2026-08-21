@@ -1,0 +1,26 @@
+{
+  "claim_id": "claim_breath_slow_paced",
+  "schema_version": "0.1.0",
+  "statement": "Slow-paced breathing practices are widely used in stress-reduction education; evidence quality varies by protocol and population.",
+  "evidence_tier": "expert_consensus",
+  "sources": [
+    {
+      "title": "American Heart Association — stress management and healthy lifestyle education",
+      "kind": "guideline",
+      "url": "https://www.heart.org/en/healthy-living/healthy-lifestyle/stress-management",
+      "year": 2024,
+      "notes": "Public lifestyle education; not a device or drug claim."
+    },
+    {
+      "title": "NCCIH — Relaxation techniques for health",
+      "kind": "review",
+      "url": "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know",
+      "year": 2021,
+      "notes": "Discusses limitations and safety considerations."
+    }
+  ],
+  "domain_pack": "breath",
+  "last_reviewed": "2026-08-10",
+  "status": "active",
+  "not_a_personal_prescription": true
+}

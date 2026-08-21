@@ -1,0 +1,8 @@
+{
+  "pack_id": "nutrition",
+  "title": "Nutrition pattern foundations",
+  "version": "0.1.0",
+  "description": "Meal logging, protein-containing meals, and photo accountability for ordinary wellness. Not medical nutrition therapy.",
+  "class": "ordinary_wellness",
+  "last_reviewed": "2026-08-10"
+}

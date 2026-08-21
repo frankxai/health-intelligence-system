@@ -40,10 +40,37 @@ It is designed to be used in three ways:
 | Coding agent / assistant | Repeatable workflows for setup, redaction, visit prep, handoff, weekly review | Commands, prompts, plugin skill |
 | Product runtime | Public safety contract consumed by private Agentic Life OS / Agentic Health OS | Protocol, package, validation gates |
 
+## BIOS substrate (v0.1)
+
+**BIOS** (Sovereign Health Intelligence Substrate) is the executable middle layer: household vault, append-only ledger, n-of-1 **protocol** format, claims, consent lattice, egress policy, steward model (subject ≠ operator), and clinician handoff — so multi-agent swarms and ChatGPT projects stay interfaces, not systems of record.
+
+| Path | What |
+| --- | --- |
+| [`bios/README.md`](bios/README.md) | Primitives, tiers, quick start |
+| [`docs/bios-decision-2026-08-10.md`](docs/bios-decision-2026-08-10.md) | Angles, GitHub landscape, monetization, 100-day plan |
+| [`bios/packs/`](bios/packs/) | Circadian · breath · nutrition · tea (claim-tiered ordinary wellness) |
+| [`bios/templates/t0-chatgpt-project-pack.md`](bios/templates/t0-chatgpt-project-pack.md) | Grandma / phone-first operator pack |
+| [`commands/bios-vault.md`](commands/bios-vault.md) | Agent command |
+| [`apps/bios-steward`](apps/bios-steward) | **Premium Steward UI** (Next.js) — circadian ring, capture dock, protocols, handoff |
+
+```bash
+PYTHONPATH=bios/src python -m bios_substrate init --household "Family" --subject self --path ./_local/family
+PYTHONPATH=bios/src python -m bios_substrate protocol start --vault ./_local/family --pack breath --id box-breath-5m
+PYTHONPATH=bios/src python -m unittest discover -s bios/tests -v
+
+# Premium UI
+pnpm --dir apps/bios-steward install
+pnpm --dir apps/bios-steward dev
+# http://localhost:4310
+```
+
+Mind / psychology / neuroscience repos are **future domain packs** over one ledger — not N interconnected systems. See consolidation map.
+
 ## Vertical Packs
 
 | Vertical | Audience | Public core | Private / licensed layer |
 | --- | --- | --- | --- |
+| [BIOS packs](bios/packs/) | Individuals + family stewards | Protocol format, claims, CLI, T0–T3 tiers | Premium curated packs / steward hosting later |
 | [Gut Intelligence System](verticals/gut-intelligence-system/) | Parents, qualified nutrition teams, family-health products | Family context, safety gates, ordinary meal journey, weekly review, coach handoff, evidence receipts | Microbiome interpretation, proprietary science mappings, identifiable family state, branded product and coaching operations |
 
 The gut vertical includes the installable [`gut-family-journey`](plugins/health-intelligence-system/skills/gut-family-journey/) skill, machine-readable schemas, fictional fixtures, and executable safety evaluations. It does not interpret raw microbiome data or provide medical nutrition therapy.

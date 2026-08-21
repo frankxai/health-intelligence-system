@@ -53,4 +53,15 @@ Before publishing any personal health operations artifact, run:
 
 See [docs/safety-and-privacy-model.md](docs/safety-and-privacy-model.md).
 
+## BIOS v0.1 gates
+
+- Every pack protocol cites `claim_ids` with evidence tier + sources.
+- Contraindication gate runs before `bios protocol start`.
+- `safety.not_diagnosis` and `safety.not_prescription` must be true.
+- Ordinary wellness / habit tracking only in public packs; no controlled-substance or non-culinary plant-medicine protocols.
+- Jurisdiction flags are routing fields, not automated legal advice.
+- Red-flag symptoms → emergency services; agents stop.
+- Household dignity clause: subjects may read everything written about them.
+- Never commit real health records to this public repository (`_local/` is gitignored).
+
 **Built on SIP** - Health Intelligence System safety gate v0.1
