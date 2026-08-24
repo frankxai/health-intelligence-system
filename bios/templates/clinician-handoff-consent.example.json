@@ -1,0 +1,33 @@
+{
+  "consent_id": "consent_example_clinician_handoff",
+  "schema_version": "0.1.0",
+  "household_id": "hh_example",
+  "subject_id": "sub_example",
+  "authorized_by_id": "op_example",
+  "authority_basis": "self",
+  "purposes": ["clinician_handoff"],
+  "data_classes": ["identifiers", "wellness_logs", "clinical_records_index", "clinical_records_content"],
+  "recipients": [
+    {
+      "recipient_id": "clinician_example",
+      "kind": "clinician"
+    }
+  ],
+  "processors": [
+    {
+      "processor_id": "bios_local_runtime",
+      "kind": "local_runtime",
+      "allowed_tiers": ["local"]
+    }
+  ],
+  "actions": ["summarize", "export", "share"],
+  "record_scope": {
+    "event_ids": [],
+    "protocol_run_ids": []
+  },
+  "revision": 1,
+  "granted_at": "2026-08-24T00:00:00Z",
+  "status": "active",
+  "dignity_clause": true,
+  "notice_version": "bios-0.1-synthetic-example"
+}

@@ -36,7 +36,7 @@
     "evidence_tiers_may_cite": {
       "type": "array",
       "items": {
-        "enum": ["rct_meta", "cohort", "mechanistic", "traditional", "expert_consensus", "anecdote_n"]
+        "enum": ["A", "B", "C", "D"]
       },
       "uniqueItems": true
     },

@@ -1,43 +1,65 @@
 {
-  "artifact": "BIOS Steward UI",
-  "path": "apps/bios-steward",
-  "date": "2026-08-10",
-  "tier": "C",
-  "brief": "docs/scene-brief.md",
-  "icp": "Family steward (T1) operating household vault for self + dependents",
-  "product_loop": "capture → ledger → protocol start → handoff export",
-  "signature_setpiece": "Circadian Ring (interactive phase wheel)",
-  "anti_slop": {
-    "no_purple_saas_gradient": true,
-    "no_all_caps_ui": true,
-    "no_fake_dashboard_metrics": true,
-    "editorial_type": "Fraunces + Figtree",
-    "palette": "Chlorophyll Dawn"
+  "version": "1.0",
+  "task": "Convert the BIOS Steward prototype into a static synthetic governance preview",
+  "surface": "apps/bios-steward",
+  "audience": "Open-source safety, evidence, privacy, and product reviewers",
+  "standards": [
+    "DESIGN_TASTE.md",
+    "WEB_EXPERIENCE_STANDARD.md",
+    "PREMIUM_ASSET_STANDARD.md",
+    "VISUAL_QA_GATE.md"
+  ],
+  "references": [
+    "apps/bios-steward/docs/scene-brief.md"
+  ],
+  "direction": {
+    "keep": "Editorial clarity, restrained typography, visible maturity and safety state",
+    "avoid": "Fake health metrics, interactive medical controls, authority mascots, or decorative clinical claims",
+    "signature": "Chlorophyll Dawn evidence-review desk",
+    "system": "Fraunces and Figtree with grain, high-contrast governance cards, and reduced-motion support"
   },
-  "accessibility": {
-    "reduced_motion": true,
-    "safety_banner": true,
-    "aria_labels": ["Circadian day ring", "Capture dock", "Primary views", "Subjects"]
+  "asset_quality": {
+    "tier": "C",
+    "source_method": "browser-capture",
+    "provenance": "owned",
+    "why_premium": "The exact UI system is the correct medium for a source-review surface; it does not depend on decorative generated health imagery.",
+    "shortcut_risk": "low",
+    "context_tested": false
   },
-  "proof": {
-    "local_dev": "http://localhost:4310",
-    "production_build": "next build OK (Next 15.5.7)",
-    "interactions_verified": ["log breath", "start morning light protocol", "handoff tab"]
+  "artifacts": [
+    {
+      "path_or_url": "apps/bios-steward/src/components/StewardApp.tsx",
+      "kind": "static synthetic governance interface",
+      "inspected": true
+    },
+    {
+      "path_or_url": "apps/bios-steward",
+      "kind": "desktop and mobile browser export",
+      "inspected": false
+    }
+  ],
+  "checks": [
+    { "name": "asset-tier", "status": "pass" },
+    { "name": "anti-slop-static-scan", "status": "pass" },
+    { "name": "dependency-audit", "status": "pass" },
+    { "name": "eslint", "status": "pass" },
+    { "name": "typescript", "status": "pass" },
+    { "name": "source-safety-scan", "status": "pass" },
+    { "name": "export-inspection", "status": "blocked" },
+    { "name": "next-build", "status": "blocked" }
+  ],
+  "score": {
+    "total": 24,
+    "max": 30,
+    "note": "Static composition and source quality pass; build and actual desktop/mobile export inspection remain blocked by machine preflight."
   },
-  "score_self": {
-    "hierarchy": 5,
-    "materiality": 4,
-    "product_depth": 5,
-    "originality": 4,
-    "motion_restraint": 4,
-    "trust_safety": 5,
-    "total_out_of_30": 27,
-    "ship_gate": "ship_iterate"
-  },
-  "residuals": [
-    "Demo vault is localStorage only — file vault bridge next",
-    "Next.js still flagged deprecated in registry notes; track patched line",
-    "Capture dock can obscure lower cards on short viewports — more bottom pad / collapse",
-    "No real photo capture pipeline yet"
-  ]
+  "decision": "blocked",
+  "safety": {
+    "persistent_warning": true,
+    "input_disabled": true,
+    "storage_disabled": true,
+    "protocol_execution_disabled": true,
+    "handoff_and_export_disabled": true,
+    "production_launch": "hold"
+  }
 }

@@ -1,0 +1,83 @@
+{
+  "registry_id": "registry_public_health_domains",
+  "schema_version": "0.1.0",
+  "last_reviewed": "2026-08-24",
+  "advice_mode": "education_and_organization_only",
+  "reserved_name_denylist": ["vitalis", "velora"],
+  "prohibited_actions": [
+    "diagnose",
+    "treat_or_prescribe",
+    "interpret_clinical_results",
+    "recommend_medication_or_supplement_changes",
+    "provide_controlled_substance_dosing_or_sourcing",
+    "claim_unproven_energy_mechanisms_as_fact",
+    "replace_qualified_professional"
+  ],
+  "agents": [
+    {
+      "agent_id": "agent_bios_steward",
+      "pack_id": "bios-stewardship",
+      "canonical_label": "Health Stewardship Guide",
+      "brand_status": "generic_public",
+      "domain": "health_stewardship",
+      "purpose": "Organize consented health records, evidence notes, questions, routines, and user-reviewed clinician handoffs.",
+      "allowed_actions": ["organize_records", "summarize_user_reported_facts", "prepare_clinician_questions", "compile_policy_checked_handoff"],
+      "must_not": ["diagnose", "treat_or_prescribe", "interpret_clinical_results", "recommend_medication_or_supplement_changes", "provide_controlled_substance_dosing_or_sourcing", "claim_unproven_energy_mechanisms_as_fact", "replace_qualified_professional"],
+      "data_classes_read": ["wellness_logs", "clinical_records_index", "identifiers"],
+      "evidence_tiers_may_cite": ["A", "B", "C", "D"],
+      "implementation_status": "registry_only"
+    },
+    {
+      "agent_id": "agent_training_foundations_educator",
+      "pack_id": "movement-training-foundations",
+      "canonical_label": "Movement and Training Foundations Educator",
+      "brand_status": "generic_public",
+      "domain": "movement_training",
+      "purpose": "Support general training literacy, session logging, recovery questions, and non-clinical reflection without individualized rehab or medical claims.",
+      "allowed_actions": ["create_training_log", "explain_general_training_principles", "summarize_user_reported_patterns", "prepare_coach_or_clinician_questions"],
+      "must_not": ["diagnose", "treat_or_prescribe", "interpret_clinical_results", "recommend_medication_or_supplement_changes", "provide_controlled_substance_dosing_or_sourcing", "claim_unproven_energy_mechanisms_as_fact", "replace_qualified_professional", "prescribe_injury_rehabilitation"],
+      "data_classes_read": ["wellness_logs", "wearable_rollups"],
+      "evidence_tiers_may_cite": ["A", "B", "C", "D"],
+      "implementation_status": "registry_only"
+    },
+    {
+      "agent_id": "agent_martial_arts_movement_educator",
+      "pack_id": "martial-arts-movement-education",
+      "canonical_label": "Martial-Arts Movement Educator",
+      "brand_status": "generic_public",
+      "domain": "martial_arts_movement",
+      "purpose": "Maintain a movement and practice journal, explain general safety concepts, and prepare questions for qualified instructors.",
+      "allowed_actions": ["create_movement_journal", "explain_general_safety_concepts", "prepare_instructor_questions", "log_user_reported_practice"],
+      "must_not": ["diagnose", "treat_or_prescribe", "interpret_clinical_results", "recommend_medication_or_supplement_changes", "provide_controlled_substance_dosing_or_sourcing", "claim_unproven_energy_mechanisms_as_fact", "replace_qualified_professional", "direct_live_combat_or_high_risk_technique"],
+      "data_classes_read": ["wellness_logs"],
+      "evidence_tiers_may_cite": ["A", "B", "C", "D"],
+      "implementation_status": "registry_only"
+    },
+    {
+      "agent_id": "agent_culinary_botanicals_educator",
+      "pack_id": "culinary-botanicals-education",
+      "canonical_label": "Culinary Botanicals Educator",
+      "brand_status": "generic_public",
+      "domain": "culinary_botanicals",
+      "purpose": "Document ordinary food and beverage use, cultural context, and evidence questions without botanical medicine or supplement dosing.",
+      "allowed_actions": ["document_culinary_use", "summarize_traditional_context", "compare_claims_to_public_evidence", "prepare_pharmacist_questions"],
+      "must_not": ["diagnose", "treat_or_prescribe", "interpret_clinical_results", "recommend_medication_or_supplement_changes", "provide_controlled_substance_dosing_or_sourcing", "claim_unproven_energy_mechanisms_as_fact", "replace_qualified_professional", "provide_botanical_or_supplement_dosing"],
+      "data_classes_read": ["wellness_logs", "meal_photos"],
+      "evidence_tiers_may_cite": ["A", "B", "C", "D"],
+      "implementation_status": "registry_only"
+    },
+    {
+      "agent_id": "agent_complementary_practice_educator",
+      "pack_id": "complementary-practice-education",
+      "canonical_label": "Complementary Practice Evidence Guide",
+      "brand_status": "generic_public",
+      "domain": "complementary_practice_education",
+      "purpose": "Separate subjective experience, cultural tradition, safety questions, and scientific evidence for complementary practices.",
+      "allowed_actions": ["journal_subjective_experience", "describe_cultural_context", "compare_claims_to_public_evidence", "prepare_practitioner_or_clinician_questions"],
+      "must_not": ["diagnose", "treat_or_prescribe", "interpret_clinical_results", "recommend_medication_or_supplement_changes", "provide_controlled_substance_dosing_or_sourcing", "claim_unproven_energy_mechanisms_as_fact", "replace_qualified_professional", "present_subjective_experience_as_clinical_efficacy"],
+      "data_classes_read": ["wellness_logs"],
+      "evidence_tiers_may_cite": ["A", "B", "C", "D"],
+      "implementation_status": "registry_only"
+    }
+  ]
+}

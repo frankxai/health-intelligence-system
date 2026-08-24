@@ -84,8 +84,8 @@
         ]
       }
     },
-    "protocol_id": { "type": "string" },
-    "protocol_run_id": { "type": "string" },
+    "protocol_id": { "type": "string", "pattern": "^proto_[A-Za-z0-9_-]+$" },
+    "protocol_run_id": { "type": "string", "pattern": "^run_[A-Za-z0-9_-]+$" },
     "media_refs": {
       "type": "array",
       "items": {
@@ -105,5 +105,16 @@
       "items": { "type": "string" },
       "uniqueItems": true
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": { "enum": ["protocol_start", "protocol_checkin", "protocol_stop", "protocol_outcome"] }
+        },
+        "required": ["kind"]
+      },
+      "then": { "required": ["protocol_id", "protocol_run_id"] }
+    }
+  ]
 }

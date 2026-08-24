@@ -10,6 +10,7 @@
     "schema_version",
     "household_id",
     "subject_id",
+    "default_deny",
     "rules",
     "updated_at"
   ],

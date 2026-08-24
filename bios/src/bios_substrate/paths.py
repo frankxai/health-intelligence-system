@@ -7,6 +7,8 @@ from pathlib import Path
 PKG_ROOT = Path(__file__).resolve().parents[2]  # .../bios
 SCHEMAS = PKG_ROOT / "schemas"
 PACKS = PKG_ROOT / "packs"
+REGISTRY = PKG_ROOT / "registry"
+KNOWLEDGE = PKG_ROOT / "knowledge"
 TEMPLATES = PKG_ROOT / "templates"
 
 

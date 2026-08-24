@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from .validate import validate_household
+from .validate import strict_json_loads, validate_consent, validate_egress, validate_household
 
 
 def utc_now() -> str:
@@ -43,6 +43,7 @@ def init_household_vault(
     household = {
         "household_id": hh_id,
         "schema_version": "0.1.0",
+        "vault_mode": "synthetic_plaintext_prototype",
         "display_name": household_name,
         "subjects": [
             {
@@ -69,19 +70,22 @@ def init_household_vault(
             }
         ],
         "created_at": created,
-        "notes": "BIOS household vault. Subject may always read everything written about them.",
+        "notes": "Synthetic plaintext test fixture only. Never enter personal or clinical data.",
     }
     validate_household(household)
 
     (path / "household.json").write_text(json.dumps(household, indent=2) + "\n", encoding="utf-8")
     (path / "README.md").write_text(
-        f"""# BIOS household vault
+        f"""# BIOS synthetic plaintext test vault
+
+> STOP: this reference vault is an unencrypted synthetic-data prototype. Never enter personal,
+> household, clinical, genomic, wearable, image, or identifying data.
 
 Household: **{household_name}** (`{hh_id}`)
 
 - Canonical unit: household (steward model: subject ≠ operator allowed)
 - Ledger is append-only JSONL under each subject
-- Never put raw clinical PDFs in a public git remote
+- Never put real health records or raw clinical PDFs in this prototype or a public git remote
 - High-frequency wearable streams → local Parquet outside git; commit rollups only
 
 ## Layout
@@ -124,17 +128,17 @@ Created: {created}
         "rules": [
             {
                 "sensitivity_class": "public",
-                "allowed_tiers": ["local", "tee_or_venice", "frontier"],
+                "allowed_tiers": ["local"],
                 "redaction_profile": "none",
             },
             {
                 "sensitivity_class": "personal",
-                "allowed_tiers": ["local", "tee_or_venice", "frontier"],
+                "allowed_tiers": ["local"],
                 "redaction_profile": "identifiers_only",
             },
             {
                 "sensitivity_class": "clinical",
-                "allowed_tiers": ["local", "tee_or_venice"],
+                "allowed_tiers": ["local"],
                 "redaction_profile": "clinical_strip",
             },
             {
@@ -146,6 +150,7 @@ Created: {created}
         "updated_at": created,
         "steward_id": op_id,
     }
+    validate_egress(egress)
     (sdir / "egress.json").write_text(json.dumps(egress, indent=2) + "\n", encoding="utf-8")
 
     consent = {
@@ -156,18 +161,28 @@ Created: {created}
         "authorized_by_id": op_id,
         "authority_basis": "self",
         "purposes": ["self_tracking", "agent_assist", "clinician_handoff", "backup"],
-        "data_classes": ["wellness_logs", "meal_photos", "wearable_rollups", "supplement_stack"],
+        "data_classes": ["wellness_logs", "meal_photos", "wearable_rollups", "supplement_stack", "identifiers"],
         "recipients": [
             {"recipient_id": sub_id, "kind": "self"},
             {"recipient_id": op_id, "kind": "steward"},
             {"recipient_id": "local_agent", "kind": "local_agent"},
         ],
+        "processors": [
+            {"processor_id": "bios_local_runtime", "kind": "local_runtime", "allowed_tiers": ["local"]},
+            {"processor_id": "bios_local_human_review", "kind": "local_human_tool", "allowed_tiers": ["local"]},
+        ],
         "actions": ["collect", "store", "summarize", "ai_process", "export"],
+        "record_scope": {
+            "event_ids": [],
+            "protocol_run_ids": [],
+        },
+        "revision": 1,
         "granted_at": created,
         "status": "active",
         "dignity_clause": True,
         "notice_version": "bios-0.1",
     }
+    validate_consent(consent)
     (sdir / "consent" / "self-tracking.json").write_text(
         json.dumps(consent, indent=2) + "\n", encoding="utf-8"
     )
@@ -175,7 +190,7 @@ Created: {created}
     gitignore = path / ".gitignore"
     if not gitignore.exists():
         gitignore.write_text(
-            "media/\n*.parquet\n*.duckdb\n.env\nexports/*-private*\n",
+            "media/\n.bios-private/\n*.parquet\n*.duckdb\n.env\nexports/*-private*\n",
             encoding="utf-8",
         )
 
@@ -183,7 +198,7 @@ Created: {created}
 
 
 def load_household(vault: Path) -> dict[str, Any]:
-    data = json.loads((vault / "household.json").read_text(encoding="utf-8"))
+    data = strict_json_loads((vault / "household.json").read_text(encoding="utf-8"), "household")
     validate_household(data)
     return data
 
@@ -247,12 +262,12 @@ def add_subject(
         "rules": [
             {
                 "sensitivity_class": "public",
-                "allowed_tiers": ["local", "tee_or_venice", "frontier"],
+                "allowed_tiers": ["local"],
                 "redaction_profile": "none",
             },
             {
                 "sensitivity_class": "personal",
-                "allowed_tiers": ["local", "tee_or_venice", "frontier"],
+                "allowed_tiers": ["local"],
                 "redaction_profile": "identifiers_only",
             },
             {
@@ -269,5 +284,6 @@ def add_subject(
         "updated_at": created,
         "steward_id": household["stewards"][0]["operator_id"],
     }
+    validate_egress(egress)
     (sdir / "egress.json").write_text(json.dumps(egress, indent=2) + "\n", encoding="utf-8")
     return sub_id

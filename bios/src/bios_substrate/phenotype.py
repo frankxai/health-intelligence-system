@@ -9,6 +9,7 @@ from typing import Any
 
 from . import ledger as ledger_mod
 from .protocol_ops import list_active_runs
+from .validate import validate_phenotype
 from .vault import load_household, resolve_subject_id, subject_dir, utc_now
 
 
@@ -93,6 +94,7 @@ def rebuild_phenotype(vault: Path, subject: str) -> dict[str, Any]:
         "recent_tags": [t for t, _ in tag_counter.most_common(20)],
         "rebuild_command": "bios_substrate phenotype rebuild",
     }
+    validate_phenotype(phenotype)
     out = subject_dir(vault, subject_id) / "phenotype.json"
     out.write_text(json.dumps(phenotype, indent=2) + "\n", encoding="utf-8")
     return phenotype

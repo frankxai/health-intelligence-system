@@ -2,7 +2,8 @@
   "pack_id": "circadian",
   "title": "Circadian foundations",
   "version": "0.1.0",
-  "description": "Ordinary wellness protocols for light, sleep timing, and daily rhythm. Not medical treatment.",
+  "description": "Non-runnable synthetic fixtures for testing circadian-evidence and safety contracts; no routine guidance.",
   "class": "ordinary_wellness",
+  "release_status": "draft_synthetic",
   "last_reviewed": "2026-08-10"
 }

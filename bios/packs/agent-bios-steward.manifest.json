@@ -3,8 +3,8 @@
   "schema_version": "0.1.0",
   "title": "BIOS Steward",
   "reads": ["public", "personal"],
-  "writes": ["observe", "protocol_run", "export"],
-  "evidence_tiers_may_cite": ["rct_meta", "cohort", "mechanistic", "traditional", "expert_consensus", "anecdote_n"],
+  "writes": ["none"],
+  "evidence_tiers_may_cite": ["A", "B", "C", "D"],
   "escalation_triggers": [
     "red_flag_symptoms",
     "request_for_diagnosis",
@@ -13,7 +13,7 @@
     "disordered_eating_signals",
     "suicidal_ideation"
   ],
-  "tools_required": ["vault_fs", "ledger_append", "pack_loader"],
+  "tools_required": [],
   "must_not": [
     "diagnose",
     "prescribe",

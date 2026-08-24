@@ -22,12 +22,20 @@ Run this before publishing, packaging, or sharing an artifact.
 
 ## Evidence
 
-- [ ] Evidence-check date is present.
+- [ ] Claim receipts carry review/correction/supersession dates; no manifest hardcodes an
+  `evidence_checked` date.
 - [ ] Source links are present and current.
 - [ ] Public screening guidance is described as average-risk baseline, not personal instruction.
 - [ ] Treatment content is education and question preparation only.
 - [ ] External systems are classified as `reference`, `integrate later`, `watchlist`, or `do not emulate`.
 - [ ] Repo disposition decisions mark evidence level: `local-read`, `github-read`, `inventory-only`, or `proposed`.
+- [ ] Every BIOS claim has a DOI, PMID, or authority URL plus PICO/timeframe, outcome and harms certainty, directness, funding/COI, integrity/correction/supersession dates, and rights/ingestion mode.
+- [ ] Evidence tiers follow A/B/C/D/E/Q semantics; E is discovery only and Q is quarantine, and neither
+  can support an active claim or reviewed protocol.
+- [ ] Books, podcasts, newsletters, and creator media remain `idea_source_only`; no copyrighted full text is packaged and no user-facing protocol cites an idea source directly.
+- [ ] No shipped claim is active or user-facing; no shipped protocol or pack is reviewed/startable.
+- [ ] Active-claim tests reject unchecked, stale, retracted, expression-of-concern, rights-incompatible,
+  and discovery-only sole-source evidence.
 
 ## Privacy
 
@@ -37,6 +45,22 @@ Run this before publishing, packaging, or sharing an artifact.
 - [ ] No private files from `private/` are included.
 - [ ] No raw private files from `HealthVault/` are included.
 - [ ] Any AI-sanitized context was reviewed before export.
+- [ ] Handoff tests prove exact subject/recipient/processor/purpose/action/data-class/tier/event/run
+  consent, complete default-deny egress rules, identifier handling, and signed/hash-bound receipts.
+- [ ] Recipient output reveals no denied sensitivity classes, omission counts, or raw ledger count.
+- [ ] Cross-subject lines, duplicate JSON keys, unknown fields, invalid/future chronology,
+  duplicate/ambiguous consent, revoked/expired consent, and malformed egress fail closed.
+
+## Executable BIOS Gates
+
+- [ ] `python -m unittest discover -s bios/tests -v` passes.
+- [ ] `python -m bios_substrate validate --vault <synthetic-vault>` passes.
+- [ ] The start API and CLI expose no `--force`; real shipped-fixture tests prove every current pack
+  and protocol is non-startable.
+- [ ] Runtime validation executes the published Draft 2020-12 schemas with format checking before
+  stricter semantics.
+- [ ] The bounded domain-agent registry contains only stewardship, movement/training, martial-arts movement, culinary botanicals, and complementary-practice education.
+- [ ] Complementary-practice content separates subjective/traditional context from established evidence and never asserts an unproven energy mechanism as fact.
 
 ## Workflow Dry Runs
 
@@ -49,6 +73,8 @@ Run this before publishing, packaging, or sharing an artifact.
 ## Release Package
 
 - [ ] `npm run package:release` completes.
+- [ ] Packaging starts only from one clean commit/tree/index, rejects untracked/ignored/forbidden
+  content, and archives exact Git blobs rather than recursively copying the worktree.
 - [ ] ZIP exists in `dist/`.
 - [ ] GitHub Release includes `release-manifest.json` with checksums.
 - [ ] `npm run verify:release` passes for the local ZIP and manifest.

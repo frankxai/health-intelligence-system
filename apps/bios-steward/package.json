@@ -6,11 +6,11 @@
     "dev": "next dev --turbopack --port 4310",
     "build": "next build",
     "start": "next start --port 4310",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "15.5.7",
+    "next": "15.5.23",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -20,7 +20,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.7",
+    "eslint-config-next": "15.5.23",
     "typescript": "^5"
   }
 }

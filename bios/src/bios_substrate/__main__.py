@@ -16,7 +16,9 @@ from bios_substrate import __version__
 from bios_substrate.handoff import build_handoff
 from bios_substrate.ledger import append_event
 from bios_substrate.phenotype import rebuild_phenotype
+from bios_substrate.privacy import load_consents, load_egress_policy
 from bios_substrate.protocol_ops import list_active_runs, list_packs, load_pack, start_protocol
+from bios_substrate.registry import load_agent_manifest, load_domain_agent_registry, load_idea_sources
 from bios_substrate.validate import ValidationError
 from bios_substrate.vault import add_subject, init_household_vault, load_household
 
@@ -77,6 +79,18 @@ def _cmd_packs_list(_: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_agents_list(_: argparse.Namespace) -> int:
+    registry = load_domain_agent_registry()
+    print(json.dumps({"registry_id": registry["registry_id"], "agents": registry["agents"]}, indent=2))
+    return 0
+
+
+def _cmd_idea_sources(_: argparse.Namespace) -> int:
+    sources = load_idea_sources()
+    print(json.dumps({"idea_sources": sources}, indent=2))
+    return 0
+
+
 def _cmd_protocol_list(args: argparse.Namespace) -> int:
     pack = load_pack(args.pack)
     rows = []
@@ -105,7 +119,6 @@ def _cmd_protocol_start(args: argparse.Namespace) -> int:
             subject=args.subject,
             pack_id=args.pack,
             protocol_key=args.id,
-            force=args.force,
         )
     except ValidationError as exc:
         print(str(exc), file=sys.stderr)
@@ -127,7 +140,16 @@ def _cmd_phenotype(args: argparse.Namespace) -> int:
 
 
 def _cmd_handoff(args: argparse.Namespace) -> int:
-    text = build_handoff(Path(args.vault), args.subject)
+    text = build_handoff(
+        Path(args.vault),
+        args.subject,
+        recipient_id=args.recipient_id,
+        recipient_kind=args.recipient_kind,
+        processor_id=args.processor_id,
+        processor_kind=args.processor_kind,
+        target_tier=args.target_tier,
+        persist_internal=not bool(args.out),
+    )
     if args.out:
         Path(args.out).write_text(text, encoding="utf-8")
         print(f"wrote {args.out}")
@@ -148,11 +170,21 @@ def _cmd_validate(args: argparse.Namespace) -> int:
         except Exception as exc:  # noqa: BLE001 — surface pack errors
             errors.append(f"pack {pack_id}: {exc}")
     for sub in hh["subjects"]:
-        sdir = vault / "subjects" / sub["subject_id"]
-        if not (sdir / "ledger.jsonl").exists():
-            errors.append(f"missing ledger for {sub['subject_id']}")
-        if not (sdir / "egress.json").exists():
-            errors.append(f"missing egress for {sub['subject_id']}")
+        try:
+            from bios_substrate.ledger import read_events
+
+            read_events(vault, sub["subject_id"])
+            load_egress_policy(vault, hh["household_id"], sub["subject_id"])
+            load_consents(vault, hh["household_id"], sub["subject_id"])
+            list_active_runs(vault, sub["subject_id"])
+        except (FileNotFoundError, KeyError, ValidationError, ValueError) as exc:
+            errors.append(f"subject {sub['subject_id']}: {exc}")
+    try:
+        load_domain_agent_registry()
+        load_idea_sources()
+        load_agent_manifest()
+    except (FileNotFoundError, ValidationError, ValueError) as exc:
+        errors.append(f"public BIOS contracts: {exc}")
     result = {
         "ok": not errors,
         "household_id": hh["household_id"],
@@ -202,6 +234,12 @@ def build_parser() -> argparse.ArgumentParser:
     packs = sub.add_parser("packs", help="List domain packs")
     packs.set_defaults(func=_cmd_packs_list)
 
+    agents = sub.add_parser("agents", help="List bounded public domain-agent contracts")
+    agents.set_defaults(func=_cmd_agents_list)
+
+    ideas = sub.add_parser("idea-sources", help="List discovery-tier bibliographic metadata")
+    ideas.set_defaults(func=_cmd_idea_sources)
+
     pl = sub.add_parser("protocol-list", help="List protocols in a pack")
     pl.add_argument("--pack", required=True)
     pl.set_defaults(func=_cmd_protocol_list)
@@ -213,11 +251,6 @@ def build_parser() -> argparse.ArgumentParser:
     start.add_argument("--subject", default="self")
     start.add_argument("--pack", required=True)
     start.add_argument("--id", required=True, help="protocol id or short key")
-    start.add_argument(
-        "--force",
-        action="store_true",
-        help="Override soft gate after human review (still blocks hard jurisdiction locks)",
-    )
     start.set_defaults(func=_cmd_protocol_start)
 
     active = ps_sub.add_parser("active", help="List active protocol runs")
@@ -236,6 +269,24 @@ def build_parser() -> argparse.ArgumentParser:
     ho.add_argument("--vault", required=True)
     ho.add_argument("--subject", default="self")
     ho.add_argument("--out", default=None)
+    ho.add_argument("--recipient-id", default=None, help="Exact consent recipient id; defaults to subject")
+    ho.add_argument(
+        "--recipient-kind",
+        default="self",
+        choices=["self", "steward", "household_member", "clinician", "local_agent", "frontier_model", "commons", "backup_target"],
+    )
+    ho.add_argument("--processor-id", default="bios_local_runtime")
+    ho.add_argument(
+        "--processor-kind",
+        default="local_runtime",
+        choices=["local_runtime", "local_human_tool", "hosted_model", "backup_service"],
+    )
+    ho.add_argument(
+        "--target-tier",
+        default="local",
+        choices=["local", "tee_or_venice", "frontier"],
+        help="Compile through the matching egress tier; this command does not transmit data",
+    )
     ho.set_defaults(func=_cmd_handoff)
 
     val = sub.add_parser("validate", help="Validate vault + installed packs")

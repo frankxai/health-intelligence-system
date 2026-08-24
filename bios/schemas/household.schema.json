@@ -8,6 +8,7 @@
   "required": [
     "household_id",
     "schema_version",
+    "vault_mode",
     "display_name",
     "subjects",
     "stewards",
@@ -16,6 +17,7 @@
   "properties": {
     "household_id": { "type": "string", "pattern": "^hh_[A-Za-z0-9_-]+$" },
     "schema_version": { "const": "0.1.0" },
+    "vault_mode": { "const": "synthetic_plaintext_prototype" },
     "display_name": { "type": "string", "minLength": 1, "maxLength": 120 },
     "subjects": {
       "type": "array",
@@ -23,7 +25,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["subject_id", "display_name", "role"],
+        "required": ["subject_id", "display_name", "role", "can_read_own"],
         "properties": {
           "subject_id": { "type": "string", "pattern": "^sub_[A-Za-z0-9_-]+$" },
           "display_name": { "type": "string" },

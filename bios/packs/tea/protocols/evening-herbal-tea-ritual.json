@@ -1,69 +1,48 @@
 {
-  "protocol_id": "proto_evening_herbal_tea_ritual",
+  "protocol_id": "proto_culinary_botanical_synthetic_fixture",
   "schema_version": "0.1.0",
-  "title": "Evening non-caffeine tea ritual",
+  "title": "Synthetic culinary-botanical evidence fixture — not runnable",
+  "release_status": "draft_synthetic",
   "version": "0.1.0",
   "domain_pack": "tea",
-  "class": "ordinary_wellness",
-  "hypothesis": "A consistent non-caffeine evening tea ritual 60–90 minutes before bed will improve subjective wind-down over 14 days.",
+  "class": "education",
+  "hypothesis": "This synthetic fixture exists only to validate protocol, evidence, and safety gates.",
   "intervention": {
-    "summary": "Prepare one cup of a non-caffeine culinary tea or herbal infusion you already tolerate; sip slowly as a wind-down cue.",
+    "summary": "No beverage, herb, amount, preparation, or timing instruction is authorized.",
     "steps": [
-      "Pick a non-caffeine option you already use safely (e.g. rooibos, mint, ginger culinary teas — personal tolerance first).",
-      "Brew one ordinary cup per label of a food-grade product.",
-      "Sit away from bright screens if possible; journal one sentence of the day.",
-      "Log sleepiness 1-10 at lights-out."
-    ],
-    "dose_descriptor": "1 ordinary cup",
-    "materials": ["food-grade tea", "cup", "kettle"]
+      "Do not apply this fixture to a person.",
+      "Complete rights, interaction, allergy, evidence, and clinical-legal review before any future proposal."
+    ]
   },
-  "timing": {
-    "anchor": "pre_sleep",
-    "frequency": "daily",
-    "phase_note": "Avoid large fluid volume if nocturia is a problem; discuss with clinician if needed."
-  },
-  "duration": {
-    "days": 14,
-    "washout_days": 0,
-    "min_adherence": 0.7
-  },
+  "timing": { "anchor": "as_needed_non_urgent", "frequency": "synthetic test only" },
+  "duration": { "days": 1 },
   "measurement_plan": [
+    { "metric": "schema_gate_result", "method": "journal", "cadence": "test execution" }
+  ],
+  "stop_conditions": ["The runtime must refuse to start this draft."],
+  "contraindications": [
     {
-      "metric": "wind_down_ease",
-      "method": "scale_1_10",
-      "cadence": "daily evening"
-    },
-    {
-      "metric": "tea_type",
-      "method": "self_report",
-      "cadence": "daily"
+      "condition_id": "contra_botanical_risk",
+      "label": "Any allergy, interaction, pregnancy, medication, or non-food botanical context",
+      "severity": "critical",
+      "action": "permanent_runtime_block",
+      "match_terms": ["allergy", "interaction", "plant medicine"]
     }
   ],
-  "expected_effect": {
-    "direction": "improve",
-    "subjective_window_days": 7,
-    "note": "Ritual and caffeine avoidance may matter more than the specific culinary herb."
-  },
-  "stop_conditions": [
-    "Allergy symptoms, rash, GI distress",
-    "Pregnancy or medication interaction concerns raised by clinician or pharmacist",
-    "Any product that is not ordinary food-grade tea"
-  ],
-  "contraindications": [
-    "Known allergy to the herb/tea",
-    "Clinician or pharmacist advised avoidance of specific herbs",
-    "Use of non-food 'plant medicine' preparations — out of scope; jurisdiction routing only"
-  ],
-  "claim_ids": [
-    "claim_tea_hydration_ritual",
-    "claim_tea_evening_herbal_noncaffeine"
-  ],
-  "evidence_floor": "expert_consensus",
-  "jurisdiction_flags": ["culinary_only", "supplement_label_varies"],
+  "claim_ids": ["claim_tea_hydration_ritual", "claim_tea_evening_herbal_noncaffeine"],
+  "evidence_floor": "E",
+  "jurisdiction_flags": ["culinary_only"],
   "safety": {
     "not_diagnosis": true,
     "not_prescription": true,
-    "emergency_route": "Allergic emergency: local emergency services."
+    "emergency_route": "For an emergency, contact local emergency services; do not use this fixture.",
+    "medical_functionality_disabled": true,
+    "clearance_handling": "external_verifier_unavailable_fail_closed"
   },
-  "last_reviewed": "2026-08-10"
+  "review_gate": {
+    "evidence_reviewed": false,
+    "safety_reviewed": false,
+    "clinical_legal_reviewed": false
+  },
+  "last_reviewed": "2026-08-24"
 }

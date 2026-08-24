@@ -4,23 +4,24 @@
 
 <h1 align="center">Health Intelligence System</h1>
 
+> **Current foundation status (2026-08-24): non-medical synthetic prerelease.** Every shipped BIOS
+> claim is `draft`; every shipped protocol is `draft_synthetic`; protocol execution is blocked; the
+> browser preview accepts and stores no data; the reference file vault is an unencrypted synthetic
+> test fixture only. Do not use this branch with real health data or for personal guidance.
+
 <p align="center">
-  A public, safety-gated protocol and agent pack for private health operations, clinician-ready handoffs, wearable-data organization, cancer-prep workflows, and research-boundary discipline.
+  A public evidence, consent, privacy, and safety foundation for future sovereign health tools.
 </p>
 
 <p align="center">
-  <a href="https://github.com/frankxai/health-intelligence-system/releases/tag/v0.2.1"><img alt="Release" src="https://img.shields.io/badge/release-v0.2.1-0f766e"></a>
+  <img alt="Maturity" src="https://img.shields.io/badge/maturity-research_preview-b45309">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-111827"></a>
-  <a href="SAFETY.md"><img alt="Safety" src="https://img.shields.io/badge/safety-preclinical_prerelease-b45309"></a>
-  <a href="VERIFY.md"><img alt="Verified Package" src="https://img.shields.io/badge/package-verified-2563eb"></a>
-  <a href="AGENT_PACK.md"><img alt="Agent Pack" src="https://img.shields.io/badge/agent_pack-ready-7c3aed"></a>
+  <a href="SAFETY.md"><img alt="Safety" src="https://img.shields.io/badge/medical_functionality-disabled-b91c1c"></a>
+  <a href="VALIDATION.md"><img alt="Evidence" src="https://img.shields.io/badge/admitted_evidence-none-b91c1c"></a>
+  <a href="AGENT_PACK.md"><img alt="Agent Pack" src="https://img.shields.io/badge/agent_pack-release_hold-6b7280"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/frankxai/health-intelligence-system/releases/download/v0.2.1/health-intelligence-system-v0.2.1.zip">Download full package</a>
-  ·
-  <a href="https://github.com/frankxai/health-intelligence-system/releases/download/v0.2.1/health-intelligence-agent-pack-v0.2.1.zip">Download agent pack</a>
-  ·
   <a href="QUICK-START.md">Quick start</a>
   ·
   <a href="SAFETY.md">Safety</a>
@@ -38,31 +39,33 @@ It is designed to be used in three ways:
 | --- | --- | --- |
 | Human operator | Private vault setup, records, visits, routines, questions | Templates and checklists |
 | Coding agent / assistant | Repeatable workflows for setup, redaction, visit prep, handoff, weekly review | Commands, prompts, plugin skill |
-| Product runtime | Public safety contract consumed by private Agentic Life OS / Agentic Health OS | Protocol, package, validation gates |
+| Product runtime | Public safety contract consumed by public Agentic Life OS / Agentic Health OS code and private per-person runtimes | Protocol, package, validation gates |
 
 ## BIOS substrate (v0.1)
 
-**BIOS** (Sovereign Health Intelligence Substrate) is the executable middle layer: household vault, append-only ledger, n-of-1 **protocol** format, claims, consent lattice, egress policy, steward model (subject ≠ operator), and clinician handoff — so multi-agent swarms and ChatGPT projects stay interfaces, not systems of record.
+**BIOS** (Sovereign Health Intelligence Substrate) is currently a safety-contract testbed: schemas,
+synthetic fixtures, exact-scope consent/egress compilation, and tamper-evident local audit receipts.
+It is not an approved health runtime or system of record.
 
 | Path | What |
 | --- | --- |
 | [`bios/README.md`](bios/README.md) | Primitives, tiers, quick start |
 | [`docs/bios-decision-2026-08-10.md`](docs/bios-decision-2026-08-10.md) | Angles, GitHub landscape, monetization, 100-day plan |
-| [`bios/packs/`](bios/packs/) | Circadian · breath · nutrition · tea (claim-tiered ordinary wellness) |
+| [`bios/packs/`](bios/packs/) | Non-runnable synthetic fixtures for evidence and safety testing |
+| [`bios/registry/public-domain-agents.json`](bios/registry/public-domain-agents.json) | Neutral health stewardship, training, martial movement, culinary botanicals, and complementary-practice education contracts |
+| [`bios/knowledge/idea-sources/`](bios/knowledge/idea-sources/) | Copyright-safe discovery metadata; not admitted evidence |
 | [`bios/templates/t0-chatgpt-project-pack.md`](bios/templates/t0-chatgpt-project-pack.md) | Grandma / phone-first operator pack |
 | [`commands/bios-vault.md`](commands/bios-vault.md) | Agent command |
-| [`apps/bios-steward`](apps/bios-steward) | **Premium Steward UI** (Next.js) — circadian ring, capture dock, protocols, handoff |
+| [`apps/bios-steward`](apps/bios-steward) | Read-only synthetic preview: no input, storage, start, handoff, upload, or export; excluded from release packaging |
 
 ```bash
-PYTHONPATH=bios/src python -m bios_substrate init --household "Family" --subject self --path ./_local/family
-PYTHONPATH=bios/src python -m bios_substrate protocol start --vault ./_local/family --pack breath --id box-breath-5m
 PYTHONPATH=bios/src python -m unittest discover -s bios/tests -v
-
-# Premium UI
-pnpm --dir apps/bios-steward install
-pnpm --dir apps/bios-steward dev
-# http://localhost:4310
+PYTHONPATH=bios/src python -m bios_substrate init --household synthetic-demo --subject synthetic --path ./_local/synthetic-demo
+PYTHONPATH=bios/src python -m bios_substrate validate --vault ./_local/synthetic-demo
 ```
+
+The generated vault is plaintext and contractually marked `synthetic_plaintext_prototype`. Never
+enter real names, notes, images, wearable data, medical records, or other personal information.
 
 Mind / psychology / neuroscience repos are **future domain packs** over one ledger — not N interconnected systems. See consolidation map.
 
@@ -77,33 +80,34 @@ The gut vertical includes the installable [`gut-family-journey`](plugins/health-
 
 It does not diagnose, interpret labs or imaging, prescribe, choose treatment, change medication, dose supplements, triage emergencies, or replace clinicians.
 
-## Download
+## Release status
 
-| Artifact | Best for | Link | Verify |
+The current branch is source-first and verification-only. It does not publish a supported ZIP,
+installable health agent, or deployable health product. Existing `v0.2.1` GitHub artifacts predate
+the 2026-08-24 evidence and runtime gates and must be treated as legacy review material, not as an
+approved distribution.
+
+| Artifact | Current state | Permitted use | Gate to reopen |
 | --- | --- | --- | --- |
-| Full release package | Reviewers, builders, product integration, complete documentation | [`health-intelligence-system-v0.2.1.zip`](https://github.com/frankxai/health-intelligence-system/releases/download/v0.2.1/health-intelligence-system-v0.2.1.zip) | `release-manifest.json` |
-| Agent pack | Codex, Claude, ChatGPT, OpenCode, local assistants, vault setup | [`health-intelligence-agent-pack-v0.2.1.zip`](https://github.com/frankxai/health-intelligence-system/releases/download/v0.2.1/health-intelligence-agent-pack-v0.2.1.zip) | `agent-pack-manifest.json` |
-| Source repo | GitHub review, issues, pull requests, forks | [`frankxai/health-intelligence-system`](https://github.com/frankxai/health-intelligence-system) | Git history |
+| BIOS source | Open review and synthetic conformance testing | Fictional data only | Clean-commit package verification plus independent review |
+| Legacy full package | Historical inspection | Do not use with real data or for guidance | Rebuild from the admitted allowlist |
+| Legacy agent pack | Historical inspection | Do not install or run as a health assistant | Full prompt, command, skill, privacy, and clinical-boundary audit |
+| Source repo | GitHub review, issues, pull requests, forks | Public engineering collaboration; never personal records | Continuous safety and privacy review |
 
-Local verification:
+After creating one clean, reviewed candidate commit, maintainers can verify the minimal synthetic
+BIOS archive locally:
 
 ```powershell
 npm run package:release
 npm run verify:release
-npm run package:agent-pack
-npm run verify:agent-pack
 ```
 
-Verify the public downloads:
+## Legacy install surfaces — hold
 
-```powershell
-pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-release.ps1 -Version 0.2.1 -Download
-pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-agent-pack.ps1 -Version 0.2.1 -Download
-```
+The following files remain visible for audit and migration planning. They are not admitted by the
+current BIOS safety contract and are not install recommendations.
 
-## Install Surfaces
-
-| Surface | Path | Install or adapt into |
+| Surface | Path | Historical target |
 | --- | --- | --- |
 | Codex plugin | [`plugins/health-intelligence-system/`](plugins/health-intelligence-system/) | Codex plugin directory |
 | Sovereign Health Operator skill | [`plugins/health-intelligence-system/skills/sovereign-health-operator/`](plugins/health-intelligence-system/skills/sovereign-health-operator/) | Codex, local skill runners |
@@ -114,7 +118,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-agent-pack.ps1 -Ver
 | Slash commands | [`commands/`](commands/) | Coding agents, local automation |
 | Private vault templates | [`templates/`](templates/) | Obsidian, local folders, encrypted workspace |
 
-Start with [`AGENT_PACK.md`](AGENT_PACK.md) if you want the installable operator package instead of the full repository.
+Review [`AGENT_PACK.md`](AGENT_PACK.md) for the explicit legacy hold and future admission gate.
 
 ## System Architecture
 
@@ -123,7 +127,7 @@ flowchart LR
   user["Person / patient advocate"] --> vault["Private health vault"]
   vault --> records["Records, visits, routines, wearable exports"]
   records --> his["Health Intelligence System public protocol"]
-  his --> agent["Agent pack: plugin, prompts, commands, templates"]
+  his -. future admission .-> agent["Held agent pack: plugin, prompts, commands, templates"]
   agent --> handoff["Clinician handoff and question packets"]
   his --> safety["Safety, privacy, validation, review gates"]
   his --> alos["Private Agentic Life OS"]
@@ -138,14 +142,18 @@ flowchart LR
 
 | Layer | Public or private | Job | Must not hold |
 | --- | --- | --- | --- |
-| Health Intelligence System | Public | Protocol, release package, plugin, prompt pack, templates, safety contract | Raw personal health records |
-| Agentic Health OS | Private product runtime | Personal organization, nutrition/training/wellness loops, visit prep, private vault orchestration | Public patient data |
-| Life Sciences Researcher IS | Private research-only package for now | Literature, trials, mechanisms, biomedical evidence envelopes | Personal records or care decisions |
+| Health Intelligence System | Public | Evidence/safety contracts, synthetic BIOS candidate, and future admitted packages | Raw personal health records |
+| Agentic Life OS / Agentic Health OS code | Public reference implementation | Reusable product UX, safety routing, fictional fixtures | Real patient data, private memory, live vaults |
+| Private encrypted runtime | Local/private per person | Personal organization, consent, nutrition/training/wellness logs, visit prep, private vault orchestration | Public Git, CI, previews, or analytics |
+| Life Sciences Researcher IS | Public research-only code, synthetic data | Literature, trials, mechanisms, biomedical evidence envelopes | Personal records or care decisions |
 | Clinician interface | User-reviewed export | Questions, timelines, source ledger, handoff packet | Unreviewed diagnosis or treatment advice |
 
-Read the full boundary in [`docs/product-boundary.md`](docs/product-boundary.md) and [`docs/agentic-life-os-integration.md`](docs/agentic-life-os-integration.md).
+Read the full boundary in [`docs/product-boundary.md`](docs/product-boundary.md), [`docs/public-core-private-runtime-boundary.md`](docs/public-core-private-runtime-boundary.md), and [`docs/agentic-life-os-integration.md`](docs/agentic-life-os-integration.md).
 
-## Core Workflows
+## Legacy workflow inventory — hold
+
+These public files remain available for review, but the current research preview does not admit or
+package them as executable health-agent workflows.
 
 | Workflow | Command | Template | Boundary |
 | --- | --- | --- | --- |
@@ -182,7 +190,7 @@ Read the full boundary in [`docs/product-boundary.md`](docs/product-boundary.md)
 
 | Need | Start here |
 | --- | --- |
-| Fast operator setup | [`QUICK-START.md`](QUICK-START.md) |
+| Historical operator setup (held) | [`QUICK-START.md`](QUICK-START.md) |
 | Safety boundary | [`SAFETY.md`](SAFETY.md) |
 | Privacy model | [`PRIVACY.md`](PRIVACY.md) |
 | Validation and release checks | [`VALIDATION.md`](VALIDATION.md), [`VERIFY.md`](VERIFY.md) |
@@ -190,9 +198,11 @@ Read the full boundary in [`docs/product-boundary.md`](docs/product-boundary.md)
 | Product split | [`docs/product-boundary.md`](docs/product-boundary.md) |
 | Private runtime integration | [`docs/agentic-life-os-integration.md`](docs/agentic-life-os-integration.md) |
 | Research boundary | [`docs/companion-research-systems.md`](docs/companion-research-systems.md) |
+| Evidence admission and copyright | [`docs/evidence-admission-and-copyright.md`](docs/evidence-admission-and-copyright.md) |
+| Vitalis / Velora public-name hold | [`docs/VITALIS-PUBLIC-NAME.md`](docs/VITALIS-PUBLIC-NAME.md) |
 | External systems comparison | [`docs/external-systems-comparison.md`](docs/external-systems-comparison.md) |
-| Agent installation | [`docs/coding-agent-installation-guide.md`](docs/coding-agent-installation-guide.md) |
-| Prompt pack | [`docs/prompt-pack-chatgpt-claude.md`](docs/prompt-pack-chatgpt-claude.md) |
+| Historical agent installation (held) | [`docs/coding-agent-installation-guide.md`](docs/coding-agent-installation-guide.md) |
+| Historical prompt pack (held) | [`docs/prompt-pack-chatgpt-claude.md`](docs/prompt-pack-chatgpt-claude.md) |
 | Wearable data | [`docs/wearable-data-ingestion-and-privacy.md`](docs/wearable-data-ingestion-and-privacy.md) |
 | Cancer prep | [`docs/cancer-detection-prep-treatment.md`](docs/cancer-detection-prep-treatment.md) |
 
@@ -235,7 +245,6 @@ This repo uses:
 ```powershell
 npm run package:all
 npm run verify:release
-npm run verify:agent-pack
 ```
 
 ## Built On

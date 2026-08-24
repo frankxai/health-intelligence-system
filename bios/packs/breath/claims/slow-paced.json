@@ -1,26 +1,84 @@
 {
   "claim_id": "claim_breath_slow_paced",
-  "schema_version": "0.1.0",
-  "statement": "Slow-paced breathing practices are widely used in stress-reduction education; evidence quality varies by protocol and population.",
-  "evidence_tier": "expert_consensus",
+  "schema_version": "0.1.1",
+  "statement": "Synthetic evidence fixture only: no breathing practice claim has been admitted for user-facing guidance.",
+  "evidence_tier": "E",
+  "certainty": "low",
+  "pico": {
+    "population": "Synthetic fixture; no population has been admitted.",
+    "intervention": "Not specified; no intervention has been admitted.",
+    "comparator": "Not specified for this discovery-only fixture.",
+    "outcome": "No user-facing outcome has been admitted.",
+    "timeframe": "Not specified for this discovery-only fixture."
+  },
+  "harms": {
+    "summary": "Not assessed; this synthetic fixture cannot support action.",
+    "certainty": "uncertain"
+  },
+  "directness": "unclear",
+  "funding_coi": {
+    "funding": "Not reviewed for admission.",
+    "coi_status": "unknown"
+  },
+  "integrity": {
+    "status": "unverified",
+    "correction_status": "not_checked",
+    "supersession_status": "not_checked",
+    "reviewed_on": "2026-08-24",
+    "next_review_due": "2026-08-24"
+  },
+  "rights": {
+    "ingestion_mode": "metadata_only",
+    "license_review_status": "pending"
+  },
   "sources": [
     {
+      "source_id": "src_aha_stress_management",
       "title": "American Heart Association — stress management and healthy lifestyle education",
-      "kind": "guideline",
+      "kind": "authority_education",
+      "publisher_or_authority": "American Heart Association",
       "url": "https://www.heart.org/en/healthy-living/healthy-lifestyle/stress-management",
       "year": 2024,
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24",
       "notes": "Public lifestyle education; not a device or drug claim."
     },
     {
+      "source_id": "src_nccih_relaxation_techniques",
       "title": "NCCIH — Relaxation techniques for health",
-      "kind": "review",
+      "kind": "authority_education",
+      "publisher_or_authority": "National Center for Complementary and Integrative Health",
       "url": "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know",
       "year": 2021,
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24",
       "notes": "Discusses limitations and safety considerations."
     }
   ],
   "domain_pack": "breath",
-  "last_reviewed": "2026-08-10",
-  "status": "active",
+  "population": "Adults using gentle relaxation education outside urgent or acute medical situations.",
+  "applicability": "Not applicable to a person. This draft exists only to exercise evidence and safety validation.",
+  "limitations": ["Protocols and populations vary.", "Subjective stress outcomes do not establish disease treatment."],
+  "last_reviewed": "2026-08-24",
+  "status": "draft",
+  "admission": {
+    "user_facing_allowed": false,
+    "evidence_review_complete": false,
+    "license_review_complete": false,
+    "correction_check_complete": false,
+    "harms_review_complete": false,
+    "funding_coi_review_complete": false,
+    "integrity_review_complete": false,
+    "directness_review_complete": false
+  },
+  "conflicts": { "status": "not_applicable", "notes": "Public authority education sources; no sponsor-specific conflict review is surfaced in this fixture." },
   "not_a_personal_prescription": true
 }

@@ -7,7 +7,7 @@ import secrets
 from pathlib import Path
 from typing import Any
 
-from .validate import validate_ledger_event
+from .validate import ValidationError, strict_json_loads, validate_ledger_event
 from .vault import load_household, resolve_subject_id, subject_dir, utc_now
 
 
@@ -67,11 +67,27 @@ def read_events(vault: Path, subject: str) -> list[dict[str, Any]]:
     subject_id = resolve_subject_id(household, subject)
     path = subject_dir(vault, subject_id) / "ledger.jsonl"
     if not path.exists():
-        return []
+        raise ValidationError(f"missing append-only ledger for {subject_id}")
     events: list[dict[str, Any]] = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    seen_event_ids: set[str] = set()
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         line = line.strip()
         if not line:
             continue
-        events.append(json.loads(line))
+        try:
+            event = strict_json_loads(line, f"ledger line {line_number}")
+        except ValidationError as exc:
+            raise ValidationError(f"ledger line {line_number}: {exc}") from exc
+        try:
+            validate_ledger_event(event)
+        except ValidationError as exc:
+            raise ValidationError(f"ledger line {line_number}: {exc}") from exc
+        if event["household_id"] != household["household_id"]:
+            raise ValidationError(f"ledger line {line_number} belongs to another household")
+        if event["subject_id"] != subject_id:
+            raise ValidationError(f"ledger line {line_number} belongs to another subject")
+        if event["event_id"] in seen_event_ids:
+            raise ValidationError(f"ledger line {line_number} duplicates event_id {event['event_id']}")
+        seen_event_ids.add(event["event_id"])
+        events.append(event)
     return events

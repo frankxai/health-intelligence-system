@@ -6,7 +6,9 @@
 - Domain packs (ordinary wellness only): circadian, breath, nutrition, meal-photo log, culinary tea ritual — each claim-tiered.
 - T0 ChatGPT project pack + decision record `docs/bios-decision-2026-08-10.md`.
 - Command `commands/bios-vault.md` and unittest suite `bios/tests`.
-- **BIOS Steward UI** (`apps/bios-steward`): Chlorophyll Dawn product surface with circadian ring set-piece, household subject switcher, capture dock, claim-tiered protocol cards, clinician handoff export, T0 steward bridge.
+- **BIOS Steward UI** (`apps/bios-steward`): static, read-only, synthetic governance preview with no input, identity, persistence, protocol start, handoff, upload, or export surface; excluded from release packaging.
+- Added exact-scope consent and revocation semantics, signed/hash-bound handoff receipts, A/B/C/D/E/Q evidence contracts, duplicate-key rejection, and draft-only shipped fixtures.
+- Held the legacy v0.2.1 agent pack and download messaging; the research-preview workflow verifies a minimal synthetic BIOS candidate but cannot upload a release.
 
 ## v0.2.1 - 2026-06-22
 

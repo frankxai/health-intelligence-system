@@ -9,6 +9,7 @@
     "protocol_id",
     "schema_version",
     "title",
+    "release_status",
     "domain_pack",
     "class",
     "hypothesis",
@@ -21,12 +22,14 @@
     "claim_ids",
     "evidence_floor",
     "jurisdiction_flags",
-    "safety"
+    "safety",
+    "review_gate"
   ],
   "properties": {
     "protocol_id": { "type": "string", "pattern": "^proto_[A-Za-z0-9_-]+$" },
     "schema_version": { "const": "0.1.0" },
     "title": { "type": "string", "minLength": 3, "maxLength": 160 },
+    "release_status": { "enum": ["draft_synthetic", "reviewed"] },
     "version": { "type": "string", "minLength": 1 },
     "domain_pack": {
       "enum": ["circadian", "breath", "nutrition", "tea", "mind", "movement", "sleep", "custom"]
@@ -54,7 +57,7 @@
         },
         "dose_descriptor": {
           "type": "string",
-          "description": "Non-medical amount language only for ordinary wellness (e.g. '1 cup', '10 minutes')"
+          "description": "Amount language is permitted only after the protocol passes the evidence, safety, clinical, and release gates; shipped drafts must not contain actionable guidance."
         },
         "materials": {
           "type": "array",
@@ -130,7 +133,29 @@
     "contraindications": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 3 }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["condition_id", "label", "severity", "action", "match_terms"],
+        "properties": {
+          "condition_id": { "type": "string", "pattern": "^contra_[A-Za-z0-9_-]+$" },
+          "label": { "type": "string", "minLength": 3, "maxLength": 300 },
+          "severity": { "enum": ["review", "high", "critical"] },
+          "action": {
+            "enum": [
+              "block_pending_human_review",
+              "block_and_require_verified_signed_clearance",
+              "permanent_runtime_block"
+            ]
+          },
+          "match_terms": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 3 }
+          }
+        }
+      }
     },
     "claim_ids": {
       "type": "array",
@@ -139,7 +164,7 @@
       "uniqueItems": true
     },
     "evidence_floor": {
-      "enum": ["rct_meta", "cohort", "mechanistic", "traditional", "expert_consensus", "anecdote_n"]
+      "enum": ["A", "B", "C", "D", "E", "Q"]
     },
     "jurisdiction_flags": {
       "type": "array",
@@ -158,12 +183,30 @@
     "safety": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["not_diagnosis", "not_prescription", "emergency_route"],
+      "required": [
+        "not_diagnosis",
+        "not_prescription",
+        "emergency_route",
+        "medical_functionality_disabled",
+        "clearance_handling"
+      ],
       "properties": {
         "not_diagnosis": { "const": true },
         "not_prescription": { "const": true },
         "emergency_route": { "type": "string", "minLength": 10 },
-        "requires_clinician_clearance": { "type": "boolean" }
+        "requires_clinician_clearance": { "type": "boolean" },
+        "medical_functionality_disabled": { "const": true },
+        "clearance_handling": { "const": "external_verifier_unavailable_fail_closed" }
+      }
+    },
+    "review_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_reviewed", "safety_reviewed", "clinical_legal_reviewed"],
+      "properties": {
+        "evidence_reviewed": { "type": "boolean" },
+        "safety_reviewed": { "type": "boolean" },
+        "clinical_legal_reviewed": { "type": "boolean" }
       }
     },
     "fork_of": { "type": "string" },

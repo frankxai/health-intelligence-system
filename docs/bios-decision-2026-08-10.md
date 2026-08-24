@@ -1,6 +1,9 @@
 # BIOS — Sovereign Health Intelligence Substrate
 ### Angle analysis, primitive stack, repo topology, and the recommended build
 
+> Historical design exploration, superseded for runtime behavior by the 2026-08-24 synthetic
+> foundation. References to protocol execution or personal vault use are not current instructions.
+
 Date: 2026-08-10 · Author of record: Frank / Starlight Intelligence · Status: decision document, v0.1 executed  
 Implementation home: [`../bios/`](../bios/) inside `frankxai/health-intelligence-system` (branch `agent/hermes/bios-v01`)
 
@@ -100,7 +103,7 @@ Open substrate. Charge curation packs, steward hosting, embodiment. Never sell t
 ## 8. What shipped in this execution (Days 1–14 kickoff)
 
 - [x] Schemas for ledger, protocol, claim, consent, egress, household, phenotype, agent manifest  
-- [x] Reference CLI: init, add-subject, observe, packs, protocol start/active, phenotype rebuild, handoff, validate  
+- [x] Reference CLI scaffolding exists; all shipped protocol starts are now blocked synthetic tests
 - [x] Packs: circadian, breath, nutrition, tea (claim-tiered, ordinary wellness only)  
 - [x] T0 ChatGPT project pack + household vault template docs  
 - [x] Steward second-subject path  

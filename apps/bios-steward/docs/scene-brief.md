@@ -1,34 +1,24 @@
-# BIOS Steward — Scene Brief
+# BIOS Steward synthetic preview — scene brief
 
-**Surface:** Product app (family steward + subject)  
-**Brand world:** BIOS — firmware for the body (neutral public good; Starlight ships the reference)  
-**Date:** 2026-08-10  
-**ICP:** Capable family steward (T1) + non-technical dependent (T0 path awareness)  
-**Job:** Log ordinary wellness, run claim-tiered n-of-1 protocols, prepare clinician handoff — without medical theater.
+**Surface:** read-only safety-contract preview
+**Date:** 2026-08-24
+**Job:** show the evidence-admission hold and disabled capabilities without accepting or persisting data.
 
-## First win (< 2 minutes)
-1. Land on living day ring with household context.  
-2. One-tap log breath or meal.  
-3. Start a protocol card.  
-4. See ledger + handoff update.
+## Non-negotiable boundary
 
-## Product loop
-Capture → ledger event → phenotype-lite → protocol adherence → handoff export preview → refine.
+- Synthetic labels only; no personal, household, wearable, clinical, genomic, image, or identifying data.
+- No input, account, cookie, browser persistence, protocol start, symptom evaluation, handoff, export,
+  upload, clipboard action, or network submission.
+- Every fixture is visibly `draft_synthetic` and non-runnable.
+- The page is excluded from release packaging and production launch.
 
-## Signature set-piece
-**Circadian Ring** — 24h phase wheel. Anchors (wake light, meals, breath, evening tea) are real protocol timing, not decoration. Click a phase to prefill capture. Reduced motion: static ring + list.
+## Composition
 
-## Visual direction — Chlorophyll Dawn
-- Deep forest night ground, living green signal, warm dawn gold accents  
-- Editorial display (Fraunces) + calm UI sans (Figtree)  
-- Paper grain, soft material planes — no purple SaaS fog, no fake dashboard chrome  
-- No all-caps UI chrome
+1. Persistent stop banner.
+2. Plain-language explanation of disabled surfaces.
+3. Read-only fixture cards with explicit blocked actions.
+4. Review gates required before any future real product.
+5. Repeated stop banner at the close.
 
-## Motion
-Track A only: 180–320ms ease-out on panels, ring hover glow. Respect `prefers-reduced-motion`.
-
-## Privacy boundary
-Demo vault is local to browser (localStorage). Real PHI never leaves the device in demo mode. Clinician export is reviewed text.
-
-## Not in this surface
-Diagnosis, dosing, plant-medicine sourcing, genomic views, commons publish.
+The static composition preserves the existing Chlorophyll Dawn typography and palette while making
+trust and limitation the primary visual hierarchy.

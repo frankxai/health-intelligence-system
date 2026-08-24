@@ -2,7 +2,8 @@
   "pack_id": "breath",
   "title": "Breath foundations",
   "version": "0.1.0",
-  "description": "Simple breath practices for calm and focus. Educational wellness only — not treatment for anxiety, panic, asthma, or cardiac disease.",
+  "description": "Non-runnable synthetic fixtures for testing breathing-evidence and safety contracts; no practice guidance.",
   "class": "ordinary_wellness",
+  "release_status": "draft_synthetic",
   "last_reviewed": "2026-08-10"
 }

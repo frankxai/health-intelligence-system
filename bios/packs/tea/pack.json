@@ -2,7 +2,8 @@
   "pack_id": "tea",
   "title": "Tea & culinary phytochemistry (education)",
   "version": "0.1.0",
-  "description": "Culinary teas and ordinary herbal infusions as lifestyle rituals. Not botanical medicine, not dosing of bioactive drugs, not plant-medicine sourcing.",
+  "description": "Non-runnable synthetic fixtures for testing culinary-botanical evidence and safety contracts; no preparation or use guidance.",
   "class": "ordinary_wellness",
+  "release_status": "draft_synthetic",
   "last_reviewed": "2026-08-10"
 }

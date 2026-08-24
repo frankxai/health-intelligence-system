@@ -21,10 +21,10 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BIOS Steward — household health intelligence",
+  title: "BIOS Steward — synthetic safety preview",
   description:
-    "Sovereign household vault UI for ordinary-wellness protocols, capture, and clinician handoff. Not medical advice.",
-  applicationName: "BIOS Steward",
+    "Read-only synthetic evidence-contract preview. No health input, storage, protocol execution, or export.",
+  applicationName: "BIOS Steward synthetic preview",
   robots: { index: false, follow: false },
 };
 

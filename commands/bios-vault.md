@@ -1,20 +1,17 @@
-# /bios — Sovereign Health Intelligence Substrate
+# /bios — synthetic contract validation only
 
-Initialize or operate a BIOS household vault, ordinary-wellness protocols, and clinician handoff.
-
-Not medical advice. No diagnosis or prescribing.
-
-## Steps
-
-1. Read `bios/README.md` and `SAFETY.md`.
-2. Init vault outside the public repo (e.g. private path or `_local/`).
-3. Prefer claim-tiered packs under `bios/packs/` over inventing interventions.
-4. Run contraindication gate; never `--force` without human review.
-5. Export clinician handoff before visits; human reviews before share.
+This command surface is not approved for personal or clinical data. The reference vault is plaintext
+and marked `synthetic_plaintext_prototype`; use invented test labels only.
 
 ```bash
-PYTHONPATH=bios/src python -m bios_substrate init --household "Family" --subject self --path "$HOME/bios-vaults/family"
-PYTHONPATH=bios/src python -m bios_substrate observe --vault "$HOME/bios-vaults/family" --kind breath_session --note "box 5m" --tags breath
-PYTHONPATH=bios/src python -m bios_substrate protocol start --vault "$HOME/bios-vaults/family" --pack breath --id box-breath-5m
-PYTHONPATH=bios/src python -m bios_substrate handoff --vault "$HOME/bios-vaults/family"
+PYTHONPATH=bios/src python -m unittest discover -s bios/tests -v
+PYTHONPATH=bios/src python -m bios_substrate init \
+  --household synthetic-demo --subject synthetic --path ./_local/synthetic-demo
+PYTHONPATH=bios/src python -m bios_substrate validate --vault ./_local/synthetic-demo
+PYTHONPATH=bios/src python -m bios_substrate packs
+PYTHONPATH=bios/src python -m bios_substrate agents
+PYTHONPATH=bios/src python -m bios_substrate idea-sources
 ```
+
+All shipped packs and protocols are synthetic drafts and cannot start. There is no `--force` or other
+override. Do not observe, import, hand off, or store real-person data in this reference implementation.
