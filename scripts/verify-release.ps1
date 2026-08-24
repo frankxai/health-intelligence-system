@@ -289,6 +289,8 @@ try {
     for ($index = 0; $index -lt $expectedPaths.Count; $index++) {
       Assert-ExactString "manifest exact path[$index]" $expectedPaths[$index] $actualPaths[$index]
     }
+    $pathSeparatorPattern = "[\\/]"
+    $localMachinePathPattern = "(?i)(?:[A-Z]:" + $pathSeparatorPattern + "Users" + $pathSeparatorPattern + "|/" + "Users/[^/]+/|/" + "home/[^/]+/)"
     foreach ($file in $manifest.files) {
       $path = [string]$file.path
       if (-not $entryByPath.ContainsKey($path)) {
@@ -315,7 +317,7 @@ try {
       if ($entryText -match '-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|AKIA[0-9A-Z]{16}|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret)\s*[:=]\s*[^\s]{8,}') {
         throw "ZIP entry contains prohibited secret-like content: $path"
       }
-      if ($entryText -match "(?i)[A-Z]:[\\/]Users[\\/]|/Users/[^/]+/|/home/[^/]+/") {
+      if ($entryText -match $localMachinePathPattern) {
         throw "ZIP entry contains a local-machine path: $path"
       }
     }
