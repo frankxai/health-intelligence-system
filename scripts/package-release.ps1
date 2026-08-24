@@ -77,8 +77,7 @@ if ($LASTEXITCODE -ne 0) {
   throw "Unable to inspect Git worktree state."
 }
 if ($dirty.Count -gt 0) {
-  $sample = ($dirty | Select-Object -First 12) -join "; "
-  throw "Release packaging requires a completely clean tree/index and no untracked or ignored artifacts. Found: $sample"
+  throw "Release packaging requires a completely clean tree/index and no untracked or ignored artifacts. Found $($dirty.Count) local artifact(s); paths are intentionally omitted from logs."
 }
 
 $admissionRelativePath = "release/research-preview-admission.json"
@@ -113,7 +112,8 @@ if ($admittedPaths -notcontains $admissionRelativePath) {
   throw "Release admission manifest must admit itself."
 }
 
-$treeRows = @(& git -C $repoRoot ls-tree -r $sourceCommit -- $admittedPaths)
+$lsTreeArguments = @("-C", $repoRoot, "ls-tree", "-r", $sourceCommit, "--") + $admittedPaths
+$treeRows = @(& git @lsTreeArguments)
 if ($LASTEXITCODE -ne 0 -or $treeRows.Count -eq 0) {
   throw "Unable to enumerate the exact release tree."
 }
