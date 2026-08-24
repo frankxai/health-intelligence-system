@@ -123,19 +123,23 @@ foreach ($row in $treeRows) {
   if ($row -notmatch "^(?<mode>[0-9]{6})\s+(?<type>\w+)\s+(?<oid>[a-f0-9]{40,64})`t(?<path>.+)$") {
     throw "Unexpected Git tree row: $row"
   }
-  if ($Matches.mode -notin @("100644", "100755") -or $Matches.type -ne "blob") {
-    throw "Release tree contains a symlink, gitlink, or unsupported mode: $($Matches.path)"
+  $entryMode = [string]$Matches.mode
+  $entryType = [string]$Matches.type
+  $entryObjectId = [string]$Matches.oid
+  $entryPath = [string]$Matches.path
+  if ($entryMode -notin @("100644", "100755") -or $entryType -ne "blob") {
+    throw "Release tree contains a symlink, gitlink, or unsupported mode: $entryPath"
   }
-  if ($Matches.path -match $forbidden) {
-    throw "Release tree contains a forbidden path: $($Matches.path)"
+  if ($entryPath -match $forbidden) {
+    throw "Release tree contains a forbidden path: $entryPath"
   }
-  if ($Matches.path -notmatch "^[A-Za-z0-9._/-]+$") {
-    throw "Release tree contains a non-canonical path: $($Matches.path)"
+  if ($entryPath -notmatch "^[A-Za-z0-9._/-]+$") {
+    throw "Release tree contains a non-canonical path: $entryPath"
   }
   $releaseEntries += [pscustomobject]@{
-    mode = $Matches.mode
-    oid = $Matches.oid
-    path = $Matches.path
+    mode = $entryMode
+    oid = $entryObjectId
+    path = $entryPath
   }
 }
 $actualReleasePaths = @($releaseEntries.path | Sort-Object -CaseSensitive)
