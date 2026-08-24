@@ -119,6 +119,8 @@ if ($LASTEXITCODE -ne 0 -or $treeRows.Count -eq 0) {
 }
 $releaseEntries = @()
 $forbidden = "(^|/)(apps|\.git|\.github|node_modules|\.next|dist|packages|_local|\.heart|\.machine)(/|$)|(^|/)(\.env($|\.)|.*\.(key|pem|p12|pfx|sqlite|duckdb|parquet|pyc))$|secret|credential"
+$pathSeparatorPattern = "[\\/]"
+$localMachinePathPattern = "(?i)(?:[A-Z]:" + $pathSeparatorPattern + "Users" + $pathSeparatorPattern + "|/" + "Users/[^/]+/|/" + "home/[^/]+/)"
 foreach ($row in $treeRows) {
   if ($row -notmatch "^(?<mode>[0-9]{6})\s+(?<type>\w+)\s+(?<oid>[a-f0-9]{40,64})`t(?<path>.+)$") {
     throw "Unexpected Git tree row: $row"
@@ -191,7 +193,7 @@ foreach ($entry in $releaseEntries) {
   if ($text -match '-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|AKIA[0-9A-Z]{16}|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret)\s*[:=]\s*[^\s]{8,}') {
     throw "Release candidate contains prohibited secret-like content: $($entry.path)"
   }
-  if ($text -match "(?i)[A-Z]:[\\/]Users[\\/]|/Users/[^/]+/|/home/[^/]+/") {
+  if ($text -match $localMachinePathPattern) {
     throw "Release candidate contains a local-machine path: $($entry.path)"
   }
 }
