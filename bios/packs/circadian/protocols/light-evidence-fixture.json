@@ -1,0 +1,48 @@
+{
+  "protocol_id": "proto_light_evidence_fixture",
+  "schema_version": "0.1.0",
+  "title": "Synthetic light-exposure evidence fixture — not runnable",
+  "release_status": "draft_synthetic",
+  "version": "0.1.0",
+  "domain_pack": "circadian",
+  "class": "education",
+  "hypothesis": "This synthetic fixture exists only to validate protocol, evidence, and safety gates.",
+  "intervention": {
+    "summary": "No light exposure duration, timing, or eye-safety instruction is authorized.",
+    "steps": [
+      "Do not apply this fixture to a person.",
+      "Complete independent evidence, safety, and clinical-legal review before any future proposal."
+    ]
+  },
+  "timing": { "anchor": "as_needed_non_urgent", "frequency": "synthetic test only" },
+  "duration": { "days": 1 },
+  "measurement_plan": [
+    { "metric": "schema_gate_result", "method": "journal", "cadence": "test execution" }
+  ],
+  "stop_conditions": ["The runtime must refuse to start this draft."],
+  "contraindications": [
+    {
+      "condition_id": "contra_light_sensitive_context",
+      "label": "Any eye, photosensitivity, mood, or clinician-directed light restriction",
+      "severity": "critical",
+      "action": "block_and_require_verified_signed_clearance",
+      "match_terms": ["eye condition", "photosensitive", "light restriction"]
+    }
+  ],
+  "claim_ids": ["claim_circadian_morning_light"],
+  "evidence_floor": "E",
+  "jurisdiction_flags": ["none"],
+  "safety": {
+    "not_diagnosis": true,
+    "not_prescription": true,
+    "emergency_route": "For an emergency, contact local emergency services; do not use this fixture.",
+    "medical_functionality_disabled": true,
+    "clearance_handling": "external_verifier_unavailable_fail_closed"
+  },
+  "review_gate": {
+    "evidence_reviewed": false,
+    "safety_reviewed": false,
+    "clinical_legal_reviewed": false
+  },
+  "last_reviewed": "2026-08-24"
+}

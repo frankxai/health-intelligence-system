@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bios.health/schemas/consent.v0.1.json",
+  "title": "BIOS Consent Grant",
+  "description": "Per-field x recipient x purpose x revocable consent. Data, not a SaaS checkbox.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "consent_id",
+    "schema_version",
+    "household_id",
+    "subject_id",
+    "authorized_by_id",
+    "authority_basis",
+    "purposes",
+    "data_classes",
+    "recipients",
+    "processors",
+    "actions",
+    "record_scope",
+    "revision",
+    "granted_at",
+    "status",
+    "dignity_clause"
+  ],
+  "properties": {
+    "consent_id": { "type": "string", "pattern": "^consent_[A-Za-z0-9_-]+$" },
+    "schema_version": { "const": "0.1.0" },
+    "household_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "authorized_by_id": { "type": "string" },
+    "authority_basis": {
+      "enum": ["self", "parental_responsibility", "legal_guardian", "authorized_representative", "steward_delegated"]
+    },
+    "purposes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "self_tracking",
+          "family_stewardship",
+          "clinician_handoff",
+          "agent_assist",
+          "research_contribution",
+          "backup",
+          "education"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "data_classes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "wellness_logs",
+          "meal_photos",
+          "wearable_rollups",
+          "supplement_stack",
+          "clinical_records_index",
+          "clinical_records_content",
+          "genomic",
+          "identifiers",
+          "protocol_outcomes_deid"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "recipients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["recipient_id", "kind"],
+        "properties": {
+          "recipient_id": { "type": "string" },
+          "kind": {
+            "enum": ["self", "steward", "household_member", "clinician", "local_agent", "frontier_model", "commons", "backup_target"]
+          }
+        }
+      }
+    },
+    "processors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["processor_id", "kind", "allowed_tiers"],
+        "properties": {
+          "processor_id": { "type": "string", "minLength": 1 },
+          "kind": {
+            "enum": ["local_runtime", "local_human_tool", "hosted_model", "backup_service"]
+          },
+          "allowed_tiers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "enum": ["local", "tee_or_venice", "frontier"] }
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["collect", "store", "summarize", "ai_process", "export", "share", "contribute_deid"]
+      },
+      "uniqueItems": true
+    },
+    "field_allowlist": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional explicit fields; empty means data_classes only"
+    },
+    "record_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_ids", "protocol_run_ids"],
+      "properties": {
+        "event_ids": {
+          "type": "array",
+          "maxItems": 100,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$" }
+        },
+        "protocol_run_ids": {
+          "type": "array",
+          "maxItems": 25,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^run_[A-Za-z0-9_-]+$" }
+        }
+      }
+    },
+    "revision": { "type": "integer", "minimum": 1 },
+    "supersedes_consent_id": { "type": "string", "pattern": "^consent_[A-Za-z0-9_-]+$" },
+    "granted_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "withdrawn_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["active", "expired", "withdrawn", "superseded"] },
+    "dignity_clause": {
+      "type": "boolean",
+      "description": "Subject may always read everything written about them",
+      "const": true
+    },
+    "notice_version": { "type": "string" }
+  }
+}

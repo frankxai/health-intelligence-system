@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "task": "Convert the BIOS Steward prototype into a static synthetic governance preview",
+  "surface": "apps/bios-steward",
+  "audience": "Open-source safety, evidence, privacy, and product reviewers",
+  "standards": [
+    "DESIGN_TASTE.md",
+    "WEB_EXPERIENCE_STANDARD.md",
+    "PREMIUM_ASSET_STANDARD.md",
+    "VISUAL_QA_GATE.md"
+  ],
+  "references": [
+    "apps/bios-steward/docs/scene-brief.md"
+  ],
+  "direction": {
+    "keep": "Editorial clarity, restrained typography, visible maturity and safety state",
+    "avoid": "Fake health metrics, interactive medical controls, authority mascots, or decorative clinical claims",
+    "signature": "Chlorophyll Dawn evidence-review desk",
+    "system": "Fraunces and Figtree with grain, high-contrast governance cards, and reduced-motion support"
+  },
+  "asset_quality": {
+    "tier": "C",
+    "source_method": "browser-capture",
+    "provenance": "owned",
+    "why_premium": "The exact UI system is the correct medium for a source-review surface; it does not depend on decorative generated health imagery.",
+    "shortcut_risk": "low",
+    "context_tested": false
+  },
+  "artifacts": [
+    {
+      "path_or_url": "apps/bios-steward/src/components/StewardApp.tsx",
+      "kind": "static synthetic governance interface",
+      "inspected": true
+    },
+    {
+      "path_or_url": "apps/bios-steward",
+      "kind": "desktop and mobile browser export",
+      "inspected": false
+    }
+  ],
+  "checks": [
+    { "name": "asset-tier", "status": "pass" },
+    { "name": "anti-slop-static-scan", "status": "pass" },
+    { "name": "dependency-audit", "status": "pass" },
+    { "name": "eslint", "status": "pass" },
+    { "name": "typescript", "status": "pass" },
+    { "name": "source-safety-scan", "status": "pass" },
+    { "name": "export-inspection", "status": "blocked" },
+    { "name": "next-build", "status": "blocked" }
+  ],
+  "score": {
+    "total": 24,
+    "max": 30,
+    "note": "Static composition and source quality pass; build and actual desktop/mobile export inspection remain blocked by machine preflight."
+  },
+  "decision": "blocked",
+  "safety": {
+    "persistent_warning": true,
+    "input_disabled": true,
+    "storage_disabled": true,
+    "protocol_execution_disabled": true,
+    "handoff_and_export_disabled": true,
+    "production_launch": "hold"
+  }
+}

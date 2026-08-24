@@ -1,7 +1,8 @@
 # Evidence Sources
 
-**Evidence checked:** 2026-06-22<br>
-**Scope:** US baseline for average-risk screening plus NCI patient education for cancer diagnosis, treatment conversations, clinical trials, and survivorship. v0.2 adds personal health operations, AI health-agent, local/private LLM, jurisdiction, and repository-consolidation source ledgers. Personal care may differ by country, risk status, family history, genetics, prior abnormal results, symptoms, pregnancy status, immune status, and clinician judgment.
+**Catalog snapshot:** 2026-06-22 — not a current evidence review or admission receipt<br>
+**Status:** locator inventory only; no recommendation, protocol, or user-facing claim is authorized by this page.<br>
+**Scope:** historic US screening and NCI education locators plus personal health-operations and system-design references. Every locator requires current correction, supersession, rights, population, outcome, harms, certainty, directness, and qualified-review checks before it can support a claim. Personal care varies by jurisdiction and individual context and belongs with an appropriate qualified professional.
 
 ## Population Screening Sources
 

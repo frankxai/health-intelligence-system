@@ -1,0 +1,69 @@
+{
+  "claim_id": "claim_circadian_caffeine_timing",
+  "schema_version": "0.1.1",
+  "statement": "Synthetic evidence fixture only: no caffeine-timing claim or cutoff has been admitted for user-facing guidance.",
+  "evidence_tier": "E",
+  "certainty": "low",
+  "pico": {
+    "population": "Synthetic fixture; no population has been admitted.",
+    "intervention": "Not specified; no intervention has been admitted.",
+    "comparator": "Not specified for this discovery-only fixture.",
+    "outcome": "No user-facing outcome has been admitted.",
+    "timeframe": "Not specified for this discovery-only fixture."
+  },
+  "harms": {
+    "summary": "Not assessed; this synthetic fixture cannot support action.",
+    "certainty": "uncertain"
+  },
+  "directness": "unclear",
+  "funding_coi": {
+    "funding": "Not reviewed for admission.",
+    "coi_status": "unknown"
+  },
+  "integrity": {
+    "status": "unverified",
+    "correction_status": "not_checked",
+    "supersession_status": "not_checked",
+    "reviewed_on": "2026-08-24",
+    "next_review_due": "2026-08-24"
+  },
+  "rights": {
+    "ingestion_mode": "metadata_only",
+    "license_review_status": "pending"
+  },
+  "sources": [
+    {
+      "source_id": "src_drake_caffeine_sleep_2013",
+      "title": "Drake et al. — Caffeine effects on sleep taken 0, 3, or 6 hours before bed (J Clin Sleep Med)",
+      "kind": "observational",
+      "publisher_or_authority": "Journal of Clinical Sleep Medicine",
+      "year": 2013,
+      "doi": "10.5664/jcsm.3170",
+      "license": "publisher_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24",
+      "notes": "Laboratory study; not universal dosing advice."
+    }
+  ],
+  "domain_pack": "circadian",
+  "population": "Adults represented by the cited small laboratory study; individual caffeine metabolism and clinical context vary.",
+  "applicability": "Not applicable to a person. This draft exists only to exercise evidence and safety validation.",
+  "limitations": ["Single small laboratory study.", "The evidence tier label is broad and does not imply population-wide certainty."],
+  "last_reviewed": "2026-08-24",
+  "status": "draft",
+  "admission": {
+    "user_facing_allowed": false,
+    "evidence_review_complete": false,
+    "license_review_complete": false,
+    "correction_check_complete": false,
+    "harms_review_complete": false,
+    "funding_coi_review_complete": false,
+    "integrity_review_complete": false,
+    "directness_review_complete": false
+  },
+  "conflicts": { "status": "declared", "notes": "Funding and author conflicts require independent follow-up outside this public fixture." },
+  "not_a_personal_prescription": true
+}

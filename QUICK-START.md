@@ -1,7 +1,11 @@
 # Quick Start
 
-**Evidence checked:** 2026-06-22<br>
-**Status:** preclinical public prerelease until clinical/legal review is logged.
+**Evidence admission:** none<br>
+**Status:** legacy workflow inventory; execution and installation hold.
+
+> Do not follow the historical workflows below with real health data. They predate the 2026-08-24
+> BIOS evidence, consent, and release gates and remain visible only for review and migration. The
+> current safe quick start is the synthetic-only test flow in [`bios/README.md`](bios/README.md).
 
 ## 1. Read the Boundary First
 

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bios.health/schemas/ledger-event.v0.1.json",
+  "title": "BIOS Ledger Event",
+  "description": "Append-only observation. Never mutate; correct with a superseding event.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "schema_version",
+    "household_id",
+    "subject_id",
+    "recorded_at",
+    "kind",
+    "sensitivity_class",
+    "source"
+  ],
+  "properties": {
+    "event_id": { "type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$" },
+    "schema_version": { "const": "0.1.0" },
+    "household_id": { "type": "string", "minLength": 1 },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "operator_id": { "type": "string", "minLength": 1, "description": "Who wrote the event if different from subject" },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "kind": {
+      "enum": [
+        "note",
+        "symptom",
+        "mood",
+        "sleep",
+        "breath_session",
+        "meal",
+        "meal_photo",
+        "hydration",
+        "tea",
+        "supplement_intake",
+        "medication_intake",
+        "movement",
+        "training",
+        "hrv_rollup",
+        "wearable_rollup",
+        "lab_index",
+        "visit",
+        "protocol_start",
+        "protocol_checkin",
+        "protocol_stop",
+        "protocol_outcome",
+        "consent_grant",
+        "consent_revoke",
+        "export",
+        "red_flag_ack"
+      ]
+    },
+    "sensitivity_class": {
+      "enum": ["public", "personal", "clinical", "genomic"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel"],
+      "properties": {
+        "channel": {
+          "enum": ["human", "phone", "wearable", "import", "agent", "clinician_export", "photo"]
+        },
+        "device": { "type": "string" },
+        "agent_id": { "type": "string" },
+        "import_ref": { "type": "string" }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "note": { "type": "string", "maxLength": 4000 },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "number" },
+          { "type": "string" },
+          { "type": "boolean" }
+        ]
+      }
+    },
+    "protocol_id": { "type": "string", "pattern": "^proto_[A-Za-z0-9_-]+$" },
+    "protocol_run_id": { "type": "string", "pattern": "^run_[A-Za-z0-9_-]+$" },
+    "media_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "mime": { "type": "string" }
+        }
+      }
+    },
+    "supersedes": { "type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$" },
+    "consent_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": { "enum": ["protocol_start", "protocol_checkin", "protocol_stop", "protocol_outcome"] }
+        },
+        "required": ["kind"]
+      },
+      "then": { "required": ["protocol_id", "protocol_run_id"] }
+    }
+  ]
+}

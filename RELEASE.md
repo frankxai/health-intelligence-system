@@ -1,57 +1,42 @@
 # Release Process
 
+**Status:** research-preview candidate verification only. Public upload is disabled. The legacy
+agent pack is outside the admitted package boundary.
+
 ## Local Package
 
 ```powershell
 npm run package:all
 ```
 
-This generates:
+This generates only the minimal synthetic BIOS candidate:
 
-- `packages/health-intelligence-system-v0.2.1/`
-- `dist/health-intelligence-system-v0.2.1.zip`
+- `packages/health-intelligence-system-v<package-version>/`
+- `dist/health-intelligence-system-v<package-version>.zip`
 - `release-manifest.json`
-- `packages/health-intelligence-agent-pack-v0.2.1/`
-- `dist/health-intelligence-agent-pack-v0.2.1.zip`
-- `agent-pack-manifest.json`
-
-Replace `0.2.1` with the current `package.json` version.
 
 ## Local Verification
 
 ```powershell
 npm run verify:release
-npm run verify:agent-pack
 ```
 
 The verifier checks:
 
 - Full release ZIP file name, size, and SHA-256 digest against `release-manifest.json`.
-- Agent-pack ZIP file name, size, and SHA-256 digest against `agent-pack-manifest.json`.
 - Every manifest-listed file exists after extraction.
 - Every manifest-listed file byte count and SHA-256 digest matches.
 - Safety-critical documents exist in the package.
 
 ## GitHub Release
 
-Use tag `v0.2.1` and mark it as a prerelease until [REVIEW-GATE.md](REVIEW-GATE.md) is closed.
-
-Suggested release title:
-
-```text
-Health Intelligence System v0.2.1 - visual agent-pack release
-```
-
-Suggested assets:
-
-- `dist/health-intelligence-system-v0.2.1.zip`
-- `release-manifest.json`
-- `dist/health-intelligence-agent-pack-v0.2.1.zip`
-- `agent-pack-manifest.json`
+Do not tag or upload this candidate. `.github/workflows/release.yml` has read-only permissions and
+performs verification only. Reopening public release requires every gate in
+[`REVIEW-GATE.md`](REVIEW-GATE.md), a clean reviewed commit, and an explicit human release decision.
 
 ## Website Distribution
 
-Both sites should link to GitHub Releases:
+Future sites may link to an admitted GitHub release only after the release hold is removed:
 
 - Starlight: protocol and validation adoption surface.
 - FrankX: guided human-facing download surface.

@@ -65,9 +65,11 @@ This repo maps SIP voices to health decision-support functions. The agents are r
 | `gut-safety-consent-guardian` | Consent, allergy, age, scope, privacy, and qualified-handoff gates | Weaken a gate for convenience |
 | `gut-coach-handoff-scribe` | Parent-reviewed observations and questions for qualified review | Diagnose or provide medical nutrition therapy |
 
-## Installable Agent Pack
+## Legacy Agent Pack — Hold
 
-`plugins/health-intelligence-system/` packages the public system as a Codex plugin with the `sovereign-health-operator` skill. Other coding agents can adapt the same role map through `prompts/` and `commands/`.
+`plugins/health-intelligence-system/`, `prompts/`, and `commands/` are legacy review surfaces. They
+must not be packaged, installed, or promoted until they pass the current BIOS evidence, privacy,
+consent, and clinical-boundary admission process.
 
 Default stance: an agent may help a person become a better health operator, record keeper, and patient advocate. It must not present itself as a doctor or replace clinician judgment.
 

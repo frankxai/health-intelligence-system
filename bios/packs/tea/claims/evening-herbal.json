@@ -1,0 +1,68 @@
+{
+  "claim_id": "claim_tea_evening_herbal_noncaffeine",
+  "schema_version": "0.1.1",
+  "statement": "Synthetic evidence fixture only: no evening beverage or botanical claim has been admitted for user-facing guidance.",
+  "evidence_tier": "E",
+  "certainty": "low",
+  "pico": {
+    "population": "Synthetic fixture; no population has been admitted.",
+    "intervention": "Not specified; no intervention has been admitted.",
+    "comparator": "Not specified for this discovery-only fixture.",
+    "outcome": "No user-facing outcome has been admitted.",
+    "timeframe": "Not specified for this discovery-only fixture."
+  },
+  "harms": {
+    "summary": "Not assessed; this synthetic fixture cannot support action.",
+    "certainty": "uncertain"
+  },
+  "directness": "unclear",
+  "funding_coi": {
+    "funding": "Not reviewed for admission.",
+    "coi_status": "unknown"
+  },
+  "integrity": {
+    "status": "unverified",
+    "correction_status": "not_checked",
+    "supersession_status": "not_checked",
+    "reviewed_on": "2026-08-24",
+    "next_review_due": "2026-08-24"
+  },
+  "rights": {
+    "ingestion_mode": "metadata_only",
+    "license_review_status": "pending"
+  },
+  "sources": [
+    {
+      "source_id": "src_aasm_sleep_habits_caffeine",
+      "title": "Sleep education — caffeine and sleep hygiene (AASM public materials)",
+      "kind": "authority_education",
+      "publisher_or_authority": "American Academy of Sleep Medicine",
+      "url": "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/",
+      "year": 2023,
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24"
+    }
+  ],
+  "domain_pack": "tea",
+  "population": "Adults who already tolerate an ordinary non-caffeine beverage and are using general sleep-hygiene education.",
+  "applicability": "Not applicable to a person. This draft exists only to exercise evidence and safety validation.",
+  "limitations": ["The source concerns caffeine and sleep hygiene, not efficacy of a specific herb.", "Allergies and medication interactions remain product- and person-specific."],
+  "last_reviewed": "2026-08-24",
+  "status": "draft",
+  "admission": {
+    "user_facing_allowed": false,
+    "evidence_review_complete": false,
+    "license_review_complete": false,
+    "correction_check_complete": false,
+    "harms_review_complete": false,
+    "funding_coi_review_complete": false,
+    "integrity_review_complete": false,
+    "directness_review_complete": false
+  },
+  "conflicts": { "status": "not_applicable", "notes": "Public education source; no product efficacy claim is admitted." },
+  "not_a_personal_prescription": true
+}

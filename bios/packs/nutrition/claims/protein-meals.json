@@ -1,0 +1,83 @@
+{
+  "claim_id": "claim_nutrition_protein_meals_pattern",
+  "schema_version": "0.1.1",
+  "statement": "Synthetic evidence fixture only: no meal-composition or food-logging claim has been admitted for user-facing guidance.",
+  "evidence_tier": "E",
+  "certainty": "low",
+  "pico": {
+    "population": "Synthetic fixture; no population has been admitted.",
+    "intervention": "Not specified; no intervention has been admitted.",
+    "comparator": "Not specified for this discovery-only fixture.",
+    "outcome": "No user-facing outcome has been admitted.",
+    "timeframe": "Not specified for this discovery-only fixture."
+  },
+  "harms": {
+    "summary": "Not assessed; this synthetic fixture cannot support action.",
+    "certainty": "uncertain"
+  },
+  "directness": "unclear",
+  "funding_coi": {
+    "funding": "Not reviewed for admission.",
+    "coi_status": "unknown"
+  },
+  "integrity": {
+    "status": "unverified",
+    "correction_status": "not_checked",
+    "supersession_status": "not_checked",
+    "reviewed_on": "2026-08-24",
+    "next_review_due": "2026-08-24"
+  },
+  "rights": {
+    "ingestion_mode": "metadata_only",
+    "license_review_status": "pending"
+  },
+  "sources": [
+    {
+      "source_id": "src_usda_dietary_guidelines",
+      "title": "USDA Dietary Guidelines for Americans (protein foods group education)",
+      "kind": "authority_education",
+      "publisher_or_authority": "U.S. Department of Agriculture",
+      "url": "https://www.dietaryguidelines.gov/",
+      "year": 2020,
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24",
+      "notes": "Population guidance, not personal medical diet therapy."
+    },
+    {
+      "source_id": "src_who_healthy_diet",
+      "title": "WHO healthy diet fact sheet",
+      "kind": "authority_education",
+      "publisher_or_authority": "World Health Organization",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+      "year": 2026,
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24"
+    }
+  ],
+  "domain_pack": "nutrition",
+  "population": "Generally healthy adults using population-level food-pattern education.",
+  "applicability": "Not applicable to a person. This draft exists only to exercise evidence and safety validation.",
+  "limitations": ["Needs vary by age, disease, pregnancy, activity, culture, and overall diet.", "The sources do not support medical nutrition therapy by an agent."],
+  "last_reviewed": "2026-08-24",
+  "status": "draft",
+  "admission": {
+    "user_facing_allowed": false,
+    "evidence_review_complete": false,
+    "license_review_complete": false,
+    "correction_check_complete": false,
+    "harms_review_complete": false,
+    "funding_coi_review_complete": false,
+    "integrity_review_complete": false,
+    "directness_review_complete": false
+  },
+  "conflicts": { "status": "not_applicable", "notes": "Public authority guidance; policy-development conflicts are outside this fixture's review." },
+  "not_a_personal_prescription": true
+}

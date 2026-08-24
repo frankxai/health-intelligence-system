@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bios.health/schemas/claim.v0.1.1.json",
+  "title": "BIOS Claim",
+  "description": "A claim-level evidence contract. Bibliographic metadata is not permission to ingest copyrighted full text.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "schema_version",
+    "statement",
+    "evidence_tier",
+    "certainty",
+    "pico",
+    "harms",
+    "directness",
+    "funding_coi",
+    "integrity",
+    "rights",
+    "sources",
+    "domain_pack",
+    "population",
+    "applicability",
+    "limitations",
+    "last_reviewed",
+    "status",
+    "admission",
+    "conflicts",
+    "not_a_personal_prescription"
+  ],
+  "properties": {
+    "claim_id": { "type": "string", "pattern": "^claim_[A-Za-z0-9_-]+$" },
+    "schema_version": { "const": "0.1.1" },
+    "statement": { "type": "string", "minLength": 10, "maxLength": 1000 },
+    "evidence_tier": {
+      "enum": ["A", "B", "C", "D", "E", "Q"]
+    },
+    "certainty": { "enum": ["high", "moderate", "low", "very_low", "uncertain"] },
+    "pico": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["population", "intervention", "comparator", "outcome", "timeframe"],
+      "properties": {
+        "population": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "intervention": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "comparator": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "outcome": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "timeframe": { "type": "string", "minLength": 3, "maxLength": 300 }
+      }
+    },
+    "harms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "certainty"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 3, "maxLength": 1000 },
+        "certainty": { "enum": ["high", "moderate", "low", "very_low", "uncertain"] }
+      }
+    },
+    "directness": { "enum": ["direct", "partially_direct", "indirect", "unclear"] },
+    "funding_coi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["funding", "coi_status"],
+      "properties": {
+        "funding": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "coi_status": { "enum": ["none_declared", "declared", "unknown"] },
+        "notes": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "correction_status", "supersession_status", "reviewed_on", "next_review_due"],
+      "properties": {
+        "status": { "enum": ["clear", "corrected", "unverified", "retracted", "expression_of_concern", "rights_violation"] },
+        "correction_status": { "enum": ["not_checked", "none_found", "corrected", "retracted", "expression_of_concern"] },
+        "supersession_status": { "enum": ["not_checked", "current", "superseded"] },
+        "reviewed_on": { "type": "string", "format": "date" },
+        "correction_checked_on": { "type": "string", "format": "date" },
+        "next_review_due": { "type": "string", "format": "date" },
+        "supersedes_claim_id": { "type": "string", "pattern": "^claim_[A-Za-z0-9_-]+$" },
+        "superseded_by_claim_id": { "type": "string", "pattern": "^claim_[A-Za-z0-9_-]+$" }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ingestion_mode", "license_review_status"],
+      "properties": {
+        "ingestion_mode": { "enum": ["metadata_only", "open_access_full_text", "public_domain_full_text", "licensed_excerpt"] },
+        "license_review_status": { "enum": ["pending", "approved", "rejected"] },
+        "notes": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "title",
+          "kind",
+          "publisher_or_authority",
+          "license",
+          "use_permission",
+          "retrieved_on",
+          "reviewed_on",
+          "correction_status"
+        ],
+        "anyOf": [
+          { "required": ["doi"] },
+          { "required": ["pmid"] },
+          { "required": ["url"] }
+        ],
+        "properties": {
+          "source_id": { "type": "string", "pattern": "^src_[A-Za-z0-9_-]+$" },
+          "title": { "type": "string", "minLength": 1 },
+          "kind": {
+            "enum": ["grade_guideline", "systematic_review_guideline", "systematic_review", "living_review", "umbrella_review", "registered_rct", "observational", "diagnostic", "implementation", "mechanistic", "authority_education", "book", "podcast", "preprint", "animal", "testimonial", "marketing", "traditional_source", "url"]
+          },
+          "publisher_or_authority": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+          "doi": { "type": "string", "pattern": "^(https://doi.org/)?10\\..+/.+$" },
+          "pmid": { "type": "string", "pattern": "^[0-9]{1,12}$" },
+          "registration_id": { "type": "string", "minLength": 3, "maxLength": 120 },
+          "risk_of_bias": { "enum": ["low", "some_concerns", "high", "not_assessed"] },
+          "license": {
+            "enum": ["cc0", "cc_by_4_0", "cc_by_nc_4_0", "public_domain", "publisher_terms", "authority_site_terms", "unknown"]
+          },
+          "use_permission": {
+            "enum": ["metadata_only", "open_access_full_text", "public_domain_full_text", "licensed_excerpt"]
+          },
+          "retrieved_on": { "type": "string", "format": "date" },
+          "reviewed_on": { "type": "string", "format": "date" },
+          "correction_status": {
+            "enum": ["not_checked", "none_found", "corrected", "retracted", "expression_of_concern"]
+          },
+          "correction_checked_on": { "type": "string", "format": "date" },
+          "notes": { "type": "string", "maxLength": 500, "pattern": "^[^\\r\\n]*$" }
+        }
+      }
+    },
+    "domain_pack": { "type": "string", "minLength": 1 },
+    "population": { "type": "string", "minLength": 5, "maxLength": 500 },
+    "applicability": { "type": "string", "minLength": 5, "maxLength": 1000 },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "last_reviewed": { "type": "string", "format": "date" },
+    "status": { "enum": ["draft", "active", "disputed", "withdrawn", "superseded", "retracted"] },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "user_facing_allowed",
+        "evidence_review_complete",
+        "license_review_complete",
+        "correction_check_complete",
+        "harms_review_complete",
+        "funding_coi_review_complete",
+        "integrity_review_complete",
+        "directness_review_complete"
+      ],
+      "properties": {
+        "user_facing_allowed": { "type": "boolean" },
+        "evidence_review_complete": { "type": "boolean" },
+        "license_review_complete": { "type": "boolean" },
+        "correction_check_complete": { "type": "boolean" },
+        "harms_review_complete": { "type": "boolean" },
+        "funding_coi_review_complete": { "type": "boolean" },
+        "integrity_review_complete": { "type": "boolean" },
+        "directness_review_complete": { "type": "boolean" }
+      }
+    },
+    "conflicts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["none_declared", "declared", "unknown", "not_applicable"] },
+        "notes": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "conflict_flag": { "type": "boolean" },
+    "conflicts_with": { "type": "array", "items": { "type": "string" } },
+    "not_a_personal_prescription": { "const": true }
+  }
+}

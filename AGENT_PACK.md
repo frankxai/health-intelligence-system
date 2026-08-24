@@ -1,8 +1,12 @@
 # Health Intelligence Agent Pack
 
-**Version:** v0.2.1  
-**Release state:** preclinical public prerelease  
-**Audience:** people installing the Health Intelligence System operator surface into Codex, Claude, ChatGPT, OpenCode, local assistants, or a private vault workflow.
+**Version:** legacy v0.2.1 surface<br>
+**Release state:** installation, packaging, and promotion hold<br>
+**Audience:** security, privacy, clinical-boundary, and migration reviewers only.
+
+> Do not install or run this legacy pack as a health assistant. It predates the 2026-08-24 BIOS
+> evidence, consent, and release gates and is retained only so reviewers can inspect and migrate its
+> public materials. No agent-pack artifact is admitted by the current research-preview release.
 
 The agent pack is the smallest practical download for running the system. It does not include the full documentation archive. It includes the operator surfaces that an agent or human can actually install, copy, and run.
 
@@ -19,23 +23,11 @@ The agent pack is the smallest practical download for running the system. It doe
 | Private vault templates | `templates/` | Copy into Obsidian, local folders, encrypted storage, or a private product runtime |
 | Safety docs | `SAFETY.md`, `PRIVACY.md`, `VALIDATION.md` | Boundaries every consuming agent must preserve |
 
-## Install Flow
+## Historical install flow — disabled
 
-1. Download `health-intelligence-agent-pack-v0.2.1.zip` from the GitHub Release.
-2. Verify `agent-pack-manifest.json` or run:
-
-```powershell
-npm run verify:agent-pack -- -Version 0.2.1 -Download
-```
-
-3. Copy `templates/` into a private vault, not a public repository.
-4. Install or adapt the surface you need:
-   - Codex: use `plugins/health-intelligence-system/`.
-   - ChatGPT Project: use `prompts/chatgpt-project-system-prompt.md`.
-   - Custom GPT: use `prompts/custom-gpt-instructions.md`.
-   - Claude Project: use `prompts/claude-project-prompt.md`.
-   - Local assistant/redaction: use `prompts/local-llm-redaction-prompt.md`.
-5. Start with `/private-health-instance-setup`, then `/doctor-visit-prep` or `/health-optimization-weekly-review`. For a family gut-health journey, start with `/gut-family-onboarding`.
+The previous download-and-install flow is intentionally disabled. A future replacement must package
+exact blobs from one reviewed clean commit, pass integrity and privacy verification, and complete a
+prompt-by-prompt safety review before these instructions become executable again.
 
 ## Boundary
 

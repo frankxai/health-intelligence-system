@@ -1,13 +1,13 @@
 # Agentic Life OS Integration
 
-**Evidence checked:** 2026-06-22  
-**Scope:** how private Agentic Life OS should consume the public Health Intelligence System release. Not medical advice.
+**Evidence checked:** 2026-08-24
+**Scope:** how public Agentic Life OS reference code should consume the public Health Intelligence System release while live data stays private. Not medical advice.
 
 ## Integration Contract
 
-Agentic Life OS should treat Health Intelligence System as an upstream protocol package, not as a place to store user data.
+Agentic Life OS should treat Health Intelligence System as an upstream protocol package, not as a place to store user data. Both codebases can be public; real runtime data cannot.
 
-The private product runtime should consume:
+The public reference application should consume:
 
 - templates from `templates/`;
 - commands from `commands/`;
@@ -15,7 +15,7 @@ The private product runtime should consume:
 - architecture docs from `docs/architecture.md`, `docs/product-boundary.md`, and `docs/safety-and-privacy-model.md`;
 - plugin skill material from `plugins/health-intelligence-system/`.
 
-The private product runtime should not copy:
+The public reference application and its CI/deployments must not copy:
 
 - real health records into this repo;
 - private vault files into release assets;
@@ -56,10 +56,10 @@ Life Sciences Researcher IS must:
 ```text
 GitHub Release ZIP
   -> verify ZIP and manifest
-  -> import templates/commands/docs into private ALOS build
+  -> import templates/commands/docs into public ALOS reference build
   -> wire Agentic Health OS intent router
   -> run safety/refusal tests
-  -> run private UX walkthrough with fictional data
+  -> run UX walkthrough with fictional data; run personal workflows only in a private encrypted instance
   -> publish website download links to GitHub Release
 ```
 

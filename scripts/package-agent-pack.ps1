@@ -4,6 +4,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+throw "Legacy agent-pack packaging is disabled. Complete the prompt, command, skill, privacy, and clinical-boundary admission review before replacing this fail-closed hold."
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $packName = "health-intelligence-agent-pack-v$Version"
 $packDir = Join-Path $repoRoot "packages\$packName"

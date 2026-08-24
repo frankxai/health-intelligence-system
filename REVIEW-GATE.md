@@ -1,6 +1,8 @@
 # Review Gate
 
-`v0.1.0` is allowed to ship as a public prerelease for open review and adoption testing. It must not be marketed as production-ready clinical material until this gate is closed.
+No current artifact is allowed to ship, install, or run as a health assistant. Source may remain
+public for research and adversarial review using fictional data. A future synthetic prerelease
+requires every applicable gate below plus an explicit human release decision.
 
 ## Required Review
 

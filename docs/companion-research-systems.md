@@ -116,7 +116,7 @@ Do not send raw personal records into the research repo.
 
 ## Repo Creation Decision
 
-Do not create the companion repo until the creation gates in [repo-consolidation-map.md](repo-consolidation-map.md) are met. For now, run the companion inside private Agentic Life OS as `packages/life-sciences-researcher`, then bridge to `life-sciences`, `research-intelligence-os`, and specialized neuroscience or psychology research packs after those repos are inspected.
+Do not create the companion repo until the creation gates in [repo-consolidation-map.md](repo-consolidation-map.md) are met. For now, keep the public synthetic-data companion inside Agentic Life OS as `packages/life-sciences-researcher`, then bridge to `life-sciences`, `research-intelligence-os`, and specialized neuroscience or psychology research packs after those repos are inspected. Live personal records remain outside it.
 
 ## First Product Artifacts
 

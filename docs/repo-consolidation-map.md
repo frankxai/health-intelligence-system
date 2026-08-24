@@ -35,14 +35,14 @@ Separate packs should be created only when they have a clear audience, file cont
 | `personal-health-vault-template` | `proposed` | `pack later` | Useful as a private local folder starter, but can start as templates in HIS | Do not create repo until private setup workflow stabilizes |
 | `health-jurisdiction-packs` | `proposed` | `pack later` | Country adapters need independent freshness reviews | Start inside HIS docs/templates; split only when NL/DE/ES/HR/US/China packs become substantial |
 | `clinician-handoff-spec` | `proposed` | `pack later` | Export schema may become reusable across HIS and research systems | Start with HIS templates and command |
-| `life-sciences-researcher-is` | `proposed` | `defer new repo` | Research workflows need separation, but private Agentic Life OS can host the first research-only package while public repo creation gates mature | Keep implementation inside `agentic-life-os/packages/life-sciences-researcher` for now |
+| `life-sciences-researcher-is` | `proposed` | `defer new repo` | Research workflows need separation, but public Agentic Life OS code can host the first synthetic-data research-only package while repo creation gates mature | Keep implementation inside `agentic-life-os/packages/life-sciences-researcher` for now; no personal data |
 | `life-sciences` | `github-read` | `bridge` | Hosts marketplace/Claude life-sciences launch material; likely better as connector/skill bridge than personal health repo | Reference in companion research systems; do not merge personal records |
 | `research-intelligence-os` | `github-read` and `inventory-only` | `bridge` | General research workflow base; could host evidence grading and literature protocols | Use as research workflow substrate if cloned and matured |
 | `research-intelligence-systems` | `github-read` and `inventory-only` | `watch` | Adjacent research namespace; not enough inspected detail to absorb | Audit before creating new research repos |
 | `neuroscience-research-intelligence-system` | `github-read` and `inventory-only` | `specialized pack` | Domain-specific research lane; should not hold personal records | Bridge only through public evidence briefs and clinician questions |
 | `psychology-research-intelligence-system` | `github-read` and `inventory-only` | `specialized pack` | Domain-specific research lane; mental-health safety needs extra care | Bridge only through education and clinician questions |
 | `second-brain-os` | `local-read` and `github-read` | `absorb pattern` | Two-vault privacy model maps strongly to private health vault design | Reuse privacy architecture, not code, unless needed |
-| `agentic-life-os` | `local-read` | `private product monorepo` | Best home for Agentic Health OS as a private runtime and Life Sciences Researcher IS as a research-only companion package | Consume HIS releases; keep public protocol and private runtime separate |
+| `agentic-life-os` | `local-read` | `public reference application` | Best home for reusable Agentic Health OS UX and a research-only companion package | Consume HIS releases; use synthetic fixtures only; keep each live runtime private |
 | `Starlight-Intelligence-System` | `local-read` | `reference substrate` | Provides SIP contract, agent discipline, and DeepMind Science Skills registry entry | Continue composing SIP; use science skills only in research companion |
 
 ## Core Plus Packs Architecture
@@ -52,9 +52,10 @@ health-intelligence-system
   -> personal-health-vault-template pack
   -> health-jurisdiction-packs
   -> clinician-handoff-spec
-  -> agentic-life-os private runtime
+  -> agentic-life-os public reference application
        -> Agentic Health OS
        -> Life Sciences Researcher IS
+  -> private encrypted personal instance (optional frankx-life-os style)
   -> future life-sciences-researcher-is public repo
        -> life-sciences
        -> research-intelligence-os
@@ -88,7 +89,19 @@ Create a separate repo only when all are true:
 
 ## Current Recommendation
 
-Do not create `life-sciences-researcher-is` immediately. First, keep the implemented research-only package inside private Agentic Life OS, publish the public boundary and protocol through HIS, and inspect whether `life-sciences` plus `research-intelligence-os` can carry a future public research workflow. This prevents repo sprawl while keeping the research separation explicit.
+Do not create `life-sciences-researcher-is` immediately. First, keep the implemented research-only package inside Agentic Life OS with synthetic fixtures, publish the public boundary and protocol through HIS, and inspect whether `life-sciences` plus `research-intelligence-os` can carry a future public research workflow. Keep all live personal data in a separate private encrypted instance.
+
+## BIOS substrate (2026-08-10)
+
+| Artifact | Disposition | Rationale |
+| --- | --- | --- |
+| `bios/` (schemas, CLI, packs) | `core` inside HIS for v0.1 | Creation gates for five split repos not yet met; ship format + reference client together |
+| Future `bios-protocol` | `pack later` | Split when external implementers need schema-only Apache/CC-BY land grab |
+| Future `bios-commons` | `defer` | Needs real n-of-1 outcome mass + DP design |
+| mind / psych / neuroscience IS | `specialized packs later` | Collapse into domain packs over one Protocol/Ledger — do not interconnect as separate systems |
+| Household vault unit | **locked** | Steward model (subject ≠ operator) requires household ownership dimension |
+
+See [bios-decision-2026-08-10.md](bios-decision-2026-08-10.md).
 
 ## Source Ledger
 

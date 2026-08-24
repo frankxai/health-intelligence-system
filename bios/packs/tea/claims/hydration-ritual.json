@@ -1,0 +1,69 @@
+{
+  "claim_id": "claim_tea_hydration_ritual",
+  "schema_version": "0.1.1",
+  "statement": "Synthetic evidence fixture only: no hydration or botanical claim has been admitted for user-facing guidance.",
+  "evidence_tier": "E",
+  "certainty": "low",
+  "pico": {
+    "population": "Synthetic fixture; no population has been admitted.",
+    "intervention": "Not specified; no intervention has been admitted.",
+    "comparator": "Not specified for this discovery-only fixture.",
+    "outcome": "No user-facing outcome has been admitted.",
+    "timeframe": "Not specified for this discovery-only fixture."
+  },
+  "harms": {
+    "summary": "Not assessed; this synthetic fixture cannot support action.",
+    "certainty": "uncertain"
+  },
+  "directness": "unclear",
+  "funding_coi": {
+    "funding": "Not reviewed for admission.",
+    "coi_status": "unknown"
+  },
+  "integrity": {
+    "status": "unverified",
+    "correction_status": "not_checked",
+    "supersession_status": "not_checked",
+    "reviewed_on": "2026-08-24",
+    "next_review_due": "2026-08-24"
+  },
+  "rights": {
+    "ingestion_mode": "metadata_only",
+    "license_review_status": "pending"
+  },
+  "sources": [
+    {
+      "source_id": "src_efsa_water_reference_values",
+      "title": "EFSA scientific opinion on dietary reference values for water",
+      "kind": "authority_education",
+      "publisher_or_authority": "European Food Safety Authority",
+      "year": 2010,
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459",
+      "license": "authority_site_terms",
+      "use_permission": "metadata_only",
+      "retrieved_on": "2026-08-10",
+      "reviewed_on": "2026-08-24",
+      "correction_status": "none_found",
+      "correction_checked_on": "2026-08-24",
+      "notes": "Population water guidance; tea is a beverage pattern, not a cure."
+    }
+  ],
+  "domain_pack": "tea",
+  "population": "Adults using ordinary dietary beverage patterns without clinician-directed fluid restriction.",
+  "applicability": "Not applicable to a person. This draft exists only to exercise evidence and safety validation.",
+  "limitations": ["Fluid needs vary substantially.", "The source does not establish a therapeutic effect for tea or herbs."],
+  "last_reviewed": "2026-08-24",
+  "status": "draft",
+  "admission": {
+    "user_facing_allowed": false,
+    "evidence_review_complete": false,
+    "license_review_complete": false,
+    "correction_check_complete": false,
+    "harms_review_complete": false,
+    "funding_coi_review_complete": false,
+    "integrity_review_complete": false,
+    "directness_review_complete": false
+  },
+  "conflicts": { "status": "not_applicable", "notes": "Public authority review source; no sponsor-specific conflict review is surfaced in this fixture." },
+  "not_a_personal_prescription": true
+}
