@@ -1,0 +1,4 @@
+interface:
+  display_name: "Health Second Brain"
+  short_description: "Review food, training, sleep, and health context"
+  default_prompt: "Use $operate-health-second-brain to organize my health context, review the available evidence, and choose one useful next action."

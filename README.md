@@ -40,6 +40,23 @@ It is designed to be used in three ways:
 | Coding agent / assistant | Repeatable workflows for setup, redaction, visit prep, handoff, weekly review | Commands, prompts, plugin skill |
 | Product runtime | Public safety contract consumed by private Agentic Life OS / Agentic Health OS | Protocol, package, validation gates |
 
+## Health Second Brain development increment
+
+Turn selected food, training, sleep and movement context into a source-linked weekly review and one manageable next action.
+
+- [Health Second Brain skill](plugins/health-intelligence-system/skills/operate-health-second-brain/) — reusable workflow for ChatGPT Work, Codex and selected private tools.
+- [Product and integration direction](docs/health-second-brain-product.md) — architecture, user jobs, tool choices and release boundaries.
+- [Fictional daily export](fixtures/wellness/fictional-daily.csv) — includes missing data, duplicates, conflicts and overlapping devices.
+
+Run the local analyzer against fictional data:
+
+```bash
+python3 plugins/health-intelligence-system/skills/operate-health-second-brain/scripts/review_wellness.py fixtures/wellness/fictional-daily.csv --end 2026-09-06 --timezone Europe/Amsterdam
+npm run test:wellness
+```
+
+The analyzer performs descriptive aggregation. Real inputs and outputs remain private health data. Live wearable connectors, a hosted MCP service, native device access and a production UI are not implemented by this increment. Existing release downloads remain v0.2.1; source additions are unreleased.
+
 ## Vertical Packs
 
 | Vertical | Audience | Public core | Private / licensed layer |
