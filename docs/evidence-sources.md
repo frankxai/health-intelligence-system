@@ -47,3 +47,7 @@
 - AI product capabilities, privacy settings, memory behavior, local LLM tooling, and jurisdictional record-access workflows change quickly. Recheck source ledgers before publishing setup instructions.
 
 **Built on SIP** - Health Intelligence System evidence ledger v0.1
+
+## Performance learning and nutrition capture
+
+The [performance learning ledger](performance-learning-ledger.md), checked 6 September 2026, separates public training/nutrition references from anecdotes, unresolved transcription and product hypotheses. It supplies the evidence boundary for [nutrition source capture](../templates/nutrition-source-capture.md) and [follow-through review](../templates/follow-through-review.md). No personal records or individualized protocols are included.
