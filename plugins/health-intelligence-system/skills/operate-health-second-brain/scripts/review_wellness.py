@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.9"
+# dependencies = ["tzdata; sys_platform == 'win32'"]
+# ///
 """Strict, local-only descriptive analysis of daily wellness aggregates."""
 import argparse
 import csv
@@ -66,7 +70,7 @@ def review(rows, end, timezone, selections=None):
     try:
         ZoneInfo(timezone)
     except (ZoneInfoNotFoundError, ValueError, TypeError):
-        raise ValueError("Timezone must be a valid IANA name.") from None
+        raise ValueError("Timezone must be a valid IANA name (on Windows the tzdata package must be installed; `uv run` adds it).") from None
     selections = selections or {}
     if any(key not in METRICS or not source_token(value) for key, value in selections.items()):
         raise ValueError("Source selections must use supported metrics and source tokens.")

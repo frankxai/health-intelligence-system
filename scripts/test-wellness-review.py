@@ -1,3 +1,7 @@
+# /// script
+# requires-python = ">=3.9"
+# dependencies = ["tzdata; sys_platform == 'win32'"]
+# ///
 import importlib.util
 import io
 import json
