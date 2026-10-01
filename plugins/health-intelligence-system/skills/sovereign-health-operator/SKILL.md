@@ -40,6 +40,8 @@ Allowed outputs:
 7. Before any cloud AI use, create an `ai-sanitized-context-export.md` and run privacy preflight.
 8. Before any visit, generate doctor visit prep and clinician handoff export.
 
+For a practical weekly food, training, movement, and sleep review across chosen tools, use the sibling [Health Second Brain skill](../operate-health-second-brain/SKILL.md). It includes a strict local daily-export analyzer and a portable memory contract.
+
 ## When To Load References
 
 - Read `references/operator-workflows.md` when building the full health operating loop.

@@ -19,3 +19,6 @@ link-checker-report.txt
 # Starlight/ACOS temporary files
 .starlight/
 .gemini/
+
+__pycache__/
+*.pyc

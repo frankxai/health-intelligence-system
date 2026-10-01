@@ -1,8 +1,11 @@
 # Changelog
 
-## Unreleased
+## Unreleased — Health Second Brain
 
-- No changes yet.
+- Add a portable health workflow skill, strict local daily-wellness analyzer, fictional data and regression tests.
+- Define source-aware food/training/recovery reviews, current tool paths and private runtime/UX boundaries.
+- Keep medical review gates and production connector status unchanged.
+
 
 ## v0.2.1 - 2026-06-22
 
