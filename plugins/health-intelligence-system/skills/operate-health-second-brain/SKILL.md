@@ -36,6 +36,7 @@ Read [tooling-paths.md](references/tooling-paths.md) for tool choices and integr
 Run locally with Python 3:
 
 ```bash
+# Windows has no system timezone database: run with `uv run` (installs tzdata) instead of `python3`.
 python3 <skill-directory>/scripts/review_wellness.py <selected-private-csv> --end YYYY-MM-DD --timezone Europe/Amsterdam --source sleep_hours=watch-a
 ```
 

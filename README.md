@@ -51,7 +51,7 @@ Turn selected food, training, sleep and movement context into a source-linked we
 Run the local analyzer against fictional data:
 
 ```bash
-python3 plugins/health-intelligence-system/skills/operate-health-second-brain/scripts/review_wellness.py fixtures/wellness/fictional-daily.csv --end 2026-09-06 --timezone Europe/Amsterdam
+uv run plugins/health-intelligence-system/skills/operate-health-second-brain/scripts/review_wellness.py fixtures/wellness/fictional-daily.csv --end 2026-09-06 --timezone Europe/Amsterdam
 npm run test:wellness
 ```
 
