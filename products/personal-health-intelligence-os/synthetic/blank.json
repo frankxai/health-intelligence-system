@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "synthetic": false,
+  "entities": {
+    "profile": [],
+    "daily_observation": [],
+    "product": [],
+    "ingredient": [],
+    "intake": [],
+    "food": [],
+    "recipe": [],
+    "meal_plan": [],
+    "hydration": [],
+    "sleep": [],
+    "training": [],
+    "recovery": [],
+    "symptom": [],
+    "biomarker": [],
+    "clinical_document": [],
+    "appointment": [],
+    "experiment": [],
+    "evidence": [],
+    "purchase": [],
+    "review": [],
+    "consent": [],
+    "audit_event": []
+  }
+}

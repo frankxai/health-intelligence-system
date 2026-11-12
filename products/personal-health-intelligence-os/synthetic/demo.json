@@ -1,0 +1,1221 @@
+{
+  "schema_version": "0.1.0",
+  "synthetic": true,
+  "entities": {
+    "profile": [
+      {
+        "id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "display_name": "Sample Profile",
+        "goals": [
+          {
+            "name": "Observe sleep consistency",
+            "metric": "sleep_hours",
+            "review_date": "2026-10-15"
+          }
+        ],
+        "priorities": [
+          "Sleep regularity",
+          "Consistent daily capture"
+        ],
+        "notes": "SYNTHETIC DEMO. No individual health record or recommended targets."
+      }
+    ],
+    "daily_observation": [
+      {
+        "id": "c613c09b-11e3-5039-848f-1577886071c1",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-01",
+        "sleep_hours": 7.0,
+        "energy_0_10": 6,
+        "focus_0_10": 6,
+        "mood_0_10": 7,
+        "stress_0_10": 4,
+        "fluid_ml": 1900,
+        "caffeine_mg": 80,
+        "protein_g": 100,
+        "fiber_g": 24,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "ffd2a317-0396-593e-aff1-523f305a82c0",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-02",
+        "sleep_hours": 7.5,
+        "energy_0_10": 7,
+        "focus_0_10": 7,
+        "mood_0_10": 7,
+        "stress_0_10": 3,
+        "fluid_ml": 2100,
+        "caffeine_mg": 80,
+        "protein_g": 110,
+        "fiber_g": 26,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "1353b5b0-a6fa-52e3-b6d4-608d0facce86",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-03",
+        "sleep_hours": 6.5,
+        "energy_0_10": 5,
+        "focus_0_10": 5,
+        "mood_0_10": 7,
+        "stress_0_10": 6,
+        "fluid_ml": 1800,
+        "caffeine_mg": 120,
+        "protein_g": 120,
+        "fiber_g": 28,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "454905c3-f898-5014-9bf5-346084147b49",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-04",
+        "sleep_hours": 8,
+        "energy_0_10": 8,
+        "focus_0_10": 7,
+        "mood_0_10": 7,
+        "stress_0_10": 2,
+        "fluid_ml": 2300,
+        "caffeine_mg": 0,
+        "protein_g": 100,
+        "fiber_g": 30,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "45c6fdbd-8ea1-56cd-bfcc-0345bc02cb4a",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-05",
+        "sleep_hours": 7.5,
+        "energy_0_10": 7,
+        "focus_0_10": 8,
+        "mood_0_10": 7,
+        "stress_0_10": 3,
+        "fluid_ml": 2200,
+        "caffeine_mg": 80,
+        "protein_g": 110,
+        "fiber_g": 24,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "6b2647d6-e3ee-5d6c-9912-90c5ef9ec80c",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-06",
+        "sleep_hours": 7,
+        "energy_0_10": 6,
+        "focus_0_10": 6,
+        "mood_0_10": 7,
+        "stress_0_10": 5,
+        "fluid_ml": 2000,
+        "caffeine_mg": 80,
+        "protein_g": 120,
+        "fiber_g": 26,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "d7f54f07-374d-5d2a-b8dc-d343bf86a89d",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-07",
+        "sleep_hours": 8.0,
+        "energy_0_10": 8,
+        "focus_0_10": 8,
+        "mood_0_10": 7,
+        "stress_0_10": 2,
+        "fluid_ml": 2400,
+        "caffeine_mg": 0,
+        "protein_g": 100,
+        "fiber_g": 28,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "917a9905-622f-5ea5-b717-0c683be73f56",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-08",
+        "sleep_hours": 7.0,
+        "energy_0_10": 6,
+        "focus_0_10": 6,
+        "mood_0_10": 7,
+        "stress_0_10": 4,
+        "fluid_ml": 1900,
+        "caffeine_mg": 80,
+        "protein_g": 110,
+        "fiber_g": 30,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "202d7692-4269-570e-814f-3cd4e8ae3f53",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-09",
+        "sleep_hours": 7.5,
+        "energy_0_10": 7,
+        "focus_0_10": 7,
+        "mood_0_10": 7,
+        "stress_0_10": 3,
+        "fluid_ml": 2100,
+        "caffeine_mg": 80,
+        "protein_g": 120,
+        "fiber_g": 24,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "f8074cb7-c92c-5096-86ac-70e3fd0f2de1",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-10",
+        "sleep_hours": 6.5,
+        "energy_0_10": 5,
+        "focus_0_10": 5,
+        "mood_0_10": 7,
+        "stress_0_10": 6,
+        "fluid_ml": 1800,
+        "caffeine_mg": 120,
+        "protein_g": 100,
+        "fiber_g": 26,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "ae02c7a4-4768-5419-b7a9-deac2bee32ac",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-11",
+        "sleep_hours": 8,
+        "energy_0_10": 8,
+        "focus_0_10": 7,
+        "mood_0_10": 7,
+        "stress_0_10": 2,
+        "fluid_ml": 2300,
+        "caffeine_mg": 0,
+        "protein_g": 110,
+        "fiber_g": 28,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "db3585bf-dc7a-556b-b21a-6b9b848dd775",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-12",
+        "sleep_hours": 7.5,
+        "energy_0_10": 7,
+        "focus_0_10": 8,
+        "mood_0_10": 7,
+        "stress_0_10": 3,
+        "fluid_ml": 2200,
+        "caffeine_mg": 80,
+        "protein_g": 120,
+        "fiber_g": 30,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "3649f26d-de3d-52d1-b0dd-5966c43f6c1d",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-13",
+        "sleep_hours": 7,
+        "energy_0_10": 6,
+        "focus_0_10": 6,
+        "mood_0_10": 7,
+        "stress_0_10": 5,
+        "fluid_ml": 2000,
+        "caffeine_mg": 80,
+        "protein_g": 100,
+        "fiber_g": 24,
+        "training_minutes": 0,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "id": "d77619ed-73b1-5f38-87f4-36d7fc7657ab",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "local_date": "2026-10-14",
+        "sleep_hours": 8.0,
+        "energy_0_10": 8,
+        "focus_0_10": 8,
+        "mood_0_10": 7,
+        "stress_0_10": 2,
+        "fluid_ml": 2400,
+        "caffeine_mg": 0,
+        "protein_g": 110,
+        "fiber_g": 26,
+        "training_minutes": 30,
+        "summary_mode": "manual_summary",
+        "notes": "Synthetic scenario; fluid volume is an observation, not an intake target."
+      }
+    ],
+    "product": [
+      {
+        "id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample Product A",
+        "category": "supplement",
+        "brand": "Fictional Demo",
+        "serving_label": "1 demonstration unit",
+        "label_verified": true,
+        "label_document_id": "043c9917-460e-574f-a004-510c613dcc26",
+        "status": "inventory",
+        "notes": "Synthetic arithmetic example. Not a dosing instruction."
+      },
+      {
+        "id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample Product B",
+        "category": "supplement",
+        "brand": "Fictional Demo",
+        "serving_label": "1 demonstration unit",
+        "label_verified": true,
+        "label_document_id": "043c9917-460e-574f-a004-510c613dcc26",
+        "status": "inventory",
+        "notes": "Synthetic arithmetic example. Not a dosing instruction."
+      }
+    ],
+    "ingredient": [
+      {
+        "id": "1fae1f05-32d6-5266-a602-79fc09dd68c4",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "product_id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "ingredient_name": "vitamin_b6",
+        "amount_per_serving": 2,
+        "unit": "mg",
+        "label_basis": "per demonstration unit",
+        "label_verified": true,
+        "notes": "Fictional amount."
+      },
+      {
+        "id": "49b17dbc-c7b2-5f33-bc7b-a345432a88c0",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "product_id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+        "ingredient_name": "vitamin_b6",
+        "amount_per_serving": 1.5,
+        "unit": "mg",
+        "label_basis": "per demonstration unit",
+        "label_verified": true,
+        "notes": "Fictional amount."
+      }
+    ],
+    "intake": [
+      {
+        "id": "56338c1a-9ed2-544a-8c78-030192fa543d",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "product_id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "taken_at": "2026-10-01T09:00:00+02:00",
+        "servings": 1,
+        "event_status": "taken",
+        "notes": "Synthetic event. Does not recommend use."
+      },
+      {
+        "id": "4eb6ab2f-a60d-5f19-8b09-dc5a9b06a291",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "product_id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+        "taken_at": "2026-10-01T09:30:00+02:00",
+        "servings": 1,
+        "event_status": "taken",
+        "notes": "Combined B6 arithmetic = 3.5 mg for this fictional day. No clinical threshold judgement."
+      }
+    ],
+    "food": [
+      {
+        "id": "e4265c0f-47ae-5b6d-a340-819c24335182",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample oats",
+        "basis_g": 100,
+        "energy_kcal": 380,
+        "protein_g": 13,
+        "fiber_g": 10,
+        "sodium_mg": 5,
+        "calcium_mg": 50,
+        "allergens": [
+          "Check gluten cross-contact on actual label"
+        ],
+        "notes": "Illustrative composition only; replace with verified label or recognized database."
+      }
+    ],
+    "recipe": [
+      {
+        "id": "6a202e07-9a44-58d6-befb-876211781e66",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample porridge",
+        "servings": 1,
+        "ingredients": [
+          {
+            "food_id": "e4265c0f-47ae-5b6d-a340-819c24335182",
+            "quantity_g": 50
+          }
+        ],
+        "instructions": "Prepare following the actual food package instructions.",
+        "notes": "Illustrative recipe. Water omitted from nutritional ingredients."
+      }
+    ],
+    "meal_plan": [
+      {
+        "id": "725be622-5747-523a-852f-ce9a0c95e0aa",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample breakfast plan",
+        "local_date": "2026-10-01",
+        "items": [
+          {
+            "recipe_id": "6a202e07-9a44-58d6-befb-876211781e66",
+            "meal": "breakfast",
+            "servings": 1
+          }
+        ],
+        "notes": "An optional plan, not a record of consumption."
+      }
+    ],
+    "hydration": [
+      {
+        "id": "ae5a3e56-139f-56f9-853f-68a9e7a1adad",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "observed_at": "2026-10-01T09:00:00+02:00",
+        "volume_ml": 250,
+        "drink": "Water",
+        "measurement_type": "estimated",
+        "notes": "Illustrative detail only; daily summary remains manual and must not be added to this event."
+      }
+    ],
+    "sleep": [
+      {
+        "id": "d97300a2-baaf-5e70-8c55-78f0396c89d5",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "start_at": "2026-09-30T23:00:00+02:00",
+        "end_at": "2026-10-01T06:00:00+02:00",
+        "duration_h": 7,
+        "source_type": "self_report",
+        "quality_0_10": 7,
+        "is_nap": false,
+        "notes": "Synthetic detail aligned to the daily summary; not an additional sleep record to total."
+      }
+    ],
+    "training": [
+      {
+        "id": "002ae92c-ae6a-5d73-9567-2d9ba2677a38",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "start_at": "2026-10-02T12:00:00+02:00",
+        "activity": "walking",
+        "duration_min": 30,
+        "rpe_1_10": 3,
+        "distance_km": 2,
+        "notes": "Synthetic session."
+      }
+    ],
+    "recovery": [
+      {
+        "id": "13338ca1-e778-5944-b740-c7357712a03e",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "observed_at": "2026-10-01T15:00:00+02:00",
+        "kind": "recovery_practice",
+        "practice": "Quiet pause",
+        "duration_min": 5,
+        "score_0_10": 6,
+        "notes": "Synthetic self-report."
+      }
+    ],
+    "symptom": [
+      {
+        "id": "c0805ee1-0eea-5630-9ed4-8a9a820b8c32",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample shoulder stiffness",
+        "onset_at": "2026-10-02T15:00:00+02:00",
+        "body_zone": "shoulder",
+        "severity_0_10": 2,
+        "status": "reported_symptom",
+        "trigger_hypothesis": "Long desk session",
+        "what_helped_report": "Movement break",
+        "red_flags_reported": [],
+        "notes": "Synthetic symptom; association is not diagnosis."
+      }
+    ],
+    "biomarker": [
+      {
+        "id": "413b6280-ecac-55b3-bdc0-1d8d9d87c4de",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Example marker",
+        "sample_at": "2026-10-01T08:00:00+02:00",
+        "value": 42,
+        "unit": "ng/mL",
+        "reference_low": 20,
+        "reference_high": 80,
+        "document_id": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995",
+        "laboratory": "Fictional Demo Lab",
+        "notes": "Arbitrary demonstration values. Reference range is fictional and not clinical guidance."
+      }
+    ],
+    "clinical_document": [
+      {
+        "id": "043c9917-460e-574f-a004-510c613dcc26",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Synthetic label for arithmetic demo",
+        "document_type": "product_label",
+        "document_date": "2026-10-01",
+        "storage_uri": "demo://labels/sample-label",
+        "notes": "Fictional label values. No actual product or manufacturer."
+      },
+      {
+        "id": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Synthetic laboratory report",
+        "document_type": "lab_report",
+        "document_date": "2026-10-01",
+        "storage_uri": "demo://reports/sample-lab",
+        "notes": "No real test or person."
+      }
+    ],
+    "appointment": [
+      {
+        "id": "a9517108-f02d-5c36-81ba-d0450ff3ff0d",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample records review",
+        "starts_at": "2026-10-20T10:00:00+02:00",
+        "status": "planned",
+        "preparation": "Bring questions and owner-selected records.",
+        "notes": "Synthetic appointment, not a real booking."
+      }
+    ],
+    "experiment": [
+      {
+        "id": "642ee39c-aa4b-5771-b6b4-48b65c5f4889",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Scheduled movement break",
+        "hypothesis": "A scheduled movement break may coincide with lower afternoon stiffness.",
+        "baseline_start": "2026-10-01",
+        "baseline_end": "2026-10-07",
+        "start_date": "2026-10-08",
+        "end_date": "2026-10-14",
+        "primary_outcome": "Self-reported afternoon stiffness 0–10",
+        "intervention": "One scheduled movement break during desk work",
+        "confounders": [
+          "Work duration",
+          "Training",
+          "Sleep"
+        ],
+        "stop_rule": "Stop the experiment for worsening symptoms or unexpected effects.",
+        "status": "planned",
+        "causal_claim_allowed": false,
+        "notes": "Synthetic low-risk behavioral observation; no efficacy conclusion."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "90b5ce0e-0f43-5e39-92f3-e4dc666770b6",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "title": "HL7 FHIR R4 Observation resource",
+        "url": "https://hl7.org/fhir/R4/observation.html",
+        "accessed_date": "2026-11-12",
+        "evidence_type": "platform_documentation",
+        "claim": "Observation is a candidate mapping for measurements; the product does not implement a validated FHIR exporter.",
+        "strength": "ungraded",
+        "limitations": "Mapping reference only.",
+        "notes": "Source URL for interoperability design, not a medical recommendation."
+      }
+    ],
+    "purchase": [
+      {
+        "id": "73b43f3c-8b97-555d-b0a0-10f1c4f874af",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample Product A purchase",
+        "product_id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "purchased_date": "2026-10-01",
+        "quantity": 1,
+        "cost": 12,
+        "currency": "EUR",
+        "servings_remaining": 29,
+        "expiry_date": "2027-10-01",
+        "notes": "Fictional price and inventory."
+      }
+    ],
+    "review": [
+      {
+        "id": "58f420f4-96eb-55a2-b4f1-2b27f46c5e29",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample weekly review",
+        "cadence": "weekly",
+        "period_start": "2026-10-01",
+        "period_end": "2026-10-07",
+        "summary": "Synthetic example: sleep and energy vary across the week; no causal conclusion.",
+        "missingness_notes": "Daily records contain a limited subset of optional measures.",
+        "confounders": [
+          "Caffeine",
+          "Workload",
+          "Training"
+        ],
+        "next_action": "Choose a consistent capture time for the next week.",
+        "decision_owner": "Sample Profile",
+        "notes": "A sample review, not a personalized conclusion."
+      }
+    ],
+    "consent": [
+      {
+        "id": "6308fe5e-d82b-5e1a-81df-d05248e84940",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "name": "Sample local record access",
+        "principal": "owner",
+        "scope": [
+          "read",
+          "write"
+        ],
+        "status": "granted",
+        "granted_at": "2026-10-01T12:00:00+02:00",
+        "provider": "owner workspace",
+        "purpose": "Personal record keeping",
+        "notes": "AI sharing stays disabled. Example only, not actual consent."
+      }
+    ],
+    "audit_event": [
+      {
+        "id": "f1f98613-90ec-5266-be87-35379bbd6ff5",
+        "schema_version": "0.1.0",
+        "owner_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "created_at": "2026-10-01T12:00:00+02:00",
+        "updated_at": "2026-10-01T12:00:00+02:00",
+        "timezone": "Europe/Amsterdam",
+        "revision": 1,
+        "provenance": {
+          "kind": "synthetic",
+          "source": "synthetic-demo-generator",
+          "confidence": "high"
+        },
+        "access": {
+          "classification": "restricted-health",
+          "readers": [],
+          "writers": [],
+          "ai_allowed": false
+        },
+        "occurred_at": "2026-10-01T12:00:00+02:00",
+        "actor": "synthetic-demo-generator",
+        "operation": "create",
+        "entity_type": "profile",
+        "record_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "outcome": "applied",
+        "result_revision": 1,
+        "receipt": "demo-receipt-001",
+        "notes": "Synthetic audit example. Platform history is not an immutable clinical audit log."
+      }
+    ]
+  }
+}

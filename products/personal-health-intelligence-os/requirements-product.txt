@@ -1,0 +1,2 @@
+# Offline canonical schema verification. Pure data operations use the standard library.
+jsonschema==4.26.0

@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "checked_at": "2026-11-12T12:51:13.751Z",
+  "environment": "Node VM with minimal DOM stub; this is logic verification, not rendered browser QA",
+  "passed": 18,
+  "checks": [
+    "Canonical seven-day coverage",
+    "Sleep mean matches independent calculation",
+    "Chart contains fourteen exact source observations",
+    "Ingredient reconciliation equals 3.5 mg for two fictional labels",
+    "Exposure dates use the record timezone near UTC midnight",
+    "Planned, skipped and tombstoned intakes are excluded",
+    "Unverified product or ingredient labels suppress daily totals",
+    "Unsupported unit suppresses partial total with a reason",
+    "Whitelisted mass conversion is exact before summation",
+    "Tombstoned labels are excluded and incomplete totals remain unavailable",
+    "New record preserves zero, missingness, provenance and revision",
+    "Same-date update retains UUID and increments revision",
+    "Missing observation produces a chart gap",
+    "Library search exposes empty state",
+    "Reset restores embedded dataset",
+    "No external resources, network API or persistent browser storage",
+    "Keyboard, input labels and status semantics present; no rendered claim",
+    "Caffeine form boundary matches canonical maximum"
+  ],
+  "browser_verification": "blocked: local Chromium could not open sockets in this environment",
+  "limitations": [
+    "Rendered desktop/mobile screenshots unavailable",
+    "No screen-reader audit",
+    "CSV download execution and actual browser form validation require Chromium test",
+    "Native Notion/Google workspace behavior requires separate verification"
+  ]
+}
