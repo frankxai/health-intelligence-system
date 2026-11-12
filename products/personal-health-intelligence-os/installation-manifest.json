@@ -1,0 +1,61 @@
+{
+  "version": "0.1.0",
+  "release_status": "stage-1-release-candidate",
+  "synthetic_master": true,
+  "google": {
+    "folder": "https://drive.google.com/drive/folders/1hW2i2lkuU5IfPQ43pxvUtBUE3Zy0xRdJ",
+    "spreadsheet": "https://docs.google.com/spreadsheets/d/1RAOH4_mt2w-F7YkgCC0RqK5ZYkAsoRzrfQsTcJJLOWo/edit?usp=drivesdk",
+    "installation_guide": "https://docs.google.com/document/d/1dlXaqYWy96onAjbHUCh7AYKwFOULV-32Kde-vkzRsLA/edit?usp=drivesdk",
+    "agent_pack": "https://docs.google.com/document/d/1QBz9gg1dZ1C-M0sjT0BoH9v6xF5G62Y-TvbB8hsLXyI/edit?usp=drivesdk",
+    "partner_runbook": "https://docs.google.com/document/d/19gCZYFDD5rdQwDD4Z_GVQH8G17WNQy4L-GAWtXg6Ylg/edit?usp=drivesdk",
+    "product_architecture": "https://docs.google.com/document/d/1JtpeGLU14KbpnVV6Ty9Dw3aSOTqCRqyzzNiXmrLi-0I/edit?usp=drivesdk",
+    "timestamp_timezone": "Etc/UTC",
+    "record_tables": 22,
+    "worksheets": 25,
+    "charts": 2
+  },
+  "notion": {
+    "template": "https://app.notion.com/p/41626ac2b7f681e0b863e23f91f3f189?pvs=204",
+    "databases": 22,
+    "synthetic_records": 39,
+    "native_views": 19,
+    "duplication_test": {
+      "databases": 22,
+      "records": 39,
+      "linked_daily_source_differs": true,
+      "ingredient_relations_remapped": true
+    },
+    "cross_account_acceptance": "pending"
+  },
+  "editions": {
+    "google": {
+      "price_eur_hypothesis": 29,
+      "checkout": "not configured"
+    },
+    "notion": {
+      "price_eur_hypothesis": 39,
+      "checkout": "not configured"
+    },
+    "complete": {
+      "price_eur_hypothesis": 79,
+      "status": "stage-2 planned; synchronization not running"
+    },
+    "setup": {
+      "price_eur_hypothesis": 249,
+      "billing": "separately invoiced service",
+      "partner_assigned": false
+    }
+  },
+  "verification": {
+    "python_tests": 36,
+    "demo_logic_checks": 18,
+    "workbook_boundary_checks": 14,
+    "native_input_perturbation": {
+      "baseline_sleep_h": 7.357142857142857,
+      "changed_sleep_h": 7.5,
+      "restored": true
+    },
+    "rendered_web_qa": "blocked: browser socket unavailable"
+  },
+  "ownership": "Customer owns records, workspace, credentials and AI account. Template sharing is restricted in this release candidate."
+}

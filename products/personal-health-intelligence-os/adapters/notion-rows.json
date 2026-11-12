@@ -1,0 +1,1597 @@
+[
+  {
+    "entity": "profile",
+    "pages": [
+      {
+        "canonical_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "properties": {
+          "Profile name": "Sample Profile",
+          "Goals": "[{\"name\": \"Observe sleep consistency\", \"metric\": \"sleep_hours\", \"review_date\": \"2026-10-15\"}]",
+          "Priorities": "[\"Sleep regularity\", \"Consistent daily capture\"]",
+          "Notes": "SYNTHETIC DEMO. No individual health record or recommended targets.",
+          "Record ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSYNTHETIC DEMO. No individual health record or recommended targets."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "daily_observation",
+    "pages": [
+      {
+        "canonical_id": "c613c09b-11e3-5039-848f-1577886071c1",
+        "properties": {
+          "Entry": "Sample daily 1",
+          "date:Date:start": "2026-10-01",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.0,
+          "Energy (0-10)": 6,
+          "Focus (0-10)": 6,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 4,
+          "Fluid (mL)": 1900,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 100,
+          "Fiber (g)": 24,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "c613c09b-11e3-5039-848f-1577886071c1",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "ffd2a317-0396-593e-aff1-523f305a82c0",
+        "properties": {
+          "Entry": "Sample daily 2",
+          "date:Date:start": "2026-10-02",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.5,
+          "Energy (0-10)": 7,
+          "Focus (0-10)": 7,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 3,
+          "Fluid (mL)": 2100,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 110,
+          "Fiber (g)": 26,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "ffd2a317-0396-593e-aff1-523f305a82c0",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "1353b5b0-a6fa-52e3-b6d4-608d0facce86",
+        "properties": {
+          "Entry": "Sample daily 3",
+          "date:Date:start": "2026-10-03",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 6.5,
+          "Energy (0-10)": 5,
+          "Focus (0-10)": 5,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 6,
+          "Fluid (mL)": 1800,
+          "Caffeine (mg)": 120,
+          "Protein (g)": 120,
+          "Fiber (g)": 28,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "1353b5b0-a6fa-52e3-b6d4-608d0facce86",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "454905c3-f898-5014-9bf5-346084147b49",
+        "properties": {
+          "Entry": "Sample daily 4",
+          "date:Date:start": "2026-10-04",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 8,
+          "Energy (0-10)": 8,
+          "Focus (0-10)": 7,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 2,
+          "Fluid (mL)": 2300,
+          "Caffeine (mg)": 0,
+          "Protein (g)": 100,
+          "Fiber (g)": 30,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "454905c3-f898-5014-9bf5-346084147b49",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "45c6fdbd-8ea1-56cd-bfcc-0345bc02cb4a",
+        "properties": {
+          "Entry": "Sample daily 5",
+          "date:Date:start": "2026-10-05",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.5,
+          "Energy (0-10)": 7,
+          "Focus (0-10)": 8,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 3,
+          "Fluid (mL)": 2200,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 110,
+          "Fiber (g)": 24,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "45c6fdbd-8ea1-56cd-bfcc-0345bc02cb4a",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "6b2647d6-e3ee-5d6c-9912-90c5ef9ec80c",
+        "properties": {
+          "Entry": "Sample daily 6",
+          "date:Date:start": "2026-10-06",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7,
+          "Energy (0-10)": 6,
+          "Focus (0-10)": 6,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 5,
+          "Fluid (mL)": 2000,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 120,
+          "Fiber (g)": 26,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "6b2647d6-e3ee-5d6c-9912-90c5ef9ec80c",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "d7f54f07-374d-5d2a-b8dc-d343bf86a89d",
+        "properties": {
+          "Entry": "Sample daily 7",
+          "date:Date:start": "2026-10-07",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 8.0,
+          "Energy (0-10)": 8,
+          "Focus (0-10)": 8,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 2,
+          "Fluid (mL)": 2400,
+          "Caffeine (mg)": 0,
+          "Protein (g)": 100,
+          "Fiber (g)": 28,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "d7f54f07-374d-5d2a-b8dc-d343bf86a89d",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "917a9905-622f-5ea5-b717-0c683be73f56",
+        "properties": {
+          "Entry": "Sample daily 8",
+          "date:Date:start": "2026-10-08",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.0,
+          "Energy (0-10)": 6,
+          "Focus (0-10)": 6,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 4,
+          "Fluid (mL)": 1900,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 110,
+          "Fiber (g)": 30,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "917a9905-622f-5ea5-b717-0c683be73f56",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "202d7692-4269-570e-814f-3cd4e8ae3f53",
+        "properties": {
+          "Entry": "Sample daily 9",
+          "date:Date:start": "2026-10-09",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.5,
+          "Energy (0-10)": 7,
+          "Focus (0-10)": 7,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 3,
+          "Fluid (mL)": 2100,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 120,
+          "Fiber (g)": 24,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "202d7692-4269-570e-814f-3cd4e8ae3f53",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "f8074cb7-c92c-5096-86ac-70e3fd0f2de1",
+        "properties": {
+          "Entry": "Sample daily 10",
+          "date:Date:start": "2026-10-10",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 6.5,
+          "Energy (0-10)": 5,
+          "Focus (0-10)": 5,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 6,
+          "Fluid (mL)": 1800,
+          "Caffeine (mg)": 120,
+          "Protein (g)": 100,
+          "Fiber (g)": 26,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "f8074cb7-c92c-5096-86ac-70e3fd0f2de1",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "ae02c7a4-4768-5419-b7a9-deac2bee32ac",
+        "properties": {
+          "Entry": "Sample daily 11",
+          "date:Date:start": "2026-10-11",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 8,
+          "Energy (0-10)": 8,
+          "Focus (0-10)": 7,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 2,
+          "Fluid (mL)": 2300,
+          "Caffeine (mg)": 0,
+          "Protein (g)": 110,
+          "Fiber (g)": 28,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "ae02c7a4-4768-5419-b7a9-deac2bee32ac",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "db3585bf-dc7a-556b-b21a-6b9b848dd775",
+        "properties": {
+          "Entry": "Sample daily 12",
+          "date:Date:start": "2026-10-12",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7.5,
+          "Energy (0-10)": 7,
+          "Focus (0-10)": 8,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 3,
+          "Fluid (mL)": 2200,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 120,
+          "Fiber (g)": 30,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "db3585bf-dc7a-556b-b21a-6b9b848dd775",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "3649f26d-de3d-52d1-b0dd-5966c43f6c1d",
+        "properties": {
+          "Entry": "Sample daily 13",
+          "date:Date:start": "2026-10-13",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 7,
+          "Energy (0-10)": 6,
+          "Focus (0-10)": 6,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 5,
+          "Fluid (mL)": 2000,
+          "Caffeine (mg)": 80,
+          "Protein (g)": 100,
+          "Fiber (g)": 24,
+          "Training (min)": 0,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "3649f26d-de3d-52d1-b0dd-5966c43f6c1d",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      },
+      {
+        "canonical_id": "d77619ed-73b1-5f38-87f4-36d7fc7657ab",
+        "properties": {
+          "Entry": "Sample daily 14",
+          "date:Date:start": "2026-10-14",
+          "date:Date:is_datetime": 0,
+          "Sleep (h)": 8.0,
+          "Energy (0-10)": 8,
+          "Focus (0-10)": 8,
+          "Mood (0-10)": 7,
+          "Stress (0-10)": 2,
+          "Fluid (mL)": 2400,
+          "Caffeine (mg)": 0,
+          "Protein (g)": 110,
+          "Fiber (g)": 26,
+          "Training (min)": 30,
+          "Summary mode": "manual_summary",
+          "Notes": "Synthetic scenario; fluid volume is an observation, not an intake target.",
+          "Record ID": "d77619ed-73b1-5f38-87f4-36d7fc7657ab",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic scenario; fluid volume is an observation, not an intake target."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "c613c09b-11e3-5039-848f-1577886071c1",
+        "values": {}
+      },
+      {
+        "canonical_id": "ffd2a317-0396-593e-aff1-523f305a82c0",
+        "values": {}
+      },
+      {
+        "canonical_id": "1353b5b0-a6fa-52e3-b6d4-608d0facce86",
+        "values": {}
+      },
+      {
+        "canonical_id": "454905c3-f898-5014-9bf5-346084147b49",
+        "values": {}
+      },
+      {
+        "canonical_id": "45c6fdbd-8ea1-56cd-bfcc-0345bc02cb4a",
+        "values": {}
+      },
+      {
+        "canonical_id": "6b2647d6-e3ee-5d6c-9912-90c5ef9ec80c",
+        "values": {}
+      },
+      {
+        "canonical_id": "d7f54f07-374d-5d2a-b8dc-d343bf86a89d",
+        "values": {}
+      },
+      {
+        "canonical_id": "917a9905-622f-5ea5-b717-0c683be73f56",
+        "values": {}
+      },
+      {
+        "canonical_id": "202d7692-4269-570e-814f-3cd4e8ae3f53",
+        "values": {}
+      },
+      {
+        "canonical_id": "f8074cb7-c92c-5096-86ac-70e3fd0f2de1",
+        "values": {}
+      },
+      {
+        "canonical_id": "ae02c7a4-4768-5419-b7a9-deac2bee32ac",
+        "values": {}
+      },
+      {
+        "canonical_id": "db3585bf-dc7a-556b-b21a-6b9b848dd775",
+        "values": {}
+      },
+      {
+        "canonical_id": "3649f26d-de3d-52d1-b0dd-5966c43f6c1d",
+        "values": {}
+      },
+      {
+        "canonical_id": "d77619ed-73b1-5f38-87f4-36d7fc7657ab",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "product",
+    "pages": [
+      {
+        "canonical_id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "properties": {
+          "Name": "Sample Product A",
+          "Category": "supplement",
+          "Brand": "Fictional Demo",
+          "Serving label": "1 demonstration unit",
+          "Label verified": "__YES__",
+          "Status": "inventory",
+          "Notes": "Synthetic arithmetic example. Not a dosing instruction.",
+          "Record ID": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic arithmetic example. Not a dosing instruction."
+      },
+      {
+        "canonical_id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+        "properties": {
+          "Name": "Sample Product B",
+          "Category": "supplement",
+          "Brand": "Fictional Demo",
+          "Serving label": "1 demonstration unit",
+          "Label verified": "__YES__",
+          "Status": "inventory",
+          "Notes": "Synthetic arithmetic example. Not a dosing instruction.",
+          "Record ID": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic arithmetic example. Not a dosing instruction."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "3c8b8a27-764d-530a-94fd-7e508d953ee6",
+        "values": {
+          "Label document id": "043c9917-460e-574f-a004-510c613dcc26"
+        }
+      },
+      {
+        "canonical_id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd",
+        "values": {
+          "Label document id": "043c9917-460e-574f-a004-510c613dcc26"
+        }
+      }
+    ]
+  },
+  {
+    "entity": "ingredient",
+    "pages": [
+      {
+        "canonical_id": "1fae1f05-32d6-5266-a602-79fc09dd68c4",
+        "properties": {
+          "Entry": "Sample ingredients 1",
+          "Ingredient name": "vitamin_b6",
+          "Amount per serving": 2,
+          "Unit": "mg",
+          "Label basis": "per demonstration unit",
+          "Label verified": "__YES__",
+          "Notes": "Fictional amount.",
+          "Record ID": "1fae1f05-32d6-5266-a602-79fc09dd68c4",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nFictional amount."
+      },
+      {
+        "canonical_id": "49b17dbc-c7b2-5f33-bc7b-a345432a88c0",
+        "properties": {
+          "Entry": "Sample ingredients 2",
+          "Ingredient name": "vitamin_b6",
+          "Amount per serving": 1.5,
+          "Unit": "mg",
+          "Label basis": "per demonstration unit",
+          "Label verified": "__YES__",
+          "Notes": "Fictional amount.",
+          "Record ID": "49b17dbc-c7b2-5f33-bc7b-a345432a88c0",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nFictional amount."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "1fae1f05-32d6-5266-a602-79fc09dd68c4",
+        "values": {
+          "Product id": "3c8b8a27-764d-530a-94fd-7e508d953ee6"
+        }
+      },
+      {
+        "canonical_id": "49b17dbc-c7b2-5f33-bc7b-a345432a88c0",
+        "values": {
+          "Product id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd"
+        }
+      }
+    ]
+  },
+  {
+    "entity": "intake",
+    "pages": [
+      {
+        "canonical_id": "56338c1a-9ed2-544a-8c78-030192fa543d",
+        "properties": {
+          "Entry": "Sample intakes 1",
+          "date:Taken at:start": "2026-10-01T09:00:00+02:00",
+          "date:Taken at:is_datetime": 1,
+          "Servings": 1,
+          "Event status": "taken",
+          "Notes": "Synthetic event. Does not recommend use.",
+          "Record ID": "56338c1a-9ed2-544a-8c78-030192fa543d",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic event. Does not recommend use."
+      },
+      {
+        "canonical_id": "4eb6ab2f-a60d-5f19-8b09-dc5a9b06a291",
+        "properties": {
+          "Entry": "Sample intakes 2",
+          "date:Taken at:start": "2026-10-01T09:30:00+02:00",
+          "date:Taken at:is_datetime": 1,
+          "Servings": 1,
+          "Event status": "taken",
+          "Notes": "Combined B6 arithmetic = 3.5 mg for this fictional day. No clinical threshold judgement.",
+          "Record ID": "4eb6ab2f-a60d-5f19-8b09-dc5a9b06a291",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nCombined B6 arithmetic = 3.5 mg for this fictional day. No clinical threshold judgement."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "56338c1a-9ed2-544a-8c78-030192fa543d",
+        "values": {
+          "Product id": "3c8b8a27-764d-530a-94fd-7e508d953ee6"
+        }
+      },
+      {
+        "canonical_id": "4eb6ab2f-a60d-5f19-8b09-dc5a9b06a291",
+        "values": {
+          "Product id": "ba44b158-08dc-502e-8fc3-8dff4d53d5bd"
+        }
+      }
+    ]
+  },
+  {
+    "entity": "food",
+    "pages": [
+      {
+        "canonical_id": "e4265c0f-47ae-5b6d-a340-819c24335182",
+        "properties": {
+          "Name": "Sample oats",
+          "Basis (g)": 100,
+          "Energy (kcal)": 380,
+          "Protein (g)": 13,
+          "Fiber (g)": 10,
+          "Sodium (mg)": 5,
+          "Calcium (mg)": 50,
+          "Allergens": "[\"Check gluten cross-contact on actual label\"]",
+          "Notes": "Illustrative composition only; replace with verified label or recognized database.",
+          "Record ID": "e4265c0f-47ae-5b6d-a340-819c24335182",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nIllustrative composition only; replace with verified label or recognized database."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "e4265c0f-47ae-5b6d-a340-819c24335182",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "recipe",
+    "pages": [
+      {
+        "canonical_id": "6a202e07-9a44-58d6-befb-876211781e66",
+        "properties": {
+          "Name": "Sample porridge",
+          "Servings": 1,
+          "Ingredients": "[{\"food_id\": \"e4265c0f-47ae-5b6d-a340-819c24335182\", \"quantity_g\": 50}]",
+          "Instructions": "Prepare following the actual food package instructions.",
+          "Notes": "Illustrative recipe. Water omitted from nutritional ingredients.",
+          "Record ID": "6a202e07-9a44-58d6-befb-876211781e66",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nIllustrative recipe. Water omitted from nutritional ingredients.\n\n## Recipe\n\nPrepare following the actual food package instructions.\n\nIngredient amounts are synthetic placeholders. Replace with verified food and recipe information before personal use."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "6a202e07-9a44-58d6-befb-876211781e66",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "meal_plan",
+    "pages": [
+      {
+        "canonical_id": "725be622-5747-523a-852f-ce9a0c95e0aa",
+        "properties": {
+          "Name": "Sample breakfast plan",
+          "date:Date:start": "2026-10-01",
+          "date:Date:is_datetime": 0,
+          "Items": "[{\"recipe_id\": \"6a202e07-9a44-58d6-befb-876211781e66\", \"meal\": \"breakfast\", \"servings\": 1}]",
+          "Notes": "An optional plan, not a record of consumption.",
+          "Record ID": "725be622-5747-523a-852f-ce9a0c95e0aa",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nAn optional plan, not a record of consumption."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "725be622-5747-523a-852f-ce9a0c95e0aa",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "hydration",
+    "pages": [
+      {
+        "canonical_id": "ae5a3e56-139f-56f9-853f-68a9e7a1adad",
+        "properties": {
+          "Entry": "Sample hydration 1",
+          "date:Observed at:start": "2026-10-01T09:00:00+02:00",
+          "date:Observed at:is_datetime": 1,
+          "Volume (mL)": 250,
+          "Drink": "Water",
+          "Measurement type": "estimated",
+          "Notes": "Illustrative detail only; daily summary remains manual and must not be added to this event.",
+          "Record ID": "ae5a3e56-139f-56f9-853f-68a9e7a1adad",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nIllustrative detail only; daily summary remains manual and must not be added to this event."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "ae5a3e56-139f-56f9-853f-68a9e7a1adad",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "sleep",
+    "pages": [
+      {
+        "canonical_id": "d97300a2-baaf-5e70-8c55-78f0396c89d5",
+        "properties": {
+          "Entry": "Sample sleep 1",
+          "date:Start at:start": "2026-09-30T23:00:00+02:00",
+          "date:Start at:is_datetime": 1,
+          "date:End at:start": "2026-10-01T06:00:00+02:00",
+          "date:End at:is_datetime": 1,
+          "Duration (h)": 7,
+          "Source type": "self_report",
+          "Quality (0-10)": 7,
+          "Is nap": "__NO__",
+          "Notes": "Synthetic detail aligned to the daily summary; not an additional sleep record to total.",
+          "Record ID": "d97300a2-baaf-5e70-8c55-78f0396c89d5",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic detail aligned to the daily summary; not an additional sleep record to total."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "d97300a2-baaf-5e70-8c55-78f0396c89d5",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "training",
+    "pages": [
+      {
+        "canonical_id": "002ae92c-ae6a-5d73-9567-2d9ba2677a38",
+        "properties": {
+          "Entry": "Sample training 1",
+          "date:Start at:start": "2026-10-02T12:00:00+02:00",
+          "date:Start at:is_datetime": 1,
+          "Activity": "walking",
+          "Duration (min)": 30,
+          "Effort (1-10)": 3,
+          "Distance (km)": 2,
+          "Notes": "Synthetic session.",
+          "Record ID": "002ae92c-ae6a-5d73-9567-2d9ba2677a38",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic session."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "002ae92c-ae6a-5d73-9567-2d9ba2677a38",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "recovery",
+    "pages": [
+      {
+        "canonical_id": "13338ca1-e778-5944-b740-c7357712a03e",
+        "properties": {
+          "Entry": "Sample recovery 1",
+          "date:Observed at:start": "2026-10-01T15:00:00+02:00",
+          "date:Observed at:is_datetime": 1,
+          "Kind": "recovery_practice",
+          "Rating (0-10)": 6,
+          "Practice": "Quiet pause",
+          "Duration (min)": 5,
+          "Notes": "Synthetic self-report.",
+          "Record ID": "13338ca1-e778-5944-b740-c7357712a03e",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic self-report."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "13338ca1-e778-5944-b740-c7357712a03e",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "symptom",
+    "pages": [
+      {
+        "canonical_id": "c0805ee1-0eea-5630-9ed4-8a9a820b8c32",
+        "properties": {
+          "Name": "Sample shoulder stiffness",
+          "date:Onset at:start": "2026-10-02T15:00:00+02:00",
+          "date:Onset at:is_datetime": 1,
+          "Body zone": "shoulder",
+          "Severity (0-10)": 2,
+          "Status": "reported_symptom",
+          "Trigger hypothesis": "Long desk session",
+          "What helped report": "Movement break",
+          "Red flags reported": "[]",
+          "Notes": "Synthetic symptom; association is not diagnosis.",
+          "Record ID": "c0805ee1-0eea-5630-9ed4-8a9a820b8c32",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic symptom; association is not diagnosis."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "c0805ee1-0eea-5630-9ed4-8a9a820b8c32",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "biomarker",
+    "pages": [
+      {
+        "canonical_id": "413b6280-ecac-55b3-bdc0-1d8d9d87c4de",
+        "properties": {
+          "Name": "Example marker",
+          "date:Sample at:start": "2026-10-01T08:00:00+02:00",
+          "date:Sample at:is_datetime": 1,
+          "Value": 42,
+          "Unit": "ng/mL",
+          "Reference low": 20,
+          "Reference high": 80,
+          "Laboratory": "Fictional Demo Lab",
+          "Notes": "Arbitrary demonstration values. Reference range is fictional and not clinical guidance.",
+          "Record ID": "413b6280-ecac-55b3-bdc0-1d8d9d87c4de",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nArbitrary demonstration values. Reference range is fictional and not clinical guidance."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "413b6280-ecac-55b3-bdc0-1d8d9d87c4de",
+        "values": {
+          "Document id": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995"
+        }
+      }
+    ]
+  },
+  {
+    "entity": "clinical_document",
+    "pages": [
+      {
+        "canonical_id": "043c9917-460e-574f-a004-510c613dcc26",
+        "properties": {
+          "Name": "Synthetic label for arithmetic demo",
+          "Document type": "product_label",
+          "date:Document date:start": "2026-10-01",
+          "date:Document date:is_datetime": 0,
+          "Storage uri": "demo://labels/sample-label",
+          "Notes": "Fictional label values. No actual product or manufacturer.",
+          "Record ID": "043c9917-460e-574f-a004-510c613dcc26",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nFictional label values. No actual product or manufacturer."
+      },
+      {
+        "canonical_id": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995",
+        "properties": {
+          "Name": "Synthetic laboratory report",
+          "Document type": "lab_report",
+          "date:Document date:start": "2026-10-01",
+          "date:Document date:is_datetime": 0,
+          "Storage uri": "demo://reports/sample-lab",
+          "Notes": "No real test or person.",
+          "Record ID": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nNo real test or person."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "043c9917-460e-574f-a004-510c613dcc26",
+        "values": {}
+      },
+      {
+        "canonical_id": "cd4458c5-0b0f-51e9-9c19-f3be6f74f995",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "appointment",
+    "pages": [
+      {
+        "canonical_id": "a9517108-f02d-5c36-81ba-d0450ff3ff0d",
+        "properties": {
+          "Name": "Sample records review",
+          "date:Starts at:start": "2026-10-20T10:00:00+02:00",
+          "date:Starts at:is_datetime": 1,
+          "Status": "planned",
+          "Preparation": "Bring questions and owner-selected records.",
+          "Notes": "Synthetic appointment, not a real booking.",
+          "Record ID": "a9517108-f02d-5c36-81ba-d0450ff3ff0d",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic appointment, not a real booking."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "a9517108-f02d-5c36-81ba-d0450ff3ff0d",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "experiment",
+    "pages": [
+      {
+        "canonical_id": "642ee39c-aa4b-5771-b6b4-48b65c5f4889",
+        "properties": {
+          "Name": "Scheduled movement break",
+          "Hypothesis": "A scheduled movement break may coincide with lower afternoon stiffness.",
+          "date:Start date:start": "2026-10-08",
+          "date:Start date:is_datetime": 0,
+          "date:End date:start": "2026-10-14",
+          "date:End date:is_datetime": 0,
+          "date:Baseline start:start": "2026-10-01",
+          "date:Baseline start:is_datetime": 0,
+          "date:Baseline end:start": "2026-10-07",
+          "date:Baseline end:is_datetime": 0,
+          "Primary outcome": "Self-reported afternoon stiffness 0\u201310",
+          "Intervention": "One scheduled movement break during desk work",
+          "Confounders": "[\"Work duration\", \"Training\", \"Sleep\"]",
+          "Stop rule": "Stop the experiment for worsening symptoms or unexpected effects.",
+          "Status": "planned",
+          "Causal claim allowed": "__NO__",
+          "Notes": "Synthetic low-risk behavioral observation; no efficacy conclusion.",
+          "Record ID": "642ee39c-aa4b-5771-b6b4-48b65c5f4889",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic low-risk behavioral observation; no efficacy conclusion."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "642ee39c-aa4b-5771-b6b4-48b65c5f4889",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "evidence",
+    "pages": [
+      {
+        "canonical_id": "90b5ce0e-0f43-5e39-92f3-e4dc666770b6",
+        "properties": {
+          "Title": "HL7 FHIR R4 Observation resource",
+          "Url": "https://hl7.org/fhir/R4/observation.html",
+          "date:Accessed date:start": "2026-11-12",
+          "date:Accessed date:is_datetime": 0,
+          "Evidence type": "platform_documentation",
+          "Claim": "Observation is a candidate mapping for measurements; the product does not implement a validated FHIR exporter.",
+          "Limitations": "Mapping reference only.",
+          "Strength": "ungraded",
+          "Notes": "Source URL for interoperability design, not a medical recommendation.",
+          "Record ID": "90b5ce0e-0f43-5e39-92f3-e4dc666770b6",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSource URL for interoperability design, not a medical recommendation."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "90b5ce0e-0f43-5e39-92f3-e4dc666770b6",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "purchase",
+    "pages": [
+      {
+        "canonical_id": "73b43f3c-8b97-555d-b0a0-10f1c4f874af",
+        "properties": {
+          "Name": "Sample Product A purchase",
+          "date:Purchased date:start": "2026-10-01",
+          "date:Purchased date:is_datetime": 0,
+          "Quantity": 1,
+          "Cost": 12,
+          "Currency": "EUR",
+          "Servings remaining": 29,
+          "date:Expiry date:start": "2027-10-01",
+          "date:Expiry date:is_datetime": 0,
+          "Notes": "Fictional price and inventory.",
+          "Record ID": "73b43f3c-8b97-555d-b0a0-10f1c4f874af",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nFictional price and inventory."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "73b43f3c-8b97-555d-b0a0-10f1c4f874af",
+        "values": {
+          "Product id": "3c8b8a27-764d-530a-94fd-7e508d953ee6"
+        }
+      }
+    ]
+  },
+  {
+    "entity": "review",
+    "pages": [
+      {
+        "canonical_id": "58f420f4-96eb-55a2-b4f1-2b27f46c5e29",
+        "properties": {
+          "Name": "Sample weekly review",
+          "Cadence": "weekly",
+          "date:Period start:start": "2026-10-01",
+          "date:Period start:is_datetime": 0,
+          "date:Period end:start": "2026-10-07",
+          "date:Period end:is_datetime": 0,
+          "Summary": "Synthetic example: sleep and energy vary across the week; no causal conclusion.",
+          "Missingness notes": "Daily records contain a limited subset of optional measures.",
+          "Confounders": "[\"Caffeine\", \"Workload\", \"Training\"]",
+          "Next action": "Choose a consistent capture time for the next week.",
+          "Decision owner": "Sample Profile",
+          "Notes": "A sample review, not a personalized conclusion.",
+          "Record ID": "58f420f4-96eb-55a2-b4f1-2b27f46c5e29",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nA sample review, not a personalized conclusion."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "58f420f4-96eb-55a2-b4f1-2b27f46c5e29",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "consent",
+    "pages": [
+      {
+        "canonical_id": "6308fe5e-d82b-5e1a-81df-d05248e84940",
+        "properties": {
+          "Name": "Sample local record access",
+          "Principal": "owner",
+          "Scope": "[\"read\", \"write\"]",
+          "Status": "granted",
+          "date:Granted at:start": "2026-10-01T12:00:00+02:00",
+          "date:Granted at:is_datetime": 1,
+          "Provider": "owner workspace",
+          "Purpose": "Personal record keeping",
+          "Notes": "AI sharing stays disabled. Example only, not actual consent.",
+          "Record ID": "6308fe5e-d82b-5e1a-81df-d05248e84940",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nAI sharing stays disabled. Example only, not actual consent."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "6308fe5e-d82b-5e1a-81df-d05248e84940",
+        "values": {}
+      }
+    ]
+  },
+  {
+    "entity": "audit_event",
+    "pages": [
+      {
+        "canonical_id": "f1f98613-90ec-5266-be87-35379bbd6ff5",
+        "properties": {
+          "Entry": "Sample audit 1",
+          "date:Occurred at:start": "2026-10-01T12:00:00+02:00",
+          "date:Occurred at:is_datetime": 1,
+          "Actor": "synthetic-demo-generator",
+          "Operation": "create",
+          "Entity type": "profile",
+          "Record id": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "Outcome": "applied",
+          "Result revision": 1,
+          "Receipt": "demo-receipt-001",
+          "Notes": "Synthetic audit example. Platform history is not an immutable clinical audit log.",
+          "Record ID": "f1f98613-90ec-5266-be87-35379bbd6ff5",
+          "Schema version": "0.1.0",
+          "Owner ID": "f4fcd276-588a-5341-947d-cc53d535a27f",
+          "date:Created at:start": "2026-10-01T12:00:00+02:00",
+          "date:Created at:is_datetime": 1,
+          "date:Updated at:start": "2026-10-01T12:00:00+02:00",
+          "date:Updated at:is_datetime": 1,
+          "Timezone": "Europe/Amsterdam",
+          "Revision": 1,
+          "Provenance.kind": "synthetic",
+          "Provenance.source": "synthetic-demo-generator",
+          "Provenance.confidence": "high",
+          "Access.classification": "restricted-health",
+          "Access.readers": "[]",
+          "Access.writers": "[]",
+          "Access.ai allowed": "__NO__"
+        },
+        "content": "Synthetic demonstration record. It does not describe a real person, product, measurement or recommendation.\n\nSynthetic audit example. Platform history is not an immutable clinical audit log."
+      }
+    ],
+    "relations": [
+      {
+        "canonical_id": "f1f98613-90ec-5266-be87-35379bbd6ff5",
+        "values": {}
+      }
+    ]
+  }
+]

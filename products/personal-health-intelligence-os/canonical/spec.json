@@ -1,0 +1,620 @@
+{
+  "product": "Personal Health Intelligence OS",
+  "version": "0.1.0",
+  "stage": "1-template-release-candidate",
+  "intended_use": "Personal record keeping, educational context, preparation and bounded self-observation. No diagnosis, treatment selection or automated prescribing.",
+  "canonical_source": "canonical/spec.json and canonical/schema.json",
+  "identity": {
+    "record_id": "UUID v4 for user entry; UUID v5 for deterministic import using source namespace + source record ID. Native Notion page UUID is the stable fallback when a manual row has no explicit Record ID; preserve it on export and subsequent updates.",
+    "owner_id": "pseudonymous UUID, never customer email",
+    "schema_version": "0.1.0",
+    "revision": "positive integer optimistic concurrency token"
+  },
+  "timestamp_policy": {
+    "storage": "Canonical JSON uses ISO 8601 with explicit offset or Z",
+    "display": "Canonical local-day analysis uses the record IANA timezone. The Google template stores and displays timestamp cells as UTC serial values; date-only cells are local calendar dates.",
+    "day_key": "local_date in owner timezone; the Google Exposure calculator explicitly selects a UTC day, not a local-day total",
+    "dst": "never infer a repeated local clock time without offset"
+  },
+  "missingness": "Omit unknown optional fields. Numeric zero is a reported zero. Do not fill gaps, interpolate or fabricate observations.",
+  "daily_projection_policy": "manual_summary and event_projection are mutually exclusive per owner/local_date/metric. Event detail wins only when the owner explicitly selects event_projection; preserve manual history and derived_from IDs. Never add a daily aggregate to its events.",
+  "confidence": "Confidence qualifies source reliability, not a probability of diagnosis. Research evidence strength is separate.",
+  "editions": {
+    "google": {
+      "canonical_records": "Google Sheets",
+      "documents": "Google Drive",
+      "reviews": "Google Sheets",
+      "ai": "manual portable instructions plus assistant-specific connection"
+    },
+    "notion": {
+      "canonical_records": "Notion databases",
+      "documents": "private Notion attachment or owner storage URI",
+      "reviews": "Notion",
+      "ai": "manual portable instructions plus supported Notion connection"
+    },
+    "complete": {
+      "canonical_records": "Google Sheets",
+      "documents": "Google Drive",
+      "reviews": "Notion",
+      "notion_projection": "read-only data projection; Notion review/decision entities are canonical there",
+      "sync_stage": "2; no background sync shipped in Stage 1"
+    }
+  },
+  "complete_ownership": {
+    "profile": "Google Sheets",
+    "daily_observation": "Google Sheets",
+    "product": "Google Sheets",
+    "ingredient": "Google Sheets",
+    "intake": "Google Sheets",
+    "food": "Google Sheets",
+    "recipe": "Google Sheets",
+    "meal_plan": "Google Sheets",
+    "hydration": "Google Sheets",
+    "sleep": "Google Sheets",
+    "training": "Google Sheets",
+    "recovery": "Google Sheets",
+    "symptom": "Google Sheets",
+    "biomarker": "Google Sheets",
+    "clinical_document": "Google Sheets",
+    "appointment": "Google Sheets",
+    "experiment": "Google Sheets",
+    "evidence": "Google Sheets",
+    "purchase": "Google Sheets",
+    "review": "Notion",
+    "consent": "Google Sheets",
+    "audit_event": "Google Sheets"
+  },
+  "sync": {
+    "direction": "one canonical owner per entity to projections",
+    "identity": "id, schema_version, revision, content_hash",
+    "conflicts": "reject stale revisions; preserve both candidate and current record in conflict queue; human resolution",
+    "audit": "append receipt with before/after hash and actor; do not store provider secrets",
+    "deletion": "explicit tombstone; projections remove after confirmed owner deletion; never resurrect from stale snapshots",
+    "transport": "customer-controlled connector; no seller data transit required",
+    "idempotency": "source_namespace + source_record_id + canonical content hash",
+    "automatic_sync_implemented": false
+  },
+  "privacy": {
+    "default": "private, no public shares, AI access false",
+    "analytics": "only opt-in installation metadata without record IDs, symptoms, measurements or document titles",
+    "support": "synthetic reproduction preferred; time-bounded consent for scoped access; revoke after handover",
+    "retention": "owner controls records; product seller holds no customer health data by default",
+    "deletion": "export, confirm scope, revoke integrations, delete owner-selected records and retained copies; disclose vendor backup schedules"
+  },
+  "upgrade": {
+    "policy": "additive schemas by default, snapshot export first, migration dry-run, preserve IDs/rows and private data, explicit review for destructive changes",
+    "compatibility": "0.1.x patches must not silently alter required fields or units"
+  },
+  "entities": {
+    "profile": {
+      "tab": "Profile",
+      "required_payload_fields": [
+        "display_name",
+        "goals"
+      ],
+      "fields": [
+        "display_name",
+        "goals",
+        "priorities",
+        "birth_year",
+        "height_cm",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Patient (minimal pseudonymous mapping)"
+    },
+    "daily_observation": {
+      "tab": "Daily",
+      "required_payload_fields": [
+        "local_date"
+      ],
+      "fields": [
+        "local_date",
+        "sleep_hours",
+        "energy_0_10",
+        "focus_0_10",
+        "mood_0_10",
+        "stress_0_10",
+        "fluid_ml",
+        "caffeine_mg",
+        "protein_g",
+        "fiber_g",
+        "sodium_mg",
+        "calcium_mg",
+        "training_minutes",
+        "pain_0_10",
+        "pain_location",
+        "bristol_1_7",
+        "summary_mode",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation"
+    },
+    "product": {
+      "tab": "Supplements",
+      "required_payload_fields": [
+        "name",
+        "category",
+        "label_verified"
+      ],
+      "fields": [
+        "name",
+        "category",
+        "brand",
+        "serving_label",
+        "label_verified",
+        "label_document_id",
+        "status",
+        "prescriber_notes",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Medication only where medication semantics apply; no forced mapping for everyday supplement catalogs"
+    },
+    "ingredient": {
+      "tab": "Ingredients",
+      "required_payload_fields": [
+        "product_id",
+        "ingredient_name",
+        "amount_per_serving",
+        "unit"
+      ],
+      "fields": [
+        "product_id",
+        "ingredient_name",
+        "amount_per_serving",
+        "unit",
+        "form",
+        "label_basis",
+        "label_verified",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Medication.ingredient only for a mapped Medication"
+    },
+    "intake": {
+      "tab": "Intakes",
+      "required_payload_fields": [
+        "product_id",
+        "taken_at",
+        "servings"
+      ],
+      "fields": [
+        "product_id",
+        "taken_at",
+        "servings",
+        "event_status",
+        "adverse_event",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "MedicationStatement for reported medication intake; not a prescription"
+    },
+    "food": {
+      "tab": "Foods",
+      "required_payload_fields": [
+        "name",
+        "basis_g"
+      ],
+      "fields": [
+        "name",
+        "basis_g",
+        "energy_kcal",
+        "protein_g",
+        "fiber_g",
+        "sodium_mg",
+        "calcium_mg",
+        "allergens",
+        "source_url",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "No forced R4 mapping; retain food composition table"
+    },
+    "recipe": {
+      "tab": "Recipes",
+      "required_payload_fields": [
+        "name",
+        "servings",
+        "ingredients"
+      ],
+      "fields": [
+        "name",
+        "servings",
+        "ingredients",
+        "instructions",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "No required FHIR mapping"
+    },
+    "meal_plan": {
+      "tab": "Meal Plans",
+      "required_payload_fields": [
+        "name",
+        "local_date",
+        "items"
+      ],
+      "fields": [
+        "name",
+        "local_date",
+        "items",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "No required FHIR mapping"
+    },
+    "hydration": {
+      "tab": "Hydration",
+      "required_payload_fields": [
+        "observed_at",
+        "volume_ml",
+        "drink"
+      ],
+      "fields": [
+        "observed_at",
+        "volume_ml",
+        "drink",
+        "sodium_mg",
+        "potassium_mg",
+        "measurement_type",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation"
+    },
+    "sleep": {
+      "tab": "Sleep",
+      "required_payload_fields": [
+        "start_at",
+        "end_at",
+        "duration_h",
+        "source_type"
+      ],
+      "fields": [
+        "start_at",
+        "end_at",
+        "duration_h",
+        "source_type",
+        "quality_0_10",
+        "is_nap",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation"
+    },
+    "training": {
+      "tab": "Training",
+      "required_payload_fields": [
+        "start_at",
+        "activity",
+        "duration_min"
+      ],
+      "fields": [
+        "start_at",
+        "activity",
+        "duration_min",
+        "rpe_1_10",
+        "distance_km",
+        "sets",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation"
+    },
+    "recovery": {
+      "tab": "Recovery",
+      "required_payload_fields": [
+        "observed_at",
+        "kind"
+      ],
+      "fields": [
+        "observed_at",
+        "kind",
+        "score_0_10",
+        "practice",
+        "duration_min",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation"
+    },
+    "symptom": {
+      "tab": "Symptoms",
+      "required_payload_fields": [
+        "name",
+        "onset_at",
+        "body_zone",
+        "status"
+      ],
+      "fields": [
+        "name",
+        "onset_at",
+        "resolved_at",
+        "body_zone",
+        "severity_0_10",
+        "status",
+        "trigger_hypothesis",
+        "what_helped_report",
+        "red_flags_reported",
+        "document_id",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation or documented Condition"
+    },
+    "biomarker": {
+      "tab": "Biomarkers",
+      "required_payload_fields": [
+        "name",
+        "sample_at",
+        "value",
+        "unit"
+      ],
+      "fields": [
+        "name",
+        "sample_at",
+        "value",
+        "unit",
+        "reference_low",
+        "reference_high",
+        "laboratory",
+        "loinc_code",
+        "document_id",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Observation + DiagnosticReport"
+    },
+    "clinical_document": {
+      "tab": "Documents",
+      "required_payload_fields": [
+        "name",
+        "document_type",
+        "document_date",
+        "storage_uri"
+      ],
+      "fields": [
+        "name",
+        "document_type",
+        "document_date",
+        "storage_uri",
+        "sha256",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "DocumentReference"
+    },
+    "appointment": {
+      "tab": "Appointments",
+      "required_payload_fields": [
+        "name",
+        "starts_at",
+        "status"
+      ],
+      "fields": [
+        "name",
+        "starts_at",
+        "status",
+        "preparation",
+        "document_id",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Appointment"
+    },
+    "experiment": {
+      "tab": "Experiments",
+      "required_payload_fields": [
+        "name",
+        "hypothesis",
+        "start_date",
+        "end_date",
+        "primary_outcome",
+        "stop_rule",
+        "status"
+      ],
+      "fields": [
+        "name",
+        "hypothesis",
+        "start_date",
+        "end_date",
+        "baseline_start",
+        "baseline_end",
+        "primary_outcome",
+        "intervention",
+        "confounders",
+        "stop_rule",
+        "status",
+        "result_summary",
+        "causal_claim_allowed",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "No ResearchStudy mapping without a separate research workflow"
+    },
+    "evidence": {
+      "tab": "Evidence",
+      "required_payload_fields": [
+        "title",
+        "url",
+        "accessed_date",
+        "evidence_type",
+        "claim"
+      ],
+      "fields": [
+        "title",
+        "url",
+        "accessed_date",
+        "evidence_type",
+        "claim",
+        "population",
+        "limitations",
+        "strength",
+        "doi",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "DocumentReference for source documents; no claim of an R4 Citation resource"
+    },
+    "purchase": {
+      "tab": "Purchases",
+      "required_payload_fields": [
+        "name",
+        "purchased_date",
+        "quantity",
+        "cost",
+        "currency"
+      ],
+      "fields": [
+        "name",
+        "product_id",
+        "purchased_date",
+        "quantity",
+        "cost",
+        "currency",
+        "servings_remaining",
+        "expiry_date",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "No required FHIR mapping"
+    },
+    "review": {
+      "tab": "Reviews",
+      "required_payload_fields": [
+        "name",
+        "cadence",
+        "period_start",
+        "period_end",
+        "summary",
+        "next_action"
+      ],
+      "fields": [
+        "name",
+        "cadence",
+        "period_start",
+        "period_end",
+        "summary",
+        "missingness_notes",
+        "confounders",
+        "next_action",
+        "decision_owner",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Composition only with a specified clinical document profile"
+    },
+    "consent": {
+      "tab": "Consent",
+      "required_payload_fields": [
+        "name",
+        "principal",
+        "scope",
+        "status",
+        "granted_at"
+      ],
+      "fields": [
+        "name",
+        "principal",
+        "scope",
+        "status",
+        "granted_at",
+        "expires_at",
+        "revoked_at",
+        "provider",
+        "purpose",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "Consent"
+    },
+    "audit_event": {
+      "tab": "Audit",
+      "required_payload_fields": [
+        "occurred_at",
+        "actor",
+        "operation",
+        "entity_type",
+        "record_id",
+        "outcome"
+      ],
+      "fields": [
+        "occurred_at",
+        "actor",
+        "operation",
+        "entity_type",
+        "record_id",
+        "outcome",
+        "expected_revision",
+        "result_revision",
+        "before_hash",
+        "after_hash",
+        "receipt",
+        "notes"
+      ],
+      "google_mapping": "Native workbook headers are human-readable labels mapped by adapters/mappings.json. Supplied CSV headers use canonical snake_case names. Nested arrays and objects remain JSON text cells; no nested child-table CSV exporter is implemented.",
+      "notion_mapping": "Human-readable properties use adapters/mappings.json. Top-level foreign keys use native relations into the duplicated local databases; nested arrays remain JSON rich-text. Platform page IDs are adapter metadata unless adopted as a missing Record ID fallback.",
+      "fhir_candidate": "AuditEvent"
+    }
+  },
+  "fhir": {
+    "version": "R4 conceptual mappings only",
+    "status": "No FHIR exporter, validation or clinical interoperability certification claimed",
+    "units": "UCUM candidates retain source unit; no IU/mass conversion without ingredient-specific factors",
+    "codes": "optional LOINC codes must come from actual source; never infer clinical codes from everyday labels"
+  },
+  "onboarding_target": {
+    "first_check_in_minutes": 10,
+    "measurement": "unverified target until an independent customer trial completes",
+    "minimum_fields": [
+      "local_date"
+    ],
+    "recommended_first_entry": [
+      "local_date",
+      "sleep_hours",
+      "energy_0_10",
+      "notes"
+    ],
+    "optional_rule": "Unknown measurements stay blank. No measurement is mandatory merely to complete setup."
+  },
+  "prices_hypotheses_eur": {
+    "google": 29,
+    "notion": 39,
+    "complete": 79,
+    "premium_setup_min": 149,
+    "premium_setup_max": 299
+  },
+  "release_gates": [
+    "fresh-account installation proof",
+    "synthetic-only template inspection",
+    "formula recalculation and readback",
+    "Notion relation remap after duplication",
+    "customer export/delete rehearsal",
+    "supported assistant read/propose/write demonstration",
+    "checkout and delivery rehearsal",
+    "merchant legal/tax/health-claims review"
+  ]
+}

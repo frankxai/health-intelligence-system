@@ -1,0 +1,176 @@
+[
+  {
+    "entity": "profile",
+    "title": "Profile",
+    "ddl": "CREATE TABLE (\"Profile name\" TITLE, \"Goals\" RICH_TEXT, \"Priorities\" RICH_TEXT, \"Birth year\" NUMBER, \"Height cm\" NUMBER, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "daily_observation",
+    "title": "Daily",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Date\" DATE, \"Sleep (h)\" NUMBER, \"Energy (0-10)\" NUMBER, \"Focus (0-10)\" NUMBER, \"Mood (0-10)\" NUMBER, \"Stress (0-10)\" NUMBER, \"Fluid (mL)\" NUMBER, \"Caffeine (mg)\" NUMBER, \"Protein (g)\" NUMBER, \"Fiber (g)\" NUMBER, \"Sodium (mg)\" NUMBER, \"Calcium (mg)\" NUMBER, \"Training (min)\" NUMBER, \"Pain (0-10)\" NUMBER, \"Pain location\" RICH_TEXT, \"Bristol (1-7)\" NUMBER, \"Summary mode\" SELECT('manual_summary', 'event_projection'), \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "product",
+    "title": "Supplements",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Category\" SELECT('supplement', 'medication'), \"Brand\" RICH_TEXT, \"Serving label\" RICH_TEXT, \"Label verified\" CHECKBOX, \"Status\" SELECT('inventory', 'active', 'paused', 'archived'), \"Prescriber notes\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "label_document_id",
+        "label": "Label document id",
+        "target": "clinical_document"
+      }
+    ]
+  },
+  {
+    "entity": "ingredient",
+    "title": "Ingredients",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Ingredient name\" RICH_TEXT, \"Amount per serving\" NUMBER, \"Unit\" RICH_TEXT, \"Form\" RICH_TEXT, \"Label basis\" RICH_TEXT, \"Label verified\" CHECKBOX, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "product_id",
+        "label": "Product id",
+        "target": "product"
+      }
+    ]
+  },
+  {
+    "entity": "intake",
+    "title": "Intakes",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Taken at\" DATE, \"Servings\" NUMBER, \"Event status\" SELECT('taken', 'planned', 'skipped'), \"Adverse event\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "product_id",
+        "label": "Product id",
+        "target": "product"
+      }
+    ]
+  },
+  {
+    "entity": "food",
+    "title": "Foods",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Basis (g)\" NUMBER, \"Energy (kcal)\" NUMBER, \"Protein (g)\" NUMBER, \"Fiber (g)\" NUMBER, \"Sodium (mg)\" NUMBER, \"Calcium (mg)\" NUMBER, \"Allergens\" RICH_TEXT, \"Source url\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "recipe",
+    "title": "Recipes",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Servings\" NUMBER, \"Ingredients\" RICH_TEXT, \"Instructions\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "meal_plan",
+    "title": "Meal Plans",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Date\" DATE, \"Items\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "hydration",
+    "title": "Hydration",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Observed at\" DATE, \"Volume (mL)\" NUMBER, \"Drink\" RICH_TEXT, \"Sodium (mg)\" NUMBER, \"Potassium mg\" NUMBER, \"Measurement type\" SELECT('measured', 'estimated'), \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "sleep",
+    "title": "Sleep",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Start at\" DATE, \"End at\" DATE, \"Duration (h)\" NUMBER, \"Source type\" SELECT('self_report', 'wearable'), \"Quality (0-10)\" NUMBER, \"Is nap\" CHECKBOX, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "training",
+    "title": "Training",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Start at\" DATE, \"Activity\" SELECT('strength', 'cardio', 'walking', 'mobility', 'other'), \"Duration (min)\" NUMBER, \"Effort (1-10)\" NUMBER, \"Distance (km)\" NUMBER, \"Sets\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "recovery",
+    "title": "Recovery",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Observed at\" DATE, \"Kind\" SELECT('stress', 'wellbeing', 'recovery_practice'), \"Rating (0-10)\" NUMBER, \"Practice\" RICH_TEXT, \"Duration (min)\" NUMBER, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "symptom",
+    "title": "Symptoms",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Onset at\" DATE, \"Resolved at\" DATE, \"Body zone\" RICH_TEXT, \"Severity (0-10)\" NUMBER, \"Status\" SELECT('reported_symptom', 'reported_condition', 'clinician_documented_condition'), \"Trigger hypothesis\" RICH_TEXT, \"What helped report\" RICH_TEXT, \"Red flags reported\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "document_id",
+        "label": "Document id",
+        "target": "clinical_document"
+      }
+    ]
+  },
+  {
+    "entity": "biomarker",
+    "title": "Biomarkers",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Sample at\" DATE, \"Value\" NUMBER, \"Unit\" RICH_TEXT, \"Reference low\" NUMBER, \"Reference high\" NUMBER, \"Laboratory\" RICH_TEXT, \"Loinc code\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "document_id",
+        "label": "Document id",
+        "target": "clinical_document"
+      }
+    ]
+  },
+  {
+    "entity": "clinical_document",
+    "title": "Documents",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Document type\" SELECT('lab_report', 'clinical_note', 'prescription', 'product_label', 'other'), \"Document date\" DATE, \"Storage uri\" RICH_TEXT, \"Sha256\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "appointment",
+    "title": "Appointments",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Starts at\" DATE, \"Status\" SELECT('planned', 'completed', 'cancelled'), \"Preparation\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "document_id",
+        "label": "Document id",
+        "target": "clinical_document"
+      }
+    ]
+  },
+  {
+    "entity": "experiment",
+    "title": "Experiments",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Hypothesis\" RICH_TEXT, \"Start date\" DATE, \"End date\" DATE, \"Baseline start\" DATE, \"Baseline end\" DATE, \"Primary outcome\" RICH_TEXT, \"Intervention\" RICH_TEXT, \"Confounders\" RICH_TEXT, \"Stop rule\" RICH_TEXT, \"Status\" SELECT('planned', 'baseline', 'active', 'stopped', 'reviewed'), \"Result summary\" RICH_TEXT, \"Causal claim allowed\" CHECKBOX, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "evidence",
+    "title": "Evidence",
+    "ddl": "CREATE TABLE (\"Title\" TITLE, \"Url\" URL, \"Accessed date\" DATE, \"Evidence type\" SELECT('guideline', 'systematic_review', 'trial', 'observational', 'mechanistic', 'product_label', 'platform_documentation', 'other'), \"Claim\" RICH_TEXT, \"Population\" RICH_TEXT, \"Limitations\" RICH_TEXT, \"Strength\" SELECT('ungraded', 'low', 'moderate', 'high'), \"Doi\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "purchase",
+    "title": "Purchases",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Purchased date\" DATE, \"Quantity\" NUMBER, \"Cost\" NUMBER, \"Currency\" SELECT('EUR', 'USD', 'GBP'), \"Servings remaining\" NUMBER, \"Expiry date\" DATE, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": [
+      {
+        "field": "product_id",
+        "label": "Product id",
+        "target": "product"
+      }
+    ]
+  },
+  {
+    "entity": "review",
+    "title": "Reviews",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Cadence\" SELECT('weekly', 'monthly', 'quarterly'), \"Period start\" DATE, \"Period end\" DATE, \"Summary\" RICH_TEXT, \"Missingness notes\" RICH_TEXT, \"Confounders\" RICH_TEXT, \"Next action\" RICH_TEXT, \"Decision owner\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "consent",
+    "title": "Consent",
+    "ddl": "CREATE TABLE (\"Name\" TITLE, \"Principal\" RICH_TEXT, \"Scope\" RICH_TEXT, \"Status\" SELECT('granted', 'revoked', 'expired'), \"Granted at\" DATE, \"Expires at\" DATE, \"Revoked at\" DATE, \"Provider\" RICH_TEXT, \"Purpose\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  },
+  {
+    "entity": "audit_event",
+    "title": "Audit",
+    "ddl": "CREATE TABLE (\"Entry\" TITLE, \"Occurred at\" DATE, \"Actor\" RICH_TEXT, \"Operation\" SELECT('create', 'update', 'delete', 'import', 'export', 'grant', 'revoke', 'sync_propose', 'sync_apply'), \"Entity type\" RICH_TEXT, \"Record id\" RICH_TEXT, \"Outcome\" SELECT('applied', 'proposed', 'rejected', 'conflict'), \"Expected revision\" NUMBER, \"Result revision\" NUMBER, \"Before hash\" RICH_TEXT, \"After hash\" RICH_TEXT, \"Receipt\" RICH_TEXT, \"Notes\" RICH_TEXT, \"Record ID\" RICH_TEXT, \"Schema version\" RICH_TEXT, \"Owner ID\" RICH_TEXT, \"Created at\" DATE, \"Updated at\" DATE, \"Timezone\" RICH_TEXT, \"Revision\" NUMBER, \"Deleted at\" DATE, \"Provenance.kind\" SELECT('observed', 'reported', 'hypothesis', 'evidence', 'synthetic'), \"Provenance.source\" RICH_TEXT, \"Provenance.confidence\" SELECT('low', 'moderate', 'high'), \"Provenance.source record id\" RICH_TEXT, \"Provenance.source hash\" RICH_TEXT, \"Provenance.derived from\" RICH_TEXT, \"Provenance.method\" RICH_TEXT, \"Access.classification\" SELECT('restricted-health'), \"Access.readers\" RICH_TEXT, \"Access.writers\" RICH_TEXT, \"Access.ai allowed\" CHECKBOX)",
+    "relations": []
+  }
+]

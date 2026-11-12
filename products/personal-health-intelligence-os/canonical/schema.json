@@ -1,0 +1,4272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/personal-health-intelligence-os/0.1.0/schema.json",
+  "title": "Personal Health Intelligence OS interchange dataset",
+  "description": "Owner-controlled health records. The URL is an identifier, not a network dependency.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "synthetic",
+    "entities"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "entities": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/profile"
+          }
+        },
+        "daily_observation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/daily_observation"
+          }
+        },
+        "product": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/product"
+          }
+        },
+        "ingredient": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "intake": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/intake"
+          }
+        },
+        "food": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/food"
+          }
+        },
+        "recipe": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/recipe"
+          }
+        },
+        "meal_plan": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/meal_plan"
+          }
+        },
+        "hydration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hydration"
+          }
+        },
+        "sleep": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sleep"
+          }
+        },
+        "training": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/training"
+          }
+        },
+        "recovery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/recovery"
+          }
+        },
+        "symptom": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/symptom"
+          }
+        },
+        "biomarker": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/biomarker"
+          }
+        },
+        "clinical_document": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinical_document"
+          }
+        },
+        "appointment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/appointment"
+          }
+        },
+        "experiment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/experiment"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "purchase": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/purchase"
+          }
+        },
+        "review": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        },
+        "consent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consent"
+          }
+        },
+        "audit_event": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audit_event"
+          }
+        }
+      },
+      "required": [
+        "profile",
+        "daily_observation",
+        "product",
+        "ingredient",
+        "intake",
+        "food",
+        "recipe",
+        "meal_plan",
+        "hydration",
+        "sleep",
+        "training",
+        "recovery",
+        "symptom",
+        "biomarker",
+        "clinical_document",
+        "appointment",
+        "experiment",
+        "evidence",
+        "purchase",
+        "review",
+        "consent",
+        "audit_event"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "profile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Optional pseudonym. Legal name is unnecessary."
+        },
+        "goals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "target": {
+                "type": "number",
+                "description": "Unit: metric-dependent"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "description": "Exact source unit. Prefer UCUM where unambiguous. Arithmetic adapters whitelist supported conversions; unfamiliar units remain unchanged."
+              },
+              "review_date": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "priorities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "birth_year": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        "height_cm": {
+          "type": "number",
+          "description": "Unit: cm",
+          "minimum": 30,
+          "maximum": 260
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "display_name",
+        "goals"
+      ],
+      "additionalProperties": false
+    },
+    "daily_observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "local_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "sleep_hours": {
+          "type": "number",
+          "description": "Unit: h",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "energy_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "focus_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "mood_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "stress_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "fluid_ml": {
+          "type": "number",
+          "description": "Unit: mL",
+          "minimum": 0,
+          "maximum": 20000
+        },
+        "caffeine_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0,
+          "maximum": 3000
+        },
+        "protein_g": {
+          "type": "number",
+          "description": "Unit: g",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "fiber_g": {
+          "type": "number",
+          "description": "Unit: g",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "sodium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0,
+          "maximum": 30000
+        },
+        "calcium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "training_minutes": {
+          "type": "number",
+          "description": "Unit: min",
+          "minimum": 0,
+          "maximum": 1440
+        },
+        "pain_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "pain_location": {
+          "type": "string"
+        },
+        "bristol_1_7": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        "summary_mode": {
+          "type": "string",
+          "enum": [
+            "manual_summary",
+            "event_projection"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "local_date"
+      ],
+      "additionalProperties": false
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "supplement",
+            "medication"
+          ]
+        },
+        "brand": {
+          "type": "string"
+        },
+        "serving_label": {
+          "type": "string",
+          "description": "Label serving description; not a recommendation"
+        },
+        "label_verified": {
+          "type": "boolean"
+        },
+        "label_document_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to clinical_document.id"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "inventory",
+            "active",
+            "paused",
+            "archived"
+          ]
+        },
+        "prescriber_notes": {
+          "type": "string",
+          "description": "Reported prescription instructions; agents cannot change them"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "category",
+        "label_verified"
+      ],
+      "additionalProperties": false
+    },
+    "ingredient": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "product_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to product.id"
+        },
+        "ingredient_name": {
+          "type": "string",
+          "description": "Normalized ingredient name"
+        },
+        "amount_per_serving": {
+          "type": "number",
+          "description": "Unit: specified by unit",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "Exact source unit. Prefer UCUM where unambiguous. Arithmetic adapters whitelist supported conversions; unfamiliar units remain unchanged."
+        },
+        "form": {
+          "type": "string",
+          "description": "Chemical form from product label"
+        },
+        "label_basis": {
+          "type": "string",
+          "description": "Exact serving on label"
+        },
+        "label_verified": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "product_id",
+        "ingredient_name",
+        "amount_per_serving",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "intake": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "product_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to product.id"
+        },
+        "taken_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "servings": {
+          "type": "number",
+          "description": "Unit: label servings",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "event_status": {
+          "type": "string",
+          "enum": [
+            "taken",
+            "planned",
+            "skipped"
+          ]
+        },
+        "adverse_event": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "product_id",
+        "taken_at",
+        "servings"
+      ],
+      "additionalProperties": false
+    },
+    "food": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "basis_g": {
+          "type": "number",
+          "description": "Unit: g",
+          "minimum": 0.001,
+          "maximum": 10000
+        },
+        "energy_kcal": {
+          "type": "number",
+          "description": "Unit: kcal",
+          "minimum": 0
+        },
+        "protein_g": {
+          "type": "number",
+          "description": "Unit: g",
+          "minimum": 0
+        },
+        "fiber_g": {
+          "type": "number",
+          "description": "Unit: g",
+          "minimum": 0
+        },
+        "sodium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0
+        },
+        "calcium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0
+        },
+        "allergens": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "basis_g"
+      ],
+      "additionalProperties": false
+    },
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "servings": {
+          "type": "number",
+          "description": "Unit: servings",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "food_id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to food.id"
+              },
+              "quantity_g": {
+                "type": "number",
+                "description": "Unit: g",
+                "minimum": 0.001
+              }
+            },
+            "required": [
+              "food_id",
+              "quantity_g"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "servings",
+        "ingredients"
+      ],
+      "additionalProperties": false
+    },
+    "meal_plan": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "local_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "recipe_id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to recipe.id"
+              },
+              "meal": {
+                "type": "string",
+                "enum": [
+                  "breakfast",
+                  "lunch",
+                  "dinner",
+                  "snack"
+                ]
+              },
+              "servings": {
+                "type": "number",
+                "description": "Unit: servings",
+                "minimum": 0.01
+              }
+            },
+            "required": [
+              "recipe_id",
+              "meal",
+              "servings"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "local_date",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "hydration": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "volume_ml": {
+          "type": "number",
+          "description": "Unit: mL",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "drink": {
+          "type": "string"
+        },
+        "sodium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0
+        },
+        "potassium_mg": {
+          "type": "number",
+          "description": "Unit: mg",
+          "minimum": 0
+        },
+        "measurement_type": {
+          "type": "string",
+          "enum": [
+            "measured",
+            "estimated"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "observed_at",
+        "volume_ml",
+        "drink"
+      ],
+      "additionalProperties": false
+    },
+    "sleep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_h": {
+          "type": "number",
+          "description": "Unit: h",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "self_report",
+            "wearable"
+          ]
+        },
+        "quality_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "is_nap": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "start_at",
+        "end_at",
+        "duration_h",
+        "source_type"
+      ],
+      "additionalProperties": false
+    },
+    "training": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "activity": {
+          "type": "string",
+          "enum": [
+            "strength",
+            "cardio",
+            "walking",
+            "mobility",
+            "other"
+          ]
+        },
+        "duration_min": {
+          "type": "number",
+          "description": "Unit: min",
+          "minimum": 0,
+          "maximum": 1440
+        },
+        "rpe_1_10": {
+          "type": "number",
+          "description": "Unit: rating of perceived exertion",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "distance_km": {
+          "type": "number",
+          "description": "Unit: km",
+          "minimum": 0
+        },
+        "sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "exercise": {
+                "type": "string"
+              },
+              "reps": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "load_kg": {
+                "type": "number",
+                "description": "Unit: kg",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "exercise",
+              "reps"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "start_at",
+        "activity",
+        "duration_min"
+      ],
+      "additionalProperties": false
+    },
+    "recovery": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "stress",
+            "wellbeing",
+            "recovery_practice"
+          ]
+        },
+        "score_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "practice": {
+          "type": "string"
+        },
+        "duration_min": {
+          "type": "number",
+          "description": "Unit: min",
+          "minimum": 0,
+          "maximum": 1440
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "observed_at",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "symptom": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "onset_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "body_zone": {
+          "type": "string"
+        },
+        "severity_0_10": {
+          "type": "number",
+          "description": "Unit: 0 to 10 subjective scale",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "reported_symptom",
+            "reported_condition",
+            "clinician_documented_condition"
+          ]
+        },
+        "trigger_hypothesis": {
+          "type": "string"
+        },
+        "what_helped_report": {
+          "type": "string"
+        },
+        "red_flags_reported": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "document_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to clinical_document.id"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "onset_at",
+        "body_zone",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "biomarker": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sample_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "value": {
+          "type": "number",
+          "description": "Unit: specified by unit"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "Exact source unit. Prefer UCUM where unambiguous. Arithmetic adapters whitelist supported conversions; unfamiliar units remain unchanged."
+        },
+        "reference_low": {
+          "type": "number",
+          "description": "Unit: same unit as value"
+        },
+        "reference_high": {
+          "type": "number",
+          "description": "Unit: same unit as value"
+        },
+        "laboratory": {
+          "type": "string",
+          "description": "Optional pseudonymous laboratory identifier"
+        },
+        "loinc_code": {
+          "type": "string"
+        },
+        "document_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to clinical_document.id"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "sample_at",
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "clinical_document": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "document_type": {
+          "type": "string",
+          "enum": [
+            "lab_report",
+            "clinical_note",
+            "prescription",
+            "product_label",
+            "other"
+          ]
+        },
+        "document_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "storage_uri": {
+          "type": "string",
+          "description": "Owner-controlled private URI; never a public health-data URL"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "document_type",
+        "document_date",
+        "storage_uri"
+      ],
+      "additionalProperties": false
+    },
+    "appointment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "starts_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "planned",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "preparation": {
+          "type": "string"
+        },
+        "document_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to clinical_document.id"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "starts_at",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "experiment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "hypothesis": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "baseline_start": {
+          "type": "string",
+          "format": "date"
+        },
+        "baseline_end": {
+          "type": "string",
+          "format": "date"
+        },
+        "primary_outcome": {
+          "type": "string"
+        },
+        "intervention": {
+          "type": "string"
+        },
+        "confounders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stop_rule": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "planned",
+            "baseline",
+            "active",
+            "stopped",
+            "reviewed"
+          ]
+        },
+        "result_summary": {
+          "type": "string"
+        },
+        "causal_claim_allowed": {
+          "const": false
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "hypothesis",
+        "start_date",
+        "end_date",
+        "primary_outcome",
+        "stop_rule",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "accessed_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "evidence_type": {
+          "type": "string",
+          "enum": [
+            "guideline",
+            "systematic_review",
+            "trial",
+            "observational",
+            "mechanistic",
+            "product_label",
+            "platform_documentation",
+            "other"
+          ]
+        },
+        "claim": {
+          "type": "string"
+        },
+        "population": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "strength": {
+          "type": "string",
+          "enum": [
+            "ungraded",
+            "low",
+            "moderate",
+            "high"
+          ]
+        },
+        "doi": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "title",
+        "url",
+        "accessed_date",
+        "evidence_type",
+        "claim"
+      ],
+      "additionalProperties": false
+    },
+    "purchase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to product.id"
+        },
+        "purchased_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Unit: items",
+          "minimum": 0
+        },
+        "cost": {
+          "type": "number",
+          "description": "Unit: currency units",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "EUR",
+            "USD",
+            "GBP"
+          ]
+        },
+        "servings_remaining": {
+          "type": "number",
+          "description": "Unit: label servings",
+          "minimum": 0
+        },
+        "expiry_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "purchased_date",
+        "quantity",
+        "cost",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cadence": {
+          "type": "string",
+          "enum": [
+            "weekly",
+            "monthly",
+            "quarterly"
+          ]
+        },
+        "period_start": {
+          "type": "string",
+          "format": "date"
+        },
+        "period_end": {
+          "type": "string",
+          "format": "date"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "missingness_notes": {
+          "type": "string"
+        },
+        "confounders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_action": {
+          "type": "string"
+        },
+        "decision_owner": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "cadence",
+        "period_start",
+        "period_end",
+        "summary",
+        "next_action"
+      ],
+      "additionalProperties": false
+    },
+    "consent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "principal": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "granted",
+            "revoked",
+            "expired"
+          ]
+        },
+        "granted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revoked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "name",
+        "principal",
+        "scope",
+        "status",
+        "granted_at"
+      ],
+      "additionalProperties": false
+    },
+    "audit_event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Stable UUID independent of platform row or page IDs"
+        },
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Pseudonymous owner UUID; not email or full name"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier, e.g. Europe/Amsterdam"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "observed",
+                "reported",
+                "hypothesis",
+                "evidence",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "description": "Source URI, filename, device or explicit user report; never a credential"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "low",
+                "moderate",
+                "high"
+              ]
+            },
+            "source_record_id": {
+              "type": "string",
+              "description": "Stable upstream record identifier when known"
+            },
+            "source_hash": {
+              "type": "string",
+              "description": "SHA-256 of source bytes when available"
+            },
+            "derived_from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Foreign key to any entity.id"
+              }
+            },
+            "method": {
+              "type": "string",
+              "description": "Transformation or collection method"
+            }
+          },
+          "required": [
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": [
+                "restricted-health"
+              ]
+            },
+            "readers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Owner-controlled principal identifier"
+              }
+            },
+            "ai_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "classification",
+            "readers",
+            "writers",
+            "ai_allowed"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "actor": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "create",
+            "update",
+            "delete",
+            "import",
+            "export",
+            "grant",
+            "revoke",
+            "sync_propose",
+            "sync_apply"
+          ]
+        },
+        "entity_type": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Foreign key to any entity.id"
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "applied",
+            "proposed",
+            "rejected",
+            "conflict"
+          ]
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "result_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "before_hash": {
+          "type": "string"
+        },
+        "after_hash": {
+          "type": "string"
+        },
+        "receipt": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "schema_version",
+        "owner_id",
+        "created_at",
+        "updated_at",
+        "timezone",
+        "revision",
+        "provenance",
+        "access",
+        "occurred_at",
+        "actor",
+        "operation",
+        "entity_type",
+        "record_id",
+        "outcome"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
